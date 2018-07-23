@@ -1,0 +1,48 @@
+name: 货机管理-点位管理接口
+
+LOCALE_CASE1: #查询点位列表
+    Url: /machine/locale/list
+    Case1: #/machine/locale/list
+        Desc: 查询点位列表
+        List: {"keword":,"code":,"pageNo":}
+
+
+
+LOCALE_CASE2: #查询点位列表不分页
+    Url: /machine/locale/getList
+    Case1: #/machine/locale/getList
+        Desc: 查询点位列表不分页
+        GetList: {"keword":,"code":,"pageNo":}
+
+
+
+LOCALE_CASE3: #新添加点位
+    Url: /machine/locale/add
+    Case1: #/machine/locale/add
+        Desc: 新添加点位
+        Add: {"areaCode":"11","name":"33","mall":"55","manager":"66","mobile":"18899990000"}
+
+
+LOCALE_CASE4: #查询点位详细信息
+    Url: /machine/locale/detail
+    Case1: #/machine/locale/detail
+        Desc: 查询点位详细信息
+        Detail: {"id":"013188e098274c2aaa64b1a47d6fe88477"}
+
+
+
+LOCALE_CASE5: #更新点位数据信息
+    Url: /machine/locale/update
+    Case1: #/machine/locale/update
+        Desc: 更新点位数据信息
+        Updata: {"id":"013188e098274c2aaa64b1a47d6fe884","mobile":"18900009999"}
+
+
+
+LOCALE_CASE6: #删除点位
+    Url: /machine/locale/delete
+    Case1: #/machine/locale/delete
+        Desc: 删除点位
+        detele: {"id":}
+
+

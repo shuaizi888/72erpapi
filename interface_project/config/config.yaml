@@ -1,0 +1,26 @@
+name: 基本配置信息
+
+BASE_URL: http://api.erp.36solo.com
+
+BASE_TOKEAN: 588558371c7b4fa6814bac2e17903c08
+
+RETRY: #请求失败重试设置
+    ReNum: 3 #失败重试次数
+
+#发送测试报告,邮件配置
+EMAIL:
+    Smtp_Server: smtp.exmail.qq.com
+    Smtp_Sender: gaoshuai@inno72.com
+    Password: Shuai771700
+    Msg_Title: 点72ERP后台接口自动化测试结果
+    Receivers: ['gaoshuai_888@163.com']  #收件人
+    From: 点72自动化测试接口
+    To: ERP后台测试
+
+#业务场景,执行配置:通过此配置,决定场景是否运行,Y运行;N不运行
+RUNING:
+
+
+
+
+

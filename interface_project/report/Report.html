@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>点72后台接口自动化测试报告</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2.1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    
+<style type="text/css" media="screen">
+body        { font-family: Microsoft YaHei,Tahoma,arial,helvetica,sans-serif;padding: 20px; font-size: 80%; }
+table       { font-size: 100%; }
+/* -- heading ---------------------------------------------------------------------- */
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+/* -- report ------------------------------------------------------------------------ */
+#total_row  { font-weight: bold; }
+.passCase   { color: #5cb85c; }
+.failCase   { color: #d9534f; font-weight: bold; }
+.errorCase  { color: #f0ad4e; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+</style>
+
+</head>
+<body >
+<script language="javascript" type="text/javascript">
+output_list = Array();
+/*level 调整增加只显示通过用例的分类 --Findyou
+0:Summary //all hiddenRow
+1:Failed  //pt hiddenRow, ft none
+2:Pass    //pt none, ft hiddenRow
+3:All     //pt none, ft none
+*/
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level == 2 || level == 0 ) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level < 2) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+    }
+    //加入【详细】切换文字变化 --Findyou
+    detail_class=document.getElementsByClassName('detail');
+	//console.log(detail_class.length)
+	if (level == 3) {
+		for (var i = 0; i < detail_class.length; i++){
+			detail_class[i].innerHTML="收起"
+		}
+	}
+	else{
+			for (var i = 0; i < detail_class.length; i++){
+			detail_class[i].innerHTML="详细"
+		}
+	}
+}
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        //ID修改 点 为 下划线 -Findyou
+        tid0 = 't' + cid.substr(1) + '_' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        //修改点击无法收起的BUG，加入【详细】切换文字变化 --Findyou
+        if (toHide) {
+            document.getElementById(tid).className = 'hiddenRow';
+            document.getElementById(cid).innerText = "详细"
+        }
+        else {
+            document.getElementById(tid).className = '';
+            document.getElementById(cid).innerText = "收起"
+        }
+    }
+}
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+</script>
+<div class='heading'>
+<h4 style="font-family: Microsoft YaHei">点72后台接口自动化测试报告</h4>
+<p class='attribute'><strong>测试人员 : </strong> sgao</p>
+<p class='attribute'><strong>开始时间 : </strong> 2018-07-19 11:40:07</p>
+<p class='attribute'><strong>合计耗时 : </strong> 0:00:26.327711</p>
+<p class='attribute'><strong>测试结果 : </strong> 共 5，通过 4，失败 1，通过率= 80.00%</p>
+
+<p class='description'>详细测试用例结果</p>
+</div>
+
+
+<p id='show_detail_line'>
+<a class="btn btn-primary" href='javascript:showCase(0)'>概要{ 80.00% }</a>
+<a class="btn btn-danger" href='javascript:showCase(1)'>失败{ 1 }</a>
+<a class="btn btn-success" href='javascript:showCase(2)'>通过{ 4 }</a>
+<a class="btn btn-info" href='javascript:showCase(3)'>所有{ 5 }</a>
+</p>
+<table id='result_table' class="table table-condensed table-bordered table-hover">
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row' class="text-center success" style="font-weight: bold;font-size: 14px;">
+    <td>用例集/测试用例</td>
+    <td>总计</td>
+    <td>通过</td>
+    <td>失败</td>
+    <td>错误</td>
+    <td>详细</td>
+</tr>
+
+<tr class='failClass warning'>
+    <td>testInterface.locale.testlocale.TestLocale: 货机管理-点位管理接口</td>
+    <td class="text-center">5</td>
+    <td class="text-center">4</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c1',5)" class="detail" id='c1'>详细</a></td>
+</tr>
+
+<tr id='pt1_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testadd_1: 点位管理接口:新添加点位#/machine/locale/add</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_1'>通过</button>
+    <div id='div_pt1_1' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_1'>通过</button>
+    <div id='div_pt1_1' class="collapse in" align="left">
+    <pre>
+    
+pt1_1: 用例描述--&gt;新添加点位
+发送:
+{'areaCode': '11', 'mobile': '18899990000', 'manager': '66', 'mall': '55', 'name': '33'}
+返回:
+{"msg": "成功", "code": 0, "data": null}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft1_2' class='none'>
+    <td class='failCase'><div class='testcase'>testdetail_1: 点位管理接口:查看点位详细#/machine/locale/detail</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft1_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_2'>失败</button>
+    <div id='div_ft1_2' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft1_2' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft1_2'>失败</button>
+    <div id='div_ft1_2' class="collapse in" align="left">
+    <pre>
+    
+ft1_2: 用例描述--&gt;查询点位详细信息
+发送:
+{'id': '013188e098274c2aaa64b1a47d6fe88477'}
+返回:
+{"msg": "java.lang.NullPointerException", "code": 500, "data": null}
+Traceback (most recent call last):
+  File "/Users/72cy-0101-01-0027/Desktop/work/script/erpapi/venv/lib/python2.7/site-packages/ddt.py", line 144, in wrapper
+    return func(self, *args, **kwargs)
+  File "/Users/72cy-0101-01-0027/Desktop/work/script/erpapi/interface_project/testInterface/locale/testlocale.py", line 73, in testdetail
+    self.assertEqual(res['code'],0,res['msg'])
+AssertionError: java.lang.NullPointerException
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1_3' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testgetlist_1: 点位管理接口:查询点位列表不分页#/machine/locale/getlist</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_3' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_3'>通过</button>
+    <div id='div_pt1_3' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_3' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_3'>通过</button>
+    <div id='div_pt1_3' class="collapse in" align="left">
+    <pre>
+    
+pt1_3: 用例描述--&gt;查询点位列表不分页
+发送:
+{'keword': None, 'code': None, 'pageNo': None}
+返回:
+{"msg": "成功", "code": 0, "data": [{"remark": null, "name": "商场", "areaCode": "180103002", "createId": "", "mall": "商场1", "updateTime": "2018-07-19 11:36:19", "createTime": "2018-07-19 11:36:18", "mobile": "18900009999", "manager": "张三", "updateId": "24654521f92c4be1b31f87fb12a059b9", "isDelete": 0, "id": "013188e098274c2aaa64b1a47d6fe884"}, {"remark": null, "name": "商场", "areaCode": "380201001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:10:57", "createTime": "2018-07-16 14:10:57", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "067a3087ec4045ff9c763f59b92dcbd4"}, {"remark": null, "name": "33", "areaCode": "11", "createId": "24654521f92c4be1b31f87fb12a059b9", "mall": "55", "updateTime": "2018-07-19 11:11:58", "createTime": "2018-07-19 11:11:58", "mobile": "18899990000", "manager": "66", "updateId": "24654521f92c4be1b31f87fb12a059b9", "isDelete": 0, "id": "0a81b4341664401e9717ac42f491225c"}, {"remark": null, "name": "商场", "areaCode": "200105002", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:09:19", "createTime": "2018-07-16 14:09:19", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "0e02050941864caa8bbf5250e45738f6"}, {"remark": "1111", "name": "1111", "areaCode": "北京市/北京市/东城区/王府井", "createId": "", "mall": "1111", "updateTime": "2018-07-18 16:37:31", "createTime": "2018-07-18 16:37:31", "mobile": "18833337777", "manager": "1118", "updateId": "", "isDelete": 0, "id": "0e32527ac2554ef4bc6d78a0ac4ea02e"}, {"remark": "1111", "name": "1111", "areaCode": "1111", "createId": "", "mall": "1111", "updateTime": "2018-07-12 14:58:37", "createTime": "2018-07-12 14:58:37", "mobile": "13800009999", "manager": "1111", "updateId": "", "isDelete": 0, "id": "0ec603c99a36402b8b2bd19634a77b37"}, {"remark": null, "name": null, "areaCode": "110101001", "createId": null, "mall": "大沽口", "updateTime": "2018-07-09 14:27:48", "createTime": "2018-07-09 14:27:48", "mobile": "15866668888", "manager": "王小六", "updateId": null, "isDelete": 0, "id": "10"}, {"remark": "12", "name": "切水果", "areaCode": "120101001", "createId": "", "mall": "大沽口", "updateTime": "2018-07-16 14:02:13", "createTime": "2018-07-16 14:02:13", "mobile": "15866668888", "manager": "王小六", "updateId": "", "isDelete": 0, "id": "100"}, {"remark": null, "name": null, "areaCode": "110101001", "createId": null, "mall": "大沽口", "updateTime": "2018-07-09 14:27:48", "createTime": "2018-07-09 14:27:48", "mobile": "15866668888", "manager": "王小六", "updateId": null, "isDelete": 0, "id": "1000"}, {"remark": null, "name": null, "areaCode": "110101001", "createId": null, "mall": "大沽口", "updateTime": "2018-07-09 14:27:48", "createTime": "2018-07-09 14:27:48", "mobile": "15866668888", "manager": "王小六", "updateId": null, "isDelete": 0, "id": "1001"}, {"remark": null, "name": null, "areaCode": "110101001", "createId": null, "mall": "大沽口", "updateTime": "2018-07-09 14:27:48", "createTime": "2018-07-09 14:27:48", "mobile": "15866668888", "manager": "王小六", "updateId": null, "isDelete": 0, "id": "1002"}, {"remark": null, "name": null, "areaCode": "110101001", "createId": null, "mall": "大沽口", "updateTime": "2018-07-09 14:27:48", "createTime": "2018-07-09 14:27:48", "mobile": "15866668888", "manager": "王小六", "updateId": null, "isDelete": 0, "id": "1003"}, {"remark": null, "name": null, "areaCode": "110101001", "createId": null, "mall": "大沽口", "updateTime": "2018-07-09 14:27:48", "createTime": "2018-07-09 14:27:48", "mobile": "15866668888", "manager": "王小六", "updateId": null, "isDelete": 0, "id": "1004"}, {"remark": null, "name": null, "areaCode": "110101001", "createId": null, "mall": "大沽口", "updateTime": "2018-07-09 14:27:48", "createTime": "2018-07-09 14:27:48", "mobile": "15866668888", "manager": "王小六", "updateId": null, "isDelete": 0, "id": "1005"}, {"remark": null, "name": null, "areaCode": "110101001", "createId": null, "mall": "大沽口", "updateTime": "2018-07-09 14:27:48", "createTime": "2018-07-09 14:27:48", "mobile": "15866668888", "manager": "王小六", "updateId": null, "isDelete": 0, "id": "1006"}, {"remark": null, "name": null, "areaCode": "110101001", "createId": null, "mall": "大沽口", "updateTime": "2018-07-09 14:27:48", "createTime": "2018-07-09 14:27:48", "mobile": "15866668888", "manager": "王小六", "updateId": null, "isDelete": 0, "id": "1007"}, {"remark": null, "name": null, "areaCode": "110101001", "createId": null, "mall": "大沽口", "updateTime": "2018-07-09 14:27:48", "createTime": "2018-07-09 14:27:48", "mobile": "15866668888", "manager": "王小六", "updateId": null, "isDelete": 0, "id": "1008"}, {"remark": null, "name": "商场", "areaCode": "130101002", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:07:09", "createTime": "2018-07-16 14:07:09", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "2a5ff496ed944838bf37eed1b0a9cc9d"}, {"remark": null, "name": "请问", "areaCode": "100101001", "createId": "", "mall": "请问", "updateTime": "2018-07-16 12:56:55", "createTime": "2018-07-16 12:56:55", "mobile": "18000000999", "manager": "请问", "updateId": "", "isDelete": 0, "id": "2c2c88194b2c40ddb55b19704ea85080"}, {"remark": null, "name": "商场", "areaCode": "130103004", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:07:14", "createTime": "2018-07-16 14:07:14", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "3228efd06c694e3ab16776b2f9c4229c"}, {"remark": null, "name": "商场", "areaCode": "160702001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:08:28", "createTime": "2018-07-16 14:08:28", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "4060e32ab4c44b9ab785952e6c7bc0b0"}, {"remark": null, "name": "商场", "areaCode": "140101002", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:07:25", "createTime": "2018-07-16 14:07:25", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "4a7e8bd34a0f44358a5b83a50f99a611"}, {"remark": null, "name": "商场", "areaCode": "370201001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:10:50", "createTime": "2018-07-16 14:10:50", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "4e5d7f7e853a4644a11339c719f58413"}, {"remark": null, "name": "商场", "areaCode": "320101001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:10:17", "createTime": "2018-07-16 14:10:17", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "559ac142319e422ebaa8780e1ce80d18"}, {"remark": "1111", "name": "1111", "areaCode": "1", "createId": "", "mall": "1111", "updateTime": "2018-07-18 16:38:42", "createTime": "2018-07-18 16:38:42", "mobile": "18833337777", "manager": "1118", "updateId": "", "isDelete": 0, "id": "565b23d6973b420b801282f8a62ee501"}, {"remark": "", "name": "阿萨德", "areaCode": "100102001", "createId": "", "mall": "王府井百货", "updateTime": "2018-07-16 18:45:58", "createTime": "2018-07-16 18:45:58", "mobile": "13000001111", "manager": "王迅", "updateId": "", "isDelete": 0, "id": "57a98b63b38b4201a8b871dab4d81eda"}, {"remark": "1111", "name": "1111", "areaCode": "1111", "createId": "", "mall": "1111", "updateTime": "2018-07-17 18:27:51", "createTime": "2018-07-17 18:27:51", "mobile": "18833332222", "manager": "1118", "updateId": "", "isDelete": 0, "id": "5897636f5d7f413ca5c9ea750a670bde"}, {"remark": null, "name": "商场", "areaCode": "140303001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:07:35", "createTime": "2018-07-16 14:07:35", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "58c18c223c294e738abd591f3304ca48"}, {"remark": "    ", "name": "1212", "areaCode": "额外", "createId": "", "mall": "    ", "updateTime": "2018-07-17 17:39:48", "createTime": "2018-07-17 17:39:48", "mobile": "18822339900", "manager": "332", "updateId": "", "isDelete": 0, "id": "590654a02609474faefeb94d60a8126e"}, {"remark": null, "name": "商场", "areaCode": "300201001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:10:06", "createTime": "2018-07-16 14:10:06", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "5d126b1cb13e430baf9e6d54c19cfcaf"}, {"remark": null, "name": "商场", "areaCode": "420101001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:11:24", "createTime": "2018-07-16 14:11:24", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "5d25e1ce958e4d3791a4987eefa7890a"}, {"remark": null, "name": "商场", "areaCode": "160402001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:08:22", "createTime": "2018-07-16 14:08:22", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "5e358d5290174efc83333590c9b74bee"}, {"remark": null, "name": "商场", "areaCode": "340102002", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:10:34", "createTime": "2018-07-16 14:10:34", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "5fc31f88ade44417b0144685f981e5f3"}, {"remark": null, "name": "商场", "areaCode": "170101001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:08:34", "createTime": "2018-07-16 14:08:34", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "6171c7e4642c449d874839fa4e5983ba"}, {"remark": null, "name": "商场", "areaCode": "220201001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:09:30", "createTime": "2018-07-16 14:09:30", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "61c7bc072e004dd996033b984bd125c7"}, {"remark": null, "name": "商场", "areaCode": "190101002", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:09:05", "createTime": "2018-07-16 14:09:05", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "63a0998341504c6d90c125faa42fb232"}, {"remark": null, "name": "商场", "areaCode": "120202001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:07:03", "createTime": "2018-07-16 14:07:03", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "63e8ef2871ad4e10a54304c065e0c2d4"}, {"remark": "1111", "name": "1111", "areaCode": "1111", "createId": "", "mall": "1111", "updateTime": "2018-07-17 18:27:57", "createTime": "2018-07-17 18:27:57", "mobile": "18833332222", "manager": "1118", "updateId": "", "isDelete": 0, "id": "64972039c7f24e3ab30bec4eaf32669f"}, {"remark": null, "name": "商场", "areaCode": "150202002", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:07:54", "createTime": "2018-07-16 14:07:54", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "674e42cc347c492b9fc8576019410bb5"}, {"remark": null, "name": "商场", "areaCode": "150802001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:08:03", "createTime": "2018-07-16 14:08:03", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "6b9649cb79754e32964a546782e05523"}, {"remark": null, "name": "灯市口商场", "areaCode": "100101002", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:06:20", "createTime": "2018-07-16 14:06:20", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "6c43477dfe5c4fd5aac08f638830be89"}, {"remark": null, "name": "商场", "areaCode": "180101004", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:08:50", "createTime": "2018-07-16 14:08:50", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "76eaadeca36a42e087141ca9aa2c72e8"}, {"remark": null, "name": "33", "areaCode": "11", "createId": "24654521f92c4be1b31f87fb12a059b9", "mall": "55", "updateTime": "2018-07-19 11:40:08", "createTime": "2018-07-19 11:40:08", "mobile": "18899990000", "manager": "66", "updateId": "24654521f92c4be1b31f87fb12a059b9", "isDelete": 0, "id": "78aef0abe11d418eb5ad9ecc700b5520"}, {"remark": null, "name": "灯市口商场", "areaCode": "100101005", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:06:33", "createTime": "2018-07-16 14:06:33", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "7ab8c5902d2e4d61b2621f43989a8f38"}, {"remark": null, "name": "商场", "areaCode": "320202001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:10:21", "createTime": "2018-07-16 14:10:21", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "811f76417070470290ad2c3c1fe8c1a9"}, {"remark": null, "name": "灯市口商场", "areaCode": "100101006", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:06:37", "createTime": "2018-07-16 14:06:37", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "81b8a58a2cec43158579358c491034c1"}, {"remark": null, "name": "商场", "areaCode": "340103002", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:10:39", "createTime": "2018-07-16 14:10:39", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "824b21bbf2124138885df40ffe73a5e8"}, {"remark": null, "name": "商场", "areaCode": "200103003", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:09:15", "createTime": "2018-07-16 14:09:15", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "88d7288f31714aff83717bd0e43f0a50"}, {"remark": null, "name": "商场", "areaCode": "350201001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:10:44", "createTime": "2018-07-16 14:10:44", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "8a6b35edf7054592bfdfcd7a7ea54af8"}, {"remark": null, "name": "商场", "areaCode": "150101002", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:07:41", "createTime": "2018-07-16 14:07:41", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "8d3d51c5ee21418f813db7822a59e377"}, {"remark": null, "name": "33", "areaCode": "11", "createId": "24654521f92c4be1b31f87fb12a059b9", "mall": "55", "updateTime": "2018-07-19 11:36:16", "createTime": "2018-07-19 11:36:16", "mobile": "18899990000", "manager": "66", "updateId": "24654521f92c4be1b31f87fb12a059b9", "isDelete": 0, "id": "8e3dfe00a5a24915b35ed7f208c30196"}, {"remark": null, "name": "商场", "areaCode": "330101001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:10:27", "createTime": "2018-07-16 14:10:27", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "8fedd864ee0242ceae79046b4f4325aa"}, {"remark": null, "name": "商场", "areaCode": "410101001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:11:14", "createTime": "2018-07-16 14:11:14", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "90ab876acb3e437890b549c167f49e5a"}, {"remark": null, "name": "商场", "areaCode": "400201001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:11:07", "createTime": "2018-07-16 14:11:07", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "92ee881006ab4dcf89c0660fa2af5040"}, {"remark": null, "name": "商场", "areaCode": "310101001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:10:12", "createTime": "2018-07-16 14:10:12", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "93b36c29fb614f7bbfdb5b5515485d3e"}, {"remark": null, "name": "商场", "areaCode": "120101002", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:06:54", "createTime": "2018-07-16 14:06:54", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "94493faee48f4834925aca4348e2a042"}, {"remark": "1111", "name": "1111", "areaCode": "1111", "createId": "", "mall": "1111", "updateTime": "2018-07-17 09:50:50", "createTime": "2018-07-17 09:50:50", "mobile": "18833332222", "manager": "1118", "updateId": "", "isDelete": 0, "id": "96218bc9288445c79a734d2f4530fd80"}, {"remark": "", "name": "商场请", "areaCode": "430101001", "createId": "", "mall": "新商城", "updateTime": "2018-07-16 14:36:00", "createTime": "2018-07-16 14:36:00", "mobile": "18000032222", "manager": "李四", "updateId": "", "isDelete": 0, "id": "96c567e170774c04ade36e41e747516d"}, {"remark": null, "name": "33", "areaCode": "11", "createId": "24654521f92c4be1b31f87fb12a059b9", "mall": "55", "updateTime": "2018-07-19 11:12:28", "createTime": "2018-07-19 11:12:28", "mobile": "18899990000", "manager": "66", "updateId": "24654521f92c4be1b31f87fb12a059b9", "isDelete": 0, "id": "99061f6a428549049bfbc08fc2cd7db3"}, {"remark": null, "name": "商场", "areaCode": "230101003", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:09:35", "createTime": "2018-07-16 14:09:35", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "9da1c386b05c4aa7988057597cb9bfb4"}, {"remark": null, "name": "商场", "areaCode": "160101001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:08:09", "createTime": "2018-07-16 14:08:09", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "9fec105d014d494bafbc068803cf73a6"}, {"remark": null, "name": "商场", "areaCode": "180101001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:08:44", "createTime": "2018-07-16 14:08:44", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "a2dff617cb70428985c2f97870ea105f"}, {"remark": null, "name": "商场", "areaCode": "250202001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:09:41", "createTime": "2018-07-16 14:09:41", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "a352a5d2ade247b6a7f5bf2510be706e"}, {"remark": null, "name": "商场", "areaCode": "160302001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:08:14", "createTime": "2018-07-16 14:08:14", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "aa89b123b28e4ec9b66d6c3d3f6a7bbd"}, {"remark": null, "name": "灯市口商场", "areaCode": "100101003", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:06:24", "createTime": "2018-07-16 14:06:24", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "af7d0b2f04dc4cf39623039d17b38d27"}, {"remark": null, "name": "商场", "areaCode": "180101002", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:08:47", "createTime": "2018-07-16 14:08:47", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "b1a1dfa496174d56ac0b596ac6a3f8c9"}, {"remark": null, "name": "商场", "areaCode": "150402001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:07:59", "createTime": "2018-07-16 14:07:59", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "b676d100d5e843b8a639a9a9ffe48442"}, {"remark": "1111", "name": "1111", "areaCode": "1111", "createId": "", "mall": "1111", "updateTime": "2018-07-17 18:28:00", "createTime": "2018-07-17 18:28:00", "mobile": "18833332222", "manager": "1118", "updateId": "", "isDelete": 0, "id": "b79dd08dde6040cfa0335934d0c102af"}, {"remark": "", "name": "22", "areaCode": "110101001", "createId": "", "mall": "222", "updateTime": "2018-07-17 10:00:54", "createTime": "2018-07-17 10:00:54", "mobile": "18000000999", "manager": "222", "updateId": "", "isDelete": 0, "id": "bb8215c990c3464b98c6391774b61dbe"}, {"remark": null, "name": "商场", "areaCode": "130303001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:07:19", "createTime": "2018-07-16 14:07:19", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "bcc03e4e912f43f0958caeb3ad8281ac"}, {"remark": null, "name": "商场", "areaCode": "180105002", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:08:59", "createTime": "2018-07-16 14:08:59", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "bd7269bd85c645d58f274949ce2aa1c6"}, {"remark": null, "name": "商场", "areaCode": "170202001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:08:38", "createTime": "2018-07-16 14:08:38", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "bee86011829f40ea90cdbeaf945aa054"}, {"remark": "     ", "name": " 优惠", "areaCode": "120101001", "createId": "", "mall": "而    ", "updateTime": "2018-07-16 14:03:18", "createTime": "2018-07-16 14:03:18", "mobile": "13000001111", "manager": "    额 ", "updateId": "", "isDelete": 0, "id": "c3d7e0d80d684cdea70229bd8f40d663"}, {"remark": null, "name": "商场", "areaCode": "210201001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:09:25", "createTime": "2018-07-16 14:09:25", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "c5773eef30e04e1e85c16d0601b69674"}, {"remark": null, "name": "商场", "areaCode": "140102001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:07:30", "createTime": "2018-07-16 14:07:30", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "c76ecb7833414b0f843c6bbe9257757c"}, {"remark": "1111", "name": "1111", "areaCode": "1111", "createId": "", "mall": "1111", "updateTime": "2018-07-18 16:34:00", "createTime": "2018-07-18 16:34:00", "mobile": "18833332222", "manager": "1118", "updateId": "", "isDelete": 0, "id": "ccbf2d6c987742509ac2d499d3103c88"}, {"remark": null, "name": "商场", "areaCode": "150102001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:07:45", "createTime": "2018-07-16 14:07:45", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "cde028fccf984fd8b443beb1368d1fe7"}, {"remark": null, "name": "商场", "areaCode": "280202001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:10:00", "createTime": "2018-07-16 14:10:00", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "d3f2c847da9244af8ca604a6634384ae"}, {"remark": null, "name": "商场", "areaCode": "200102002", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:09:10", "createTime": "2018-07-16 14:09:10", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "dcebf374bffd454cbc7cbedd16a68edf"}, {"remark": null, "name": "商场", "areaCode": "390201001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:11:02", "createTime": "2018-07-16 14:11:02", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "e0ea8e0e89b74e9cb6e441d52b28746e"}, {"remark": null, "name": "商场", "areaCode": "270201001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:09:53", "createTime": "2018-07-16 14:09:53", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "e7491bb641be44cab061536a388ea0df"}, {"remark": null, "name": "灯市口商场", "areaCode": "100101004", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:06:29", "createTime": "2018-07-16 14:06:29", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "ec0193e3e4bf486297c80c38182bff42"}, {"remark": null, "name": "灯市口商场", "areaCode": "110102002", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:06:45", "createTime": "2018-07-16 14:06:45", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "f155485cd1ea48f281b119401fc4d7b3"}, {"remark": null, "name": "33", "areaCode": "11", "createId": "", "mall": "55", "updateTime": "2018-07-18 18:27:46", "createTime": "2018-07-18 18:27:46", "mobile": "18899990000", "manager": "66", "updateId": "", "isDelete": 0, "id": "f93bc6d1c22d4fa3973628b0055ddf97"}, {"remark": null, "name": "商场", "areaCode": "260103003", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:09:47", "createTime": "2018-07-16 14:09:47", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "fd8f671dde8f437bbb5d19039f79daa3"}, {"remark": null, "name": "商场", "areaCode": "150103002", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:07:49", "createTime": "2018-07-16 14:07:49", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "fe1b5a4c1a8446cdb0a311162c7c362c"}]}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1_4' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testlist_1: 点位管理接口:查询点位列表#/machine/locale/list</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_4' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_4'>通过</button>
+    <div id='div_pt1_4' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_4' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_4'>通过</button>
+    <div id='div_pt1_4' class="collapse in" align="left">
+    <pre>
+    
+pt1_4: 用例描述--&gt;查询点位列表
+发送:
+{'keword': None, 'code': None, 'pageNo': None}
+返回:
+{"msg": "成功", "code": 0, "data": [{"province": null, "city": null, "remark": null, "name": "33", "district": null, "areaCode": "11", "createId": "24654521f92c4be1b31f87fb12a059b9", "userNum": 0, "mall": "55", "updateTime": "2018-07-19 11:40:08", "createTime": "2018-07-19 11:40:08", "mobile": "18899990000", "manager": "66", "updateId": "24654521f92c4be1b31f87fb12a059b9", "isDelete": 0, "circle": null, "id": "78aef0abe11d418eb5ad9ecc700b5520", "areaName": null}, {"province": null, "city": null, "remark": null, "name": "商场", "district": null, "areaCode": "180103002", "createId": "", "userNum": 0, "mall": "商场1", "updateTime": "2018-07-19 11:36:19", "createTime": "2018-07-19 11:36:18", "mobile": "18900009999", "manager": "张三", "updateId": "24654521f92c4be1b31f87fb12a059b9", "isDelete": 0, "circle": null, "id": "013188e098274c2aaa64b1a47d6fe884", "areaName": "上海市上海市徐汇区丁香花园"}, {"province": null, "city": null, "remark": null, "name": "33", "district": null, "areaCode": "11", "createId": "24654521f92c4be1b31f87fb12a059b9", "userNum": 0, "mall": "55", "updateTime": "2018-07-19 11:36:16", "createTime": "2018-07-19 11:36:16", "mobile": "18899990000", "manager": "66", "updateId": "24654521f92c4be1b31f87fb12a059b9", "isDelete": 0, "circle": null, "id": "8e3dfe00a5a24915b35ed7f208c30196", "areaName": null}, {"province": null, "city": null, "remark": null, "name": "33", "district": null, "areaCode": "11", "createId": "24654521f92c4be1b31f87fb12a059b9", "userNum": 0, "mall": "55", "updateTime": "2018-07-19 11:12:28", "createTime": "2018-07-19 11:12:28", "mobile": "18899990000", "manager": "66", "updateId": "24654521f92c4be1b31f87fb12a059b9", "isDelete": 0, "circle": null, "id": "99061f6a428549049bfbc08fc2cd7db3", "areaName": null}, {"province": null, "city": null, "remark": null, "name": "33", "district": null, "areaCode": "11", "createId": "24654521f92c4be1b31f87fb12a059b9", "userNum": 0, "mall": "55", "updateTime": "2018-07-19 11:11:58", "createTime": "2018-07-19 11:11:58", "mobile": "18899990000", "manager": "66", "updateId": "24654521f92c4be1b31f87fb12a059b9", "isDelete": 0, "circle": null, "id": "0a81b4341664401e9717ac42f491225c", "areaName": null}, {"province": null, "city": null, "remark": null, "name": "33", "district": null, "areaCode": "11", "createId": "", "userNum": 0, "mall": "55", "updateTime": "2018-07-18 18:27:46", "createTime": "2018-07-18 18:27:46", "mobile": "18899990000", "manager": "66", "updateId": "", "isDelete": 0, "circle": null, "id": "f93bc6d1c22d4fa3973628b0055ddf97", "areaName": null}, {"province": null, "city": null, "remark": "1111", "name": "1111", "district": null, "areaCode": "1", "createId": "", "userNum": 0, "mall": "1111", "updateTime": "2018-07-18 16:38:42", "createTime": "2018-07-18 16:38:42", "mobile": "18833337777", "manager": "1118", "updateId": "", "isDelete": 0, "circle": null, "id": "565b23d6973b420b801282f8a62ee501", "areaName": null}, {"province": null, "city": null, "remark": "1111", "name": "1111", "district": null, "areaCode": "北京市/北京市/东城区/王府井", "createId": "", "userNum": 0, "mall": "1111", "updateTime": "2018-07-18 16:37:31", "createTime": "2018-07-18 16:37:31", "mobile": "18833337777", "manager": "1118", "updateId": "", "isDelete": 0, "circle": null, "id": "0e32527ac2554ef4bc6d78a0ac4ea02e", "areaName": null}, {"province": null, "city": null, "remark": "1111", "name": "1111", "district": null, "areaCode": "1111", "createId": "", "userNum": 0, "mall": "1111", "updateTime": "2018-07-18 16:34:00", "createTime": "2018-07-18 16:34:00", "mobile": "18833332222", "manager": "1118", "updateId": "", "isDelete": 0, "circle": null, "id": "ccbf2d6c987742509ac2d499d3103c88", "areaName": null}, {"province": null, "city": null, "remark": "1111", "name": "1111", "district": null, "areaCode": "1111", "createId": "", "userNum": 0, "mall": "1111", "updateTime": "2018-07-17 18:28:00", "createTime": "2018-07-17 18:28:00", "mobile": "18833332222", "manager": "1118", "updateId": "", "isDelete": 0, "circle": null, "id": "b79dd08dde6040cfa0335934d0c102af", "areaName": null}, {"province": null, "city": null, "remark": "1111", "name": "1111", "district": null, "areaCode": "1111", "createId": "", "userNum": 0, "mall": "1111", "updateTime": "2018-07-17 18:27:57", "createTime": "2018-07-17 18:27:57", "mobile": "18833332222", "manager": "1118", "updateId": "", "isDelete": 0, "circle": null, "id": "64972039c7f24e3ab30bec4eaf32669f", "areaName": null}, {"province": null, "city": null, "remark": "1111", "name": "1111", "district": null, "areaCode": "1111", "createId": "", "userNum": 0, "mall": "1111", "updateTime": "2018-07-17 18:27:51", "createTime": "2018-07-17 18:27:51", "mobile": "18833332222", "manager": "1118", "updateId": "", "isDelete": 0, "circle": null, "id": "5897636f5d7f413ca5c9ea750a670bde", "areaName": null}, {"province": null, "city": null, "remark": "    ", "name": "1212", "district": null, "areaCode": "额外", "createId": "", "userNum": 0, "mall": "    ", "updateTime": "2018-07-17 17:39:48", "createTime": "2018-07-17 17:39:48", "mobile": "18822339900", "manager": "332", "updateId": "", "isDelete": 0, "circle": null, "id": "590654a02609474faefeb94d60a8126e", "areaName": null}, {"province": null, "city": null, "remark": "", "name": "22", "district": null, "areaCode": "110101001", "createId": "", "userNum": 0, "mall": "222", "updateTime": "2018-07-17 10:00:54", "createTime": "2018-07-17 10:00:54", "mobile": "18000000999", "manager": "222", "updateId": "", "isDelete": 0, "circle": null, "id": "bb8215c990c3464b98c6391774b61dbe", "areaName": "天津市天津市和平区鞍山道沿线"}, {"province": null, "city": null, "remark": "1111", "name": "1111", "district": null, "areaCode": "1111", "createId": "", "userNum": 0, "mall": "1111", "updateTime": "2018-07-17 09:50:50", "createTime": "2018-07-17 09:50:50", "mobile": "18833332222", "manager": "1118", "updateId": "", "isDelete": 0, "circle": null, "id": "96218bc9288445c79a734d2f4530fd80", "areaName": null}, {"province": null, "city": null, "remark": "", "name": "阿萨德", "district": null, "areaCode": "100102001", "createId": "", "userNum": 2, "mall": "王府井百货", "updateTime": "2018-07-16 18:45:58", "createTime": "2018-07-16 18:45:58", "mobile": "13000001111", "manager": "王迅", "updateId": "", "isDelete": 0, "circle": null, "id": "57a98b63b38b4201a8b871dab4d81eda", "areaName": "北京市北京市西城区小西天"}, {"province": null, "city": null, "remark": "", "name": "商场请", "district": null, "areaCode": "430101001", "createId": "", "userNum": 0, "mall": "新商城", "updateTime": "2018-07-16 14:36:00", "createTime": "2018-07-16 14:36:00", "mobile": "18000032222", "manager": "李四", "updateId": "", "isDelete": 0, "circle": null, "id": "96c567e170774c04ade36e41e747516d", "areaName": "台湾省台湾省其他其他"}, {"province": null, "city": null, "remark": null, "name": "商场", "district": null, "areaCode": "420101001", "createId": "", "userNum": 0, "mall": "商场1", "updateTime": "2018-07-16 14:11:24", "createTime": "2018-07-16 14:11:24", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "circle": null, "id": "5d25e1ce958e4d3791a4987eefa7890a", "areaName": "澳门特别行政区澳门特别行政区其他其他"}, {"province": null, "city": null, "remark": null, "name": "商场", "district": null, "areaCode": "410101001", "createId": "", "userNum": 0, "mall": "商场1", "updateTime": "2018-07-16 14:11:14", "createTime": "2018-07-16 14:11:14", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "circle": null, "id": "90ab876acb3e437890b549c167f49e5a", "areaName": "香港特别行政区香港特别行政区其他其他"}, {"province": null, "city": null, "remark": null, "name": "商场", "district": null, "areaCode": "400201001", "createId": "", "userNum": 0, "mall": "商场1", "updateTime": "2018-07-16 14:11:07", "createTime": "2018-07-16 14:11:07", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "circle": null, "id": "92ee881006ab4dcf89c0660fa2af5040", "areaName": "新疆维吾尔自治区克拉玛依市独山子区其他"}], "page": {"currentResult": 0, "totalPage": 5, "pageSize": 20, "pageNo": 1, "lastPage": false, "prePage": 1, "list": null, "firstPage": true, "totalCount": 86, "firstResult": 0, "nextPage": 2}}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1_5' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testupdate_1: 点位管理接口:更新点位信息#/machine/locale/update</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_5' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_5'>通过</button>
+    <div id='div_pt1_5' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_5' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_5'>通过</button>
+    <div id='div_pt1_5' class="collapse in" align="left">
+    <pre>
+    
+pt1_5: 用例描述--&gt;更新点位数据信息
+发送:
+{'mobile': '18900009999', 'id': '013188e098274c2aaa64b1a47d6fe884'}
+返回:
+{"msg": "成功", "code": 0, "data": null}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='total_row' class="text-center active">
+    <td>总计</td>
+    <td>5</td>
+    <td>4</td>
+    <td>1</td>
+    <td>0</td>
+    <td>通过率：80.00%</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+    <div style=" position:fixed;right:50px; bottom:30px; width:20px; height:20px;cursor:pointer">
+    <a href="#"><span class="glyphicon glyphicon-eject" style = "font-size:30px;" aria-hidden="true">
+    </span></a></div>
+    
+</body>
+</html>
