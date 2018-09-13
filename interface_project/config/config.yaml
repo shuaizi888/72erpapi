@@ -1,24 +1,45 @@
 name: 基本配置信息
 
-BASE_URL: http://api.erp.36solo.com
+BASE_URL: http://api.erp.inno72.com
+#http://api.erp.36solo.com
+#http://api.erp.inno72.com
+#http://api.erp.32solo.com
+GAME_URL: http://api.game.32solo.com
+#http://api.game.36solo.com
+#http://api.game.inno72.com
+#http://api.game.32solo.com
+APP_URL: http://api.app.32solo.com
+#http://api.app.36solo.com
+#http://api.app.inno72.com
+#http://api.app.32solo.com
+CHECK_URL: http://check.app.32solo.com
+#http://check.app.36solo.com
+#http://check.app.inno72.com
+#http://check.app.32solo.com
 
-BASE_TOKEAN: 588558371c7b4fa6814bac2e17903c08
+BASE_TOKEAN: '{{logindata}}'
 
 RETRY: #请求失败重试设置
     ReNum: 3 #失败重试次数
 
 #发送测试报告,邮件配置
+#    Smtp_Server: smtp.exmail.qq.com
+#    Smtp_Sender: gaoshuai@inno72.com
 EMAIL:
-    Smtp_Server: smtp.exmail.qq.com
-    Smtp_Sender: gaoshuai@inno72.com
-    Password: Shuai771700
+    Smtp_Server: smtpdm.aliyun.com
+    Smtp_Sender: qa@mail.72solo.com
+    Password: mfl3Gy1fN0iiW8L
     Msg_Title: 点72ERP后台接口自动化测试结果
-    Receivers: ['gaoshuai_888@163.com']  #收件人
+    Receivers: ['gaoshuai_888@163.com','gaoshuai@inno72.com']  #收件人
     From: 点72自动化测试接口
     To: ERP后台测试
 
 #业务场景,执行配置:通过此配置,决定场景是否运行,Y运行;N不运行
 RUNING:
+    testgameserver: {'Flag':'Y'} #老游戏服务接口:成功掉货
+    testbiaoserverwu: {'Flag':'Y'} #游戏服务接口无需登录
+    testbiaoserverlogin: {'Flag':'Y'} #游戏服务接口登录
+    testbiaoserverpai: {'Flag':'Y'} #游戏服务接口派样无需登录
 
 
 

@@ -6,10 +6,10 @@ from interface_project.script.scripts import retry
 from interface_project.script import gl
 
 class HttpWebRequest(object):
-    url = "/machine/locale/list"
+    Url = "/machine/locale/detail"
 
-    payload = 'keword=&code=&pageNo='
-
+    payload = {'id': '2ee7fd62a87d4887acb5f17e0c69bc79'}
+    #'keword=&code=&pageNo='
     # headers = {
     #     'content-type': "multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW",
     #     'cache-control': "no-cache",
@@ -34,7 +34,7 @@ class HttpWebRequest(object):
     @retry(reNum=getYamlfield(gl.configFile)['RETRY']['ReNum'])
     def post(self):
         #url拼接
-        self.full_url = BaseConfig().base_url + self.url
+        self.full_url = BaseConfig().base_url + self.Url
 
         #发送post请求
         res = requests.request("POST",self.full_url,data=self.payload,headers=self.token())

@@ -1,10 +1,10 @@
 #_*_coding:utf-8_*_
 from log import LogDebug
-import time,os
+import time,os,datetime
 import yaml,json
 from interface_project.script import gl
 from requests.exceptions import ConnectTimeout,ConnectionError,Timeout,HTTPError
-
+import random
 
 '''
 #日期时间串
@@ -55,10 +55,19 @@ def getYamlfield(yamlpath):
     with open(yamlpath,'rb') as fp:
         cont = fp.read()
         fp.close()
-    ret = yaml.load(cont)
+        ret = yaml.load(cont)
     return ret
 
-
+def readVar(var):
+    """
+    读取自定义格式变量
+    :param var: {{变量}}
+    :return: None 或 变量值
+    """
+    ret = None
+    if var.startswith('{{') and var.endswith('}}'):
+        ret = eval(var.rsplit('}}')[0].split('{{')[1])
+    return ret
 
 #raw multipart form-data #格式不可动
 def MultipartFormData(data,appid ='dp1svA1gkNt8cQMkoIv7HmD1',sig=1,ts=1):
@@ -91,8 +100,7 @@ def getRunFlag(scenarioKey):
     LogDebug().info('{0}执行标记:{1}'.format(scenarioKey,flagRet))
     return flagRet
 
-
-def loadDdtData(Itype='t', filename='Charge.yaml', caseflag='CHARGE_CASE1'):
+def loadDdtData(Itype='t', filename='locale.yaml', caseflag='LOCALE_CASE1'):
     """
     从yaml加载ddt数据
     :param Itype: t:tcode; s:scenario
@@ -106,12 +114,23 @@ def loadDdtData(Itype='t', filename='Charge.yaml', caseflag='CHARGE_CASE1'):
     else:
         configDir = gl.dataScenarioPath
 
+    #拼接yam数据路径，并读取数据内容
     yamfpath = os.path.join(configDir, filename)
     readYam = getYamlfield(yamfpath)
 
     dictCase = readYam[caseflag]
+
+    #循环遍历，配置数据中节点下，所以case开头用例
     for key in dictCase:
-        ddtData.append(dictCase[key])
+        #配置数据中以case开头的，被认为是一条用例
+        if str(key).lower().startswith('case'):
+
+            if Itype =='t':
+                # 为每个case添加一个Url
+                dictCase[key]['Url'] = dictCase['Url']
+
+            #组织ddt[]数据，每一条case为一个dict对象
+            ddtData.append(dictCase[key])
 
     return ddtData
 
@@ -140,8 +159,8 @@ def loadtestInterface(instance, data_node, desc='Desc'):
 
     return viewResult
 '''
-
 def loadtestInterface(**kwargs):
+    #print kwargs
     """
     整理测试数据  加载测试接口
     :param kwargs: 接口相关数据
@@ -152,16 +171,13 @@ def loadtestInterface(**kwargs):
     desc=接口描述
     :return: 接口返回结果
     """
-    OUT_TMPL = """用例描述-->{0}\r\n发送:{4}\r\n{1}\r\n返回:\r\n{3}"""
+    OUT_TMPL = """用例描述-->{}\r\n数据:{}\r\n发送:{}\r\n返回:\r\n{}"""
+    #print OUT_TMPL.format(1,2,3,4)
 
     #实例
     view = kwargs['instance']
-    view.url = kwargs['url']
-    view.data = kwargs['data']
-
-    # 获取case数据
-    #view.payload = MultipartFormData(eval(data_node))
-    view.payload = eval(kwargs['data'])
+    view.Url = kwargs['url']
+    view.payload = kwargs['data']
 
     #调用接口,需注意的是，aetatt，接口函数，必须@property装饰成属性
     viewResult = getattr(view, kwargs['instance_pro'])
@@ -170,12 +186,37 @@ def loadtestInterface(**kwargs):
     print OUT_TMPL.format(
         kwargs['desc'],
         kwargs['data'],
-        json.dumps(viewResult).decode('unicode-escape'),
-        kwargs['url']
+        kwargs['url'],
+        json.dumps(viewResult).decode('unicode-escape')
     )
 
     return viewResult
 
+def loadtestInterfaces(instance, instance_pro, data_node):
+    """
+    加载测试接口
+    :param instance: 接口类实例
+    :param instance_pro: 调用接口的@property属性
+    :param data_node: yaml中的data节点名
+    :param url: 接口测试URL
+    :param desc: case描述
+    :return:
+    """
+    OUT_TMPL = """用例描述-->{0}\r\n发送:\r\n{1}\r\n返回:\r\n{2}"""
+
+    # 列表详情
+    view = instance
+    data_node = str(data_node)
+
+    # 获取case数据
+    #view.payload = MultipartFormData(eval(data_node))
+    view.payload = eval(data_node)
+    viewResult = getattr(instance, instance_pro)
+
+    print OUT_TMPL.format(
+         data_node, json.dumps(viewResult).decode('unicode-escape'))
+
+    return viewResult
 
 def retry(**kw):
     """
@@ -214,10 +255,43 @@ def rmDirsAndFiles(dirpath):
             if os.path.isdir(filepath):
                 os.rmdir(filepath)
 
+def sjshu():
+    """
+    随机数生成
+    :return:
+    """
+    a = random.randint(1000,1111)
+    b = random.randint(10,30)
+    # return str(a)+str(b)
+    return ('{}{}'.format(a, b))
+
+def RetryHeaders(**kwargs):
+    def _warpper(func):
+        def warpper(*args, **kwargs):
+            raiseVar = None
+            for v in kwargs['ContentType']:
+                try:
+                    kwargs['Headers']().Headers['Content-Type'] = v
+                    #kwargs['Headers']['Content-Type'] = v
+                    ret = func(*args, **kwargs)
+                    return ret
+                except TypeError as ex:
+                    raiseVar = ex
+            return raiseVar
+        return warpper
+    return _warpper
+
+def starttime():
+    times = time.strftime("%Y-%m-%d %H:%M", time.localtime())
+    return times
 
 
+
+def endtime():
+    endtimes = (datetime.datetime.now() + datetime.timedelta(minutes=6)).strftime("%Y-%m-%d %H:%M")
+    return endtimes
 
 
 if __name__=="__main__":
-    print json.dumps(getRunFlag('testCouponSendAndCancel')).decode('unicode-escape')
+    print json.dumps(getRunFlag('')).decode('unicode-escape')
 

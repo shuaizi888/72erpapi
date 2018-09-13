@@ -1,0 +1,19 @@
+name: 巡检打卡
+
+CHSIGNIN_CASE1: #巡检打卡 加密
+    Url: /check/signIn/add
+    Case1: #/check/signIn/add
+        Desc: 巡检打卡
+        setapp:
+
+CHSIGNIN_CASE2: #本月打卡记录
+    Url: /check/signIn/list
+    Case1: #/check/signIn/list
+        Desc: 本月打卡记录
+        seth5:
+
+CHSIGNIN_CASE3: #机器打卡状态
+    Url: /check/signIn/machineList
+    Case1: #/check/signIn/machineList
+        Desc: 机器打卡状态
+        seth5:

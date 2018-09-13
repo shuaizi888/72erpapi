@@ -1,0 +1,41 @@
+name: 项目管理-渠道管理接口
+
+CHANNEL_CASE1: #查询渠道列表
+    Url: /project/channel/list
+    Case1: #/project/channel/list
+        Desc: 查询渠道列表
+        List: {"keword":,"code":,"pageNo":}
+
+
+
+CHANNEL_CASE2: #查询渠道列表不分页
+    Url: /project/channel/getList
+    Case1: #/project/channel/getList
+        Desc: 查询渠道列表不分页
+        GetList: {"keword":,"code":,"pageNo":}
+
+
+
+CHANNEL_CASE3: #新添加渠道
+    Url: /project/channel/add
+    Case1: #/project/channel/add
+        Desc: 新添加渠道
+        Add: {"channelCode":"自动化测试","channelName":"自动化测试渠道"}
+
+
+
+CHANNEL_CASE4: #更新渠道数据信息
+    Url: /project/channel/update
+    Case1: #/project/channel/update
+        Desc: 更新渠道数据信息
+        Updata: {"id":"f647799ebd3e4c10883983dda12ee2c9","channelCode":"自动化测试01","channelName":"更新自动化渠道"}
+
+
+
+CHANNEL_CASE5: #删除渠道
+    Url: /project/channel/delete
+    Case1: #/project/channel/delete
+        Desc: 删除渠道
+        detele: {"id":"f44de8e75e9d44df870382da02dc6225"}
+
+

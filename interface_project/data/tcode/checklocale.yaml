@@ -1,0 +1,14 @@
+name: 巡检设置点位
+
+CHLOCALE_CASE1: #设置点位app 加密
+    Url: /machine/machine/set
+    Case1: #/machine/machine/set
+        Desc: 设置点位app
+        setapp:
+
+CHLOCALE_CASE2: #设置点位H5  不加密
+    Url: /machine/machine/h5/set
+    Case1: #/machine/machine/h5/set
+        Desc: 设置点位H5
+        seth5:
+

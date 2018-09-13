@@ -1,0 +1,67 @@
+NAME: 标准游戏服务接口
+
+GAMECASEWU:
+    #>>>>>>>>获得活动信息>>预登录接口>>>polling用户登录session信息>>>>下单接口>>polling订单支付状态>>>>出货接口>>>>>>>>>>>>>>>>>>>
+    Case1: #获得活动信息->预登录接口无需登录->polling用户登录session信息->下单接口->polling订单支付状态->出货接口
+        Desc: 获得活动信息->预登录接口->polling用户登录session信息->下单接口->polling订单支付状态->出货接口
+        GameUrl: http://api.game.36solo.com/inno72/service/open
+        #获得活动信息
+        standardFindActivitydata: {"serviceName": "standardFindActivity","version": "1.0.0","params": {"machineId": "18342471","planId": "","version": "","versionInno72": ""}}
+
+        #预登录接口
+        standardPrepareLogindata: {"serviceName": "standardPrepareLogin","version": "1.0.0","params": {"machineCode": "192941247","loginType": 1}}
+
+        #polling用户登录session信息
+        standardSessionPollingdata: {"serviceName": "standardSessionPolling","version": "1.0.0","params": {"sessionUuid": "{{SUuidtoken}}"}}
+
+        #下单接口
+        standardOrderdata: {"serviceName": "standardOrder","version": "1.0.0","params": {"sessionUuid": "{{SUuidtoken}}","report":"1"}}
+
+        #出货接口
+        standardShipmentdata: {"serviceName": "standardShipment","version": "1.0.0","params": {"machineCode": "19294124","sessionUuid":"{{SUuidtoken}}","channelId":"{{channelids}}","failChannelIds":""}}
+
+GAMECASELOGIN:
+    #>>>>>>>>获得活动信息>>预登录接口>>>polling用户登录session信息>>>>下单接口>>polling订单支付状态>>>>出货接口>>>>>>>>>>>>>>>>>>>
+    Case1: #获得活动信息->预登录接口登录->polling用户登录session信息->下单接口->polling订单支付状态->出货接口
+        Desc: 获得活动信息->预登录接口登录->polling用户登录session信息->下单接口->polling订单支付状态->出货接口
+        GameUrl: http://api.game.36solo.com/inno72/service/open
+                #获得活动信息
+        standardFindActivitydata: {"serviceName": "standardFindActivity","version": "1.0.0","params": {"machineId": "18109717","planId": "","version": "","versionInno72": ""}}
+
+        #预登录接口
+        standardPrepareLogindata: {"serviceName": "standardPrepareLogin","version": "1.0.0","params": {"machineCode": "192941247","loginType": 0}}
+
+        #polling用户登录session信息
+        standardSessionPollingdata: {"serviceName": "standardSessionPolling","version": "1.0.0","params": {"sessionUuid": "{{SUuidtoken}}"}}
+
+        #下单接口
+        standardOrderdata: {"serviceName": "standardOrder","version": "1.0.0","params": {"sessionUuid": "{{SUuidtoken}}","report":"1"}}
+
+        #polling订单支付状态
+        standardOrderPollingdata: {"serviceName": "standardOrderPolling","version": "1.0.0","params": {"sessionUuid": "{{SUuidtoken}}","orderId": "{{Order}}"}}
+
+        #出货接口
+        standardShipmentdata: {"serviceName": "standardShipment","version": "1.0.0","params": {"machineCode": "19294124","sessionUuid":"{{SUuidtoken}}","channelId":"{{channelids}}","failChannelIds":""}}
+
+GAMECASEPAI:
+    #>>>>>>>>获得活动信息>>预登录接口>>>polling用户登录session信息>>>>下单接口>>polling订单支付状态>>>>出货接口>>>>>>>>>>>>>>>>>>>
+    Case1: #派样获得活动信息->预登录接口无需登录->polling用户登录session信息->下单接口->polling订单支付状态->出货接口
+        Desc: 获得活动信息->预登录接口无需登录->polling用户登录session信息->下单接口->polling订单支付状态->出货接口
+        GameUrl: http://api.game.36solo.com/inno72/service/open
+                #获得活动信息
+        standardFindActivitydata: {"serviceName": "standardFindActivity","version": "1.0.0","params": {"machineId": "18109717","planId": "","version": "","versionInno72": ""}}
+
+        #预登录接口
+        standardPrepareLogindata: {"serviceName": "standardPrepareLogin","version": "1.0.0","params": {"machineCode": "192941247","loginType": 1}}
+
+        #polling用户登录session信息
+        standardSessionPollingdata: {"serviceName": "standardSessionPolling","version": "1.0.0","params": {"sessionUuid": "{{SUuidtoken}}"}}
+
+        #下单接口
+        standardOrderdata: {"serviceName": "standardOrder","version": "1.0.0","params": {"sessionUuid": "{{SUuidtoken}}","report":"1"}}
+
+        #polling订单支付状态
+        standardOrderPollingdata: {"serviceName": "standardOrderPolling","version": "1.0.0","params": {"sessionUuid": "{{SUuidtoken}}","orderId": "{{Order}}"}}
+
+        #出货接口
+        standardShipmentdata: {"serviceName": "standardShipment","version": "1.0.0","params": {"machineCode": "19294124","sessionUuid":"{{SUuidtoken}}","channelId":"{{channelids}}","failChannelIds":""}}

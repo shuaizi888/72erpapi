@@ -1,0 +1,48 @@
+name: 项目管理-店铺管理接口
+
+SHOPS_CASE1: #查询店铺列表
+    Url: /project/shops/list
+    Case1: #/project/shops/list
+        Desc: 查询店铺列表
+        List: {"keword":,"code":,"pageNo":}
+
+
+
+SHOPS_CASE2: #查询店铺列表不分页
+    Url: /project/shops/getList
+    Case1: #/project/shops/getList
+        Desc: 查询店铺列表不分页
+        GetList: {"keword":,"code":,"pageNo":}
+
+
+
+SHOPS_CASE3: #新添加店铺
+    Url: /project/shops/add
+    Case1: #/project/shops/add
+        Desc: 新添加店铺
+        Add: {"shopName":"自动化测试店铺","shopCode":"自动化测试008","sellerId":"af5b41cfcd734a6bb2e696136a8303b5"}
+
+
+SHOPS_CASE4: #查询店铺详细信息
+    Url: /project/shops/detail
+    Case1: #/project/shops/detail
+        Desc: 查询店铺详细信息
+        Detail: {"id":"e1a8736d72284751b9b6ea704f1269e7"}
+
+
+
+SHOPS_CASE5: #更新店铺数据信息
+    Url: /project/shops/update
+    Case1: #/project/shops/update
+        Desc: 更新店铺数据信息
+        Updata: {"id":"7db05782411c40f4a8faed2b12552bf6","shopName":"更新店铺自动化","shopCode":"M222"}
+
+
+
+SHOPS_CASE6: #删除店铺
+    Url: /project/shops/delete
+    Case1: #/project/shops/delete
+        Desc: 删除店铺
+        detele: {"id":"6887b5370e81498c9fad385765f5a766"}
+
+

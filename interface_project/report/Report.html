@@ -41,6 +41,27 @@ output_list = Array();
 3:All     //pt none, ft none
 */
 function showCase(level) {
+    //展开或折叠用例按钮显示
+    var hidden_case = document.getElementById("case_hidden_btn");
+    if(level !=0) {
+
+        hidden_case.style.display = "block";
+    }else {
+        hidden_case.style.display = "none";
+    }
+
+    //更改通过时，显示通过按钮，样式，颜色bootstrap按钮
+    var btnpass = $('button[id^="btn_pt"]');
+    for(var i=0;i<btnpass.length;i++){
+        if(btnpass[i].innerText=="通过"){
+            btnpass[i].className="btn btn-success btn-xs";
+        }else{
+            btnpass[i].className="btn btn-danger btn-xs";
+        }
+    }
+
+
+
     trs = document.getElementsByTagName("tr");
     for (var i = 0; i < trs.length; i++) {
         tr = trs[i];
@@ -112,23 +133,41 @@ function html_escape(s) {
     s = s.replace(/>/g,'&gt;');
     return s;
 }
+
+function hidden_case() {
+    var case_btn = document.getElementById("case_hidden_btn");
+    var btn_text = case_btn.innerText;
+
+    var a = $('div[id^="div_pt"]');
+    for(var i=0;i<a.length;i++){
+        if(btn_text=='展开所有'){
+            a[i].className = 'in';
+            a[i].style.height = "auto";
+            case_btn.innerText = "折叠所有";
+        }else {
+            a[i].className = 'collapse';
+            a[i].style.height = "0px";
+            case_btn.innerText = "展开所有";
+        }
+    }
+}
 </script>
 <div class='heading'>
 <h4 style="font-family: Microsoft YaHei">点72后台接口自动化测试报告</h4>
 <p class='attribute'><strong>测试人员 : </strong> sgao</p>
-<p class='attribute'><strong>开始时间 : </strong> 2018-07-19 11:40:07</p>
-<p class='attribute'><strong>合计耗时 : </strong> 0:00:26.327711</p>
-<p class='attribute'><strong>测试结果 : </strong> 共 5，通过 4，失败 1，通过率= 80.00%</p>
+<p class='attribute'><strong>开始时间 : </strong> 2018-08-23 13:47:08</p>
+<p class='attribute'><strong>合计耗时 : </strong> 0:00:06.543317</p>
+<p class='attribute'><strong>测试结果 : </strong> 共 73，通过 51，失败 22，通过率= 69.86%</p>
 
 <p class='description'>详细测试用例结果</p>
 </div>
 
 
 <p id='show_detail_line'>
-<a class="btn btn-primary" href='javascript:showCase(0)'>概要{ 80.00% }</a>
-<a class="btn btn-danger" href='javascript:showCase(1)'>失败{ 1 }</a>
-<a class="btn btn-success" href='javascript:showCase(2)'>通过{ 4 }</a>
-<a class="btn btn-info" href='javascript:showCase(3)'>所有{ 5 }</a>
+<a class="btn btn-primary" href='javascript:showCase(0)'>概要{ 69.86% }</a>
+<a class="btn btn-danger" href='javascript:showCase(1)'>失败{ 22 }</a>
+<a class="btn btn-success" href='javascript:showCase(2)'>通过{ 51 }</a>
+<a class="btn btn-info" href='javascript:showCase(3)'>所有{ 73 }</a>
 </p>
 <table id='result_table' class="table table-condensed table-bordered table-hover">
 <colgroup>
@@ -150,11 +189,15 @@ function html_escape(s) {
 
 <tr class='failClass warning'>
     <td>testInterface.locale.testlocale.TestLocale: 货机管理-点位管理接口</td>
-    <td class="text-center">5</td>
+    <td class="text-center">6</td>
     <td class="text-center">4</td>
-    <td class="text-center">1</td>
+    <td class="text-center">2</td>
     <td class="text-center">0</td>
-    <td class="text-center"><a href="javascript:showClassDetail('c1',5)" class="detail" id='c1'>详细</a></td>
+    <td class="text-center">
+        <a href="javascript:showClassDetail('c1',6)" class="detail" id='c1'>详细</a>
+        <a href='javascript:hidden_case()' id="case_hidden_btn" style="display:none">展开所有</a>
+    </td>
+
 </tr>
 
 <tr id='pt1_1' class='hiddenRow'>
@@ -164,13 +207,15 @@ function html_escape(s) {
     <button id='btn_pt1_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_1'>通过</button>
     <div id='div_pt1_1' class="collapse">  -->
     <!-- 默认展开错误信息 -Findyou -->
-    <button id='btn_pt1_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_1'>通过</button>
-    <div id='div_pt1_1' class="collapse in" align="left">
-    <pre>
+    <button id='btn_pt1_1' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_1'>通过</button>
+    <div id='div_pt1_1' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
     
-pt1_1: 用例描述--&gt;新添加点位
-发送:
-{'areaCode': '11', 'mobile': '18899990000', 'manager': '66', 'mall': '55', 'name': '33'}
+pt1_1: 自动化脚本测试08
+自动化脚本测试08108226
+用例描述--&gt;新添加点位
+数据:{'areaCode': '100101005', 'mobile': '18899992222', 'manager': u'\u81ea\u52a8\u5316\u6d4b\u8bd5', 'mall': u'\u81ea\u52a8\u5316\u811a\u672c\u6d4b\u8bd5\u70b9\u4f4d', 'name': u'\u81ea\u52a8\u5316\u811a\u672c\u6d4b\u8bd508108226'}
+发送:/machine/locale/add
 返回:
 {"msg": "成功", "code": 0, "data": null}
 
@@ -187,19 +232,19 @@ pt1_1: 用例描述--&gt;新添加点位
     <button id='btn_ft1_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_2'>失败</button>
     <div id='div_ft1_2' class="collapse">  -->
     <!-- 默认展开错误信息 -Findyou -->
-    <button id='btn_ft1_2' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft1_2'>失败</button>
-    <div id='div_ft1_2' class="collapse in" align="left">
-    <pre>
+    <button id='btn_ft1_2' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft1_2'>失败</button>
+    <div id='div_ft1_2' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
     
 ft1_2: 用例描述--&gt;查询点位详细信息
-发送:
-{'id': '013188e098274c2aaa64b1a47d6fe88477'}
+数据:{'id': '32d8cb0b7780445abb6a7062d6edb169'}
+发送:/machine/locale/detail
 返回:
 {"msg": "java.lang.NullPointerException", "code": 500, "data": null}
 Traceback (most recent call last):
   File "/Users/72cy-0101-01-0027/Desktop/work/script/erpapi/venv/lib/python2.7/site-packages/ddt.py", line 144, in wrapper
     return func(self, *args, **kwargs)
-  File "/Users/72cy-0101-01-0027/Desktop/work/script/erpapi/interface_project/testInterface/locale/testlocale.py", line 73, in testdetail
+  File "/Users/72cy-0101-01-0027/Desktop/work/script/erpapi/interface_project/testInterface/locale/testlocale.py", line 89, in testdetail
     self.assertEqual(res['code'],0,res['msg'])
 AssertionError: java.lang.NullPointerException
 
@@ -209,22 +254,28 @@ AssertionError: java.lang.NullPointerException
     </td>
 </tr>
 
-<tr id='pt1_3' class='hiddenRow'>
-    <td class='passCase'><div class='testcase'>testgetlist_1: 点位管理接口:查询点位列表不分页#/machine/locale/getlist</div></td>
+<tr id='ft1_3' class='none'>
+    <td class='failCase'><div class='testcase'>testdetele_1: 点位管理接口:删除点位信息#/machine/locale/delete</div></td>
     <td colspan='5' align='center'>
     <!--默认收起错误信息 -Findyou
-    <button id='btn_pt1_3' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_3'>通过</button>
-    <div id='div_pt1_3' class="collapse">  -->
+    <button id='btn_ft1_3' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_3'>失败</button>
+    <div id='div_ft1_3' class="collapse">  -->
     <!-- 默认展开错误信息 -Findyou -->
-    <button id='btn_pt1_3' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_3'>通过</button>
-    <div id='div_pt1_3' class="collapse in" align="left">
-    <pre>
+    <button id='btn_ft1_3' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft1_3'>失败</button>
+    <div id='div_ft1_3' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
     
-pt1_3: 用例描述--&gt;查询点位列表不分页
-发送:
-{'keword': None, 'code': None, 'pageNo': None}
+ft1_3: 用例描述--&gt;删除点位
+数据:{'id': 'fc22fd6b785746c4b24fc78da23cfde6'}
+发送:/machine/locale/delete
 返回:
-{"msg": "成功", "code": 0, "data": [{"remark": null, "name": "商场", "areaCode": "180103002", "createId": "", "mall": "商场1", "updateTime": "2018-07-19 11:36:19", "createTime": "2018-07-19 11:36:18", "mobile": "18900009999", "manager": "张三", "updateId": "24654521f92c4be1b31f87fb12a059b9", "isDelete": 0, "id": "013188e098274c2aaa64b1a47d6fe884"}, {"remark": null, "name": "商场", "areaCode": "380201001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:10:57", "createTime": "2018-07-16 14:10:57", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "067a3087ec4045ff9c763f59b92dcbd4"}, {"remark": null, "name": "33", "areaCode": "11", "createId": "24654521f92c4be1b31f87fb12a059b9", "mall": "55", "updateTime": "2018-07-19 11:11:58", "createTime": "2018-07-19 11:11:58", "mobile": "18899990000", "manager": "66", "updateId": "24654521f92c4be1b31f87fb12a059b9", "isDelete": 0, "id": "0a81b4341664401e9717ac42f491225c"}, {"remark": null, "name": "商场", "areaCode": "200105002", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:09:19", "createTime": "2018-07-16 14:09:19", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "0e02050941864caa8bbf5250e45738f6"}, {"remark": "1111", "name": "1111", "areaCode": "北京市/北京市/东城区/王府井", "createId": "", "mall": "1111", "updateTime": "2018-07-18 16:37:31", "createTime": "2018-07-18 16:37:31", "mobile": "18833337777", "manager": "1118", "updateId": "", "isDelete": 0, "id": "0e32527ac2554ef4bc6d78a0ac4ea02e"}, {"remark": "1111", "name": "1111", "areaCode": "1111", "createId": "", "mall": "1111", "updateTime": "2018-07-12 14:58:37", "createTime": "2018-07-12 14:58:37", "mobile": "13800009999", "manager": "1111", "updateId": "", "isDelete": 0, "id": "0ec603c99a36402b8b2bd19634a77b37"}, {"remark": null, "name": null, "areaCode": "110101001", "createId": null, "mall": "大沽口", "updateTime": "2018-07-09 14:27:48", "createTime": "2018-07-09 14:27:48", "mobile": "15866668888", "manager": "王小六", "updateId": null, "isDelete": 0, "id": "10"}, {"remark": "12", "name": "切水果", "areaCode": "120101001", "createId": "", "mall": "大沽口", "updateTime": "2018-07-16 14:02:13", "createTime": "2018-07-16 14:02:13", "mobile": "15866668888", "manager": "王小六", "updateId": "", "isDelete": 0, "id": "100"}, {"remark": null, "name": null, "areaCode": "110101001", "createId": null, "mall": "大沽口", "updateTime": "2018-07-09 14:27:48", "createTime": "2018-07-09 14:27:48", "mobile": "15866668888", "manager": "王小六", "updateId": null, "isDelete": 0, "id": "1000"}, {"remark": null, "name": null, "areaCode": "110101001", "createId": null, "mall": "大沽口", "updateTime": "2018-07-09 14:27:48", "createTime": "2018-07-09 14:27:48", "mobile": "15866668888", "manager": "王小六", "updateId": null, "isDelete": 0, "id": "1001"}, {"remark": null, "name": null, "areaCode": "110101001", "createId": null, "mall": "大沽口", "updateTime": "2018-07-09 14:27:48", "createTime": "2018-07-09 14:27:48", "mobile": "15866668888", "manager": "王小六", "updateId": null, "isDelete": 0, "id": "1002"}, {"remark": null, "name": null, "areaCode": "110101001", "createId": null, "mall": "大沽口", "updateTime": "2018-07-09 14:27:48", "createTime": "2018-07-09 14:27:48", "mobile": "15866668888", "manager": "王小六", "updateId": null, "isDelete": 0, "id": "1003"}, {"remark": null, "name": null, "areaCode": "110101001", "createId": null, "mall": "大沽口", "updateTime": "2018-07-09 14:27:48", "createTime": "2018-07-09 14:27:48", "mobile": "15866668888", "manager": "王小六", "updateId": null, "isDelete": 0, "id": "1004"}, {"remark": null, "name": null, "areaCode": "110101001", "createId": null, "mall": "大沽口", "updateTime": "2018-07-09 14:27:48", "createTime": "2018-07-09 14:27:48", "mobile": "15866668888", "manager": "王小六", "updateId": null, "isDelete": 0, "id": "1005"}, {"remark": null, "name": null, "areaCode": "110101001", "createId": null, "mall": "大沽口", "updateTime": "2018-07-09 14:27:48", "createTime": "2018-07-09 14:27:48", "mobile": "15866668888", "manager": "王小六", "updateId": null, "isDelete": 0, "id": "1006"}, {"remark": null, "name": null, "areaCode": "110101001", "createId": null, "mall": "大沽口", "updateTime": "2018-07-09 14:27:48", "createTime": "2018-07-09 14:27:48", "mobile": "15866668888", "manager": "王小六", "updateId": null, "isDelete": 0, "id": "1007"}, {"remark": null, "name": null, "areaCode": "110101001", "createId": null, "mall": "大沽口", "updateTime": "2018-07-09 14:27:48", "createTime": "2018-07-09 14:27:48", "mobile": "15866668888", "manager": "王小六", "updateId": null, "isDelete": 0, "id": "1008"}, {"remark": null, "name": "商场", "areaCode": "130101002", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:07:09", "createTime": "2018-07-16 14:07:09", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "2a5ff496ed944838bf37eed1b0a9cc9d"}, {"remark": null, "name": "请问", "areaCode": "100101001", "createId": "", "mall": "请问", "updateTime": "2018-07-16 12:56:55", "createTime": "2018-07-16 12:56:55", "mobile": "18000000999", "manager": "请问", "updateId": "", "isDelete": 0, "id": "2c2c88194b2c40ddb55b19704ea85080"}, {"remark": null, "name": "商场", "areaCode": "130103004", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:07:14", "createTime": "2018-07-16 14:07:14", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "3228efd06c694e3ab16776b2f9c4229c"}, {"remark": null, "name": "商场", "areaCode": "160702001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:08:28", "createTime": "2018-07-16 14:08:28", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "4060e32ab4c44b9ab785952e6c7bc0b0"}, {"remark": null, "name": "商场", "areaCode": "140101002", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:07:25", "createTime": "2018-07-16 14:07:25", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "4a7e8bd34a0f44358a5b83a50f99a611"}, {"remark": null, "name": "商场", "areaCode": "370201001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:10:50", "createTime": "2018-07-16 14:10:50", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "4e5d7f7e853a4644a11339c719f58413"}, {"remark": null, "name": "商场", "areaCode": "320101001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:10:17", "createTime": "2018-07-16 14:10:17", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "559ac142319e422ebaa8780e1ce80d18"}, {"remark": "1111", "name": "1111", "areaCode": "1", "createId": "", "mall": "1111", "updateTime": "2018-07-18 16:38:42", "createTime": "2018-07-18 16:38:42", "mobile": "18833337777", "manager": "1118", "updateId": "", "isDelete": 0, "id": "565b23d6973b420b801282f8a62ee501"}, {"remark": "", "name": "阿萨德", "areaCode": "100102001", "createId": "", "mall": "王府井百货", "updateTime": "2018-07-16 18:45:58", "createTime": "2018-07-16 18:45:58", "mobile": "13000001111", "manager": "王迅", "updateId": "", "isDelete": 0, "id": "57a98b63b38b4201a8b871dab4d81eda"}, {"remark": "1111", "name": "1111", "areaCode": "1111", "createId": "", "mall": "1111", "updateTime": "2018-07-17 18:27:51", "createTime": "2018-07-17 18:27:51", "mobile": "18833332222", "manager": "1118", "updateId": "", "isDelete": 0, "id": "5897636f5d7f413ca5c9ea750a670bde"}, {"remark": null, "name": "商场", "areaCode": "140303001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:07:35", "createTime": "2018-07-16 14:07:35", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "58c18c223c294e738abd591f3304ca48"}, {"remark": "    ", "name": "1212", "areaCode": "额外", "createId": "", "mall": "    ", "updateTime": "2018-07-17 17:39:48", "createTime": "2018-07-17 17:39:48", "mobile": "18822339900", "manager": "332", "updateId": "", "isDelete": 0, "id": "590654a02609474faefeb94d60a8126e"}, {"remark": null, "name": "商场", "areaCode": "300201001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:10:06", "createTime": "2018-07-16 14:10:06", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "5d126b1cb13e430baf9e6d54c19cfcaf"}, {"remark": null, "name": "商场", "areaCode": "420101001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:11:24", "createTime": "2018-07-16 14:11:24", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "5d25e1ce958e4d3791a4987eefa7890a"}, {"remark": null, "name": "商场", "areaCode": "160402001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:08:22", "createTime": "2018-07-16 14:08:22", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "5e358d5290174efc83333590c9b74bee"}, {"remark": null, "name": "商场", "areaCode": "340102002", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:10:34", "createTime": "2018-07-16 14:10:34", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "5fc31f88ade44417b0144685f981e5f3"}, {"remark": null, "name": "商场", "areaCode": "170101001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:08:34", "createTime": "2018-07-16 14:08:34", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "6171c7e4642c449d874839fa4e5983ba"}, {"remark": null, "name": "商场", "areaCode": "220201001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:09:30", "createTime": "2018-07-16 14:09:30", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "61c7bc072e004dd996033b984bd125c7"}, {"remark": null, "name": "商场", "areaCode": "190101002", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:09:05", "createTime": "2018-07-16 14:09:05", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "63a0998341504c6d90c125faa42fb232"}, {"remark": null, "name": "商场", "areaCode": "120202001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:07:03", "createTime": "2018-07-16 14:07:03", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "63e8ef2871ad4e10a54304c065e0c2d4"}, {"remark": "1111", "name": "1111", "areaCode": "1111", "createId": "", "mall": "1111", "updateTime": "2018-07-17 18:27:57", "createTime": "2018-07-17 18:27:57", "mobile": "18833332222", "manager": "1118", "updateId": "", "isDelete": 0, "id": "64972039c7f24e3ab30bec4eaf32669f"}, {"remark": null, "name": "商场", "areaCode": "150202002", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:07:54", "createTime": "2018-07-16 14:07:54", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "674e42cc347c492b9fc8576019410bb5"}, {"remark": null, "name": "商场", "areaCode": "150802001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:08:03", "createTime": "2018-07-16 14:08:03", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "6b9649cb79754e32964a546782e05523"}, {"remark": null, "name": "灯市口商场", "areaCode": "100101002", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:06:20", "createTime": "2018-07-16 14:06:20", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "6c43477dfe5c4fd5aac08f638830be89"}, {"remark": null, "name": "商场", "areaCode": "180101004", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:08:50", "createTime": "2018-07-16 14:08:50", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "76eaadeca36a42e087141ca9aa2c72e8"}, {"remark": null, "name": "33", "areaCode": "11", "createId": "24654521f92c4be1b31f87fb12a059b9", "mall": "55", "updateTime": "2018-07-19 11:40:08", "createTime": "2018-07-19 11:40:08", "mobile": "18899990000", "manager": "66", "updateId": "24654521f92c4be1b31f87fb12a059b9", "isDelete": 0, "id": "78aef0abe11d418eb5ad9ecc700b5520"}, {"remark": null, "name": "灯市口商场", "areaCode": "100101005", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:06:33", "createTime": "2018-07-16 14:06:33", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "7ab8c5902d2e4d61b2621f43989a8f38"}, {"remark": null, "name": "商场", "areaCode": "320202001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:10:21", "createTime": "2018-07-16 14:10:21", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "811f76417070470290ad2c3c1fe8c1a9"}, {"remark": null, "name": "灯市口商场", "areaCode": "100101006", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:06:37", "createTime": "2018-07-16 14:06:37", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "81b8a58a2cec43158579358c491034c1"}, {"remark": null, "name": "商场", "areaCode": "340103002", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:10:39", "createTime": "2018-07-16 14:10:39", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "824b21bbf2124138885df40ffe73a5e8"}, {"remark": null, "name": "商场", "areaCode": "200103003", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:09:15", "createTime": "2018-07-16 14:09:15", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "88d7288f31714aff83717bd0e43f0a50"}, {"remark": null, "name": "商场", "areaCode": "350201001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:10:44", "createTime": "2018-07-16 14:10:44", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "8a6b35edf7054592bfdfcd7a7ea54af8"}, {"remark": null, "name": "商场", "areaCode": "150101002", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:07:41", "createTime": "2018-07-16 14:07:41", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "8d3d51c5ee21418f813db7822a59e377"}, {"remark": null, "name": "33", "areaCode": "11", "createId": "24654521f92c4be1b31f87fb12a059b9", "mall": "55", "updateTime": "2018-07-19 11:36:16", "createTime": "2018-07-19 11:36:16", "mobile": "18899990000", "manager": "66", "updateId": "24654521f92c4be1b31f87fb12a059b9", "isDelete": 0, "id": "8e3dfe00a5a24915b35ed7f208c30196"}, {"remark": null, "name": "商场", "areaCode": "330101001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:10:27", "createTime": "2018-07-16 14:10:27", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "8fedd864ee0242ceae79046b4f4325aa"}, {"remark": null, "name": "商场", "areaCode": "410101001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:11:14", "createTime": "2018-07-16 14:11:14", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "90ab876acb3e437890b549c167f49e5a"}, {"remark": null, "name": "商场", "areaCode": "400201001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:11:07", "createTime": "2018-07-16 14:11:07", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "92ee881006ab4dcf89c0660fa2af5040"}, {"remark": null, "name": "商场", "areaCode": "310101001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:10:12", "createTime": "2018-07-16 14:10:12", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "93b36c29fb614f7bbfdb5b5515485d3e"}, {"remark": null, "name": "商场", "areaCode": "120101002", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:06:54", "createTime": "2018-07-16 14:06:54", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "94493faee48f4834925aca4348e2a042"}, {"remark": "1111", "name": "1111", "areaCode": "1111", "createId": "", "mall": "1111", "updateTime": "2018-07-17 09:50:50", "createTime": "2018-07-17 09:50:50", "mobile": "18833332222", "manager": "1118", "updateId": "", "isDelete": 0, "id": "96218bc9288445c79a734d2f4530fd80"}, {"remark": "", "name": "商场请", "areaCode": "430101001", "createId": "", "mall": "新商城", "updateTime": "2018-07-16 14:36:00", "createTime": "2018-07-16 14:36:00", "mobile": "18000032222", "manager": "李四", "updateId": "", "isDelete": 0, "id": "96c567e170774c04ade36e41e747516d"}, {"remark": null, "name": "33", "areaCode": "11", "createId": "24654521f92c4be1b31f87fb12a059b9", "mall": "55", "updateTime": "2018-07-19 11:12:28", "createTime": "2018-07-19 11:12:28", "mobile": "18899990000", "manager": "66", "updateId": "24654521f92c4be1b31f87fb12a059b9", "isDelete": 0, "id": "99061f6a428549049bfbc08fc2cd7db3"}, {"remark": null, "name": "商场", "areaCode": "230101003", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:09:35", "createTime": "2018-07-16 14:09:35", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "9da1c386b05c4aa7988057597cb9bfb4"}, {"remark": null, "name": "商场", "areaCode": "160101001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:08:09", "createTime": "2018-07-16 14:08:09", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "9fec105d014d494bafbc068803cf73a6"}, {"remark": null, "name": "商场", "areaCode": "180101001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:08:44", "createTime": "2018-07-16 14:08:44", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "a2dff617cb70428985c2f97870ea105f"}, {"remark": null, "name": "商场", "areaCode": "250202001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:09:41", "createTime": "2018-07-16 14:09:41", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "a352a5d2ade247b6a7f5bf2510be706e"}, {"remark": null, "name": "商场", "areaCode": "160302001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:08:14", "createTime": "2018-07-16 14:08:14", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "aa89b123b28e4ec9b66d6c3d3f6a7bbd"}, {"remark": null, "name": "灯市口商场", "areaCode": "100101003", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:06:24", "createTime": "2018-07-16 14:06:24", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "af7d0b2f04dc4cf39623039d17b38d27"}, {"remark": null, "name": "商场", "areaCode": "180101002", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:08:47", "createTime": "2018-07-16 14:08:47", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "b1a1dfa496174d56ac0b596ac6a3f8c9"}, {"remark": null, "name": "商场", "areaCode": "150402001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:07:59", "createTime": "2018-07-16 14:07:59", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "b676d100d5e843b8a639a9a9ffe48442"}, {"remark": "1111", "name": "1111", "areaCode": "1111", "createId": "", "mall": "1111", "updateTime": "2018-07-17 18:28:00", "createTime": "2018-07-17 18:28:00", "mobile": "18833332222", "manager": "1118", "updateId": "", "isDelete": 0, "id": "b79dd08dde6040cfa0335934d0c102af"}, {"remark": "", "name": "22", "areaCode": "110101001", "createId": "", "mall": "222", "updateTime": "2018-07-17 10:00:54", "createTime": "2018-07-17 10:00:54", "mobile": "18000000999", "manager": "222", "updateId": "", "isDelete": 0, "id": "bb8215c990c3464b98c6391774b61dbe"}, {"remark": null, "name": "商场", "areaCode": "130303001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:07:19", "createTime": "2018-07-16 14:07:19", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "bcc03e4e912f43f0958caeb3ad8281ac"}, {"remark": null, "name": "商场", "areaCode": "180105002", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:08:59", "createTime": "2018-07-16 14:08:59", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "bd7269bd85c645d58f274949ce2aa1c6"}, {"remark": null, "name": "商场", "areaCode": "170202001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:08:38", "createTime": "2018-07-16 14:08:38", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "bee86011829f40ea90cdbeaf945aa054"}, {"remark": "     ", "name": " 优惠", "areaCode": "120101001", "createId": "", "mall": "而    ", "updateTime": "2018-07-16 14:03:18", "createTime": "2018-07-16 14:03:18", "mobile": "13000001111", "manager": "    额 ", "updateId": "", "isDelete": 0, "id": "c3d7e0d80d684cdea70229bd8f40d663"}, {"remark": null, "name": "商场", "areaCode": "210201001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:09:25", "createTime": "2018-07-16 14:09:25", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "c5773eef30e04e1e85c16d0601b69674"}, {"remark": null, "name": "商场", "areaCode": "140102001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:07:30", "createTime": "2018-07-16 14:07:30", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "c76ecb7833414b0f843c6bbe9257757c"}, {"remark": "1111", "name": "1111", "areaCode": "1111", "createId": "", "mall": "1111", "updateTime": "2018-07-18 16:34:00", "createTime": "2018-07-18 16:34:00", "mobile": "18833332222", "manager": "1118", "updateId": "", "isDelete": 0, "id": "ccbf2d6c987742509ac2d499d3103c88"}, {"remark": null, "name": "商场", "areaCode": "150102001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:07:45", "createTime": "2018-07-16 14:07:45", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "cde028fccf984fd8b443beb1368d1fe7"}, {"remark": null, "name": "商场", "areaCode": "280202001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:10:00", "createTime": "2018-07-16 14:10:00", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "d3f2c847da9244af8ca604a6634384ae"}, {"remark": null, "name": "商场", "areaCode": "200102002", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:09:10", "createTime": "2018-07-16 14:09:10", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "dcebf374bffd454cbc7cbedd16a68edf"}, {"remark": null, "name": "商场", "areaCode": "390201001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:11:02", "createTime": "2018-07-16 14:11:02", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "e0ea8e0e89b74e9cb6e441d52b28746e"}, {"remark": null, "name": "商场", "areaCode": "270201001", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:09:53", "createTime": "2018-07-16 14:09:53", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "e7491bb641be44cab061536a388ea0df"}, {"remark": null, "name": "灯市口商场", "areaCode": "100101004", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:06:29", "createTime": "2018-07-16 14:06:29", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "ec0193e3e4bf486297c80c38182bff42"}, {"remark": null, "name": "灯市口商场", "areaCode": "110102002", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:06:45", "createTime": "2018-07-16 14:06:45", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "f155485cd1ea48f281b119401fc4d7b3"}, {"remark": null, "name": "33", "areaCode": "11", "createId": "", "mall": "55", "updateTime": "2018-07-18 18:27:46", "createTime": "2018-07-18 18:27:46", "mobile": "18899990000", "manager": "66", "updateId": "", "isDelete": 0, "id": "f93bc6d1c22d4fa3973628b0055ddf97"}, {"remark": null, "name": "商场", "areaCode": "260103003", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:09:47", "createTime": "2018-07-16 14:09:47", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "fd8f671dde8f437bbb5d19039f79daa3"}, {"remark": null, "name": "商场", "areaCode": "150103002", "createId": "", "mall": "商场1", "updateTime": "2018-07-16 14:07:49", "createTime": "2018-07-16 14:07:49", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "id": "fe1b5a4c1a8446cdb0a311162c7c362c"}]}
+{"msg": "操作失败！", "code": 1, "data": null}
+Traceback (most recent call last):
+  File "/Users/72cy-0101-01-0027/Desktop/work/script/erpapi/venv/lib/python2.7/site-packages/ddt.py", line 144, in wrapper
+    return func(self, *args, **kwargs)
+  File "/Users/72cy-0101-01-0027/Desktop/work/script/erpapi/interface_project/testInterface/locale/testlocale.py", line 120, in testdetele
+    self.assertEqual(res['code'],0,res['msg'])
+AssertionError: 操作失败！
 
 
     </pre>
@@ -233,21 +284,21 @@ pt1_3: 用例描述--&gt;查询点位列表不分页
 </tr>
 
 <tr id='pt1_4' class='hiddenRow'>
-    <td class='passCase'><div class='testcase'>testlist_1: 点位管理接口:查询点位列表#/machine/locale/list</div></td>
+    <td class='passCase'><div class='testcase'>testgetlist_1: 点位管理接口:查询点位列表不分页#/machine/locale/getlist</div></td>
     <td colspan='5' align='center'>
     <!--默认收起错误信息 -Findyou
     <button id='btn_pt1_4' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_4'>通过</button>
     <div id='div_pt1_4' class="collapse">  -->
     <!-- 默认展开错误信息 -Findyou -->
-    <button id='btn_pt1_4' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_4'>通过</button>
-    <div id='div_pt1_4' class="collapse in" align="left">
-    <pre>
+    <button id='btn_pt1_4' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_4'>通过</button>
+    <div id='div_pt1_4' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
     
-pt1_4: 用例描述--&gt;查询点位列表
-发送:
-{'keword': None, 'code': None, 'pageNo': None}
+pt1_4: 用例描述--&gt;查询点位列表不分页
+数据:{'keword': None, 'code': None, 'pageNo': None}
+发送:/machine/locale/getList
 返回:
-{"msg": "成功", "code": 0, "data": [{"province": null, "city": null, "remark": null, "name": "33", "district": null, "areaCode": "11", "createId": "24654521f92c4be1b31f87fb12a059b9", "userNum": 0, "mall": "55", "updateTime": "2018-07-19 11:40:08", "createTime": "2018-07-19 11:40:08", "mobile": "18899990000", "manager": "66", "updateId": "24654521f92c4be1b31f87fb12a059b9", "isDelete": 0, "circle": null, "id": "78aef0abe11d418eb5ad9ecc700b5520", "areaName": null}, {"province": null, "city": null, "remark": null, "name": "商场", "district": null, "areaCode": "180103002", "createId": "", "userNum": 0, "mall": "商场1", "updateTime": "2018-07-19 11:36:19", "createTime": "2018-07-19 11:36:18", "mobile": "18900009999", "manager": "张三", "updateId": "24654521f92c4be1b31f87fb12a059b9", "isDelete": 0, "circle": null, "id": "013188e098274c2aaa64b1a47d6fe884", "areaName": "上海市上海市徐汇区丁香花园"}, {"province": null, "city": null, "remark": null, "name": "33", "district": null, "areaCode": "11", "createId": "24654521f92c4be1b31f87fb12a059b9", "userNum": 0, "mall": "55", "updateTime": "2018-07-19 11:36:16", "createTime": "2018-07-19 11:36:16", "mobile": "18899990000", "manager": "66", "updateId": "24654521f92c4be1b31f87fb12a059b9", "isDelete": 0, "circle": null, "id": "8e3dfe00a5a24915b35ed7f208c30196", "areaName": null}, {"province": null, "city": null, "remark": null, "name": "33", "district": null, "areaCode": "11", "createId": "24654521f92c4be1b31f87fb12a059b9", "userNum": 0, "mall": "55", "updateTime": "2018-07-19 11:12:28", "createTime": "2018-07-19 11:12:28", "mobile": "18899990000", "manager": "66", "updateId": "24654521f92c4be1b31f87fb12a059b9", "isDelete": 0, "circle": null, "id": "99061f6a428549049bfbc08fc2cd7db3", "areaName": null}, {"province": null, "city": null, "remark": null, "name": "33", "district": null, "areaCode": "11", "createId": "24654521f92c4be1b31f87fb12a059b9", "userNum": 0, "mall": "55", "updateTime": "2018-07-19 11:11:58", "createTime": "2018-07-19 11:11:58", "mobile": "18899990000", "manager": "66", "updateId": "24654521f92c4be1b31f87fb12a059b9", "isDelete": 0, "circle": null, "id": "0a81b4341664401e9717ac42f491225c", "areaName": null}, {"province": null, "city": null, "remark": null, "name": "33", "district": null, "areaCode": "11", "createId": "", "userNum": 0, "mall": "55", "updateTime": "2018-07-18 18:27:46", "createTime": "2018-07-18 18:27:46", "mobile": "18899990000", "manager": "66", "updateId": "", "isDelete": 0, "circle": null, "id": "f93bc6d1c22d4fa3973628b0055ddf97", "areaName": null}, {"province": null, "city": null, "remark": "1111", "name": "1111", "district": null, "areaCode": "1", "createId": "", "userNum": 0, "mall": "1111", "updateTime": "2018-07-18 16:38:42", "createTime": "2018-07-18 16:38:42", "mobile": "18833337777", "manager": "1118", "updateId": "", "isDelete": 0, "circle": null, "id": "565b23d6973b420b801282f8a62ee501", "areaName": null}, {"province": null, "city": null, "remark": "1111", "name": "1111", "district": null, "areaCode": "北京市/北京市/东城区/王府井", "createId": "", "userNum": 0, "mall": "1111", "updateTime": "2018-07-18 16:37:31", "createTime": "2018-07-18 16:37:31", "mobile": "18833337777", "manager": "1118", "updateId": "", "isDelete": 0, "circle": null, "id": "0e32527ac2554ef4bc6d78a0ac4ea02e", "areaName": null}, {"province": null, "city": null, "remark": "1111", "name": "1111", "district": null, "areaCode": "1111", "createId": "", "userNum": 0, "mall": "1111", "updateTime": "2018-07-18 16:34:00", "createTime": "2018-07-18 16:34:00", "mobile": "18833332222", "manager": "1118", "updateId": "", "isDelete": 0, "circle": null, "id": "ccbf2d6c987742509ac2d499d3103c88", "areaName": null}, {"province": null, "city": null, "remark": "1111", "name": "1111", "district": null, "areaCode": "1111", "createId": "", "userNum": 0, "mall": "1111", "updateTime": "2018-07-17 18:28:00", "createTime": "2018-07-17 18:28:00", "mobile": "18833332222", "manager": "1118", "updateId": "", "isDelete": 0, "circle": null, "id": "b79dd08dde6040cfa0335934d0c102af", "areaName": null}, {"province": null, "city": null, "remark": "1111", "name": "1111", "district": null, "areaCode": "1111", "createId": "", "userNum": 0, "mall": "1111", "updateTime": "2018-07-17 18:27:57", "createTime": "2018-07-17 18:27:57", "mobile": "18833332222", "manager": "1118", "updateId": "", "isDelete": 0, "circle": null, "id": "64972039c7f24e3ab30bec4eaf32669f", "areaName": null}, {"province": null, "city": null, "remark": "1111", "name": "1111", "district": null, "areaCode": "1111", "createId": "", "userNum": 0, "mall": "1111", "updateTime": "2018-07-17 18:27:51", "createTime": "2018-07-17 18:27:51", "mobile": "18833332222", "manager": "1118", "updateId": "", "isDelete": 0, "circle": null, "id": "5897636f5d7f413ca5c9ea750a670bde", "areaName": null}, {"province": null, "city": null, "remark": "    ", "name": "1212", "district": null, "areaCode": "额外", "createId": "", "userNum": 0, "mall": "    ", "updateTime": "2018-07-17 17:39:48", "createTime": "2018-07-17 17:39:48", "mobile": "18822339900", "manager": "332", "updateId": "", "isDelete": 0, "circle": null, "id": "590654a02609474faefeb94d60a8126e", "areaName": null}, {"province": null, "city": null, "remark": "", "name": "22", "district": null, "areaCode": "110101001", "createId": "", "userNum": 0, "mall": "222", "updateTime": "2018-07-17 10:00:54", "createTime": "2018-07-17 10:00:54", "mobile": "18000000999", "manager": "222", "updateId": "", "isDelete": 0, "circle": null, "id": "bb8215c990c3464b98c6391774b61dbe", "areaName": "天津市天津市和平区鞍山道沿线"}, {"province": null, "city": null, "remark": "1111", "name": "1111", "district": null, "areaCode": "1111", "createId": "", "userNum": 0, "mall": "1111", "updateTime": "2018-07-17 09:50:50", "createTime": "2018-07-17 09:50:50", "mobile": "18833332222", "manager": "1118", "updateId": "", "isDelete": 0, "circle": null, "id": "96218bc9288445c79a734d2f4530fd80", "areaName": null}, {"province": null, "city": null, "remark": "", "name": "阿萨德", "district": null, "areaCode": "100102001", "createId": "", "userNum": 2, "mall": "王府井百货", "updateTime": "2018-07-16 18:45:58", "createTime": "2018-07-16 18:45:58", "mobile": "13000001111", "manager": "王迅", "updateId": "", "isDelete": 0, "circle": null, "id": "57a98b63b38b4201a8b871dab4d81eda", "areaName": "北京市北京市西城区小西天"}, {"province": null, "city": null, "remark": "", "name": "商场请", "district": null, "areaCode": "430101001", "createId": "", "userNum": 0, "mall": "新商城", "updateTime": "2018-07-16 14:36:00", "createTime": "2018-07-16 14:36:00", "mobile": "18000032222", "manager": "李四", "updateId": "", "isDelete": 0, "circle": null, "id": "96c567e170774c04ade36e41e747516d", "areaName": "台湾省台湾省其他其他"}, {"province": null, "city": null, "remark": null, "name": "商场", "district": null, "areaCode": "420101001", "createId": "", "userNum": 0, "mall": "商场1", "updateTime": "2018-07-16 14:11:24", "createTime": "2018-07-16 14:11:24", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "circle": null, "id": "5d25e1ce958e4d3791a4987eefa7890a", "areaName": "澳门特别行政区澳门特别行政区其他其他"}, {"province": null, "city": null, "remark": null, "name": "商场", "district": null, "areaCode": "410101001", "createId": "", "userNum": 0, "mall": "商场1", "updateTime": "2018-07-16 14:11:14", "createTime": "2018-07-16 14:11:14", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "circle": null, "id": "90ab876acb3e437890b549c167f49e5a", "areaName": "香港特别行政区香港特别行政区其他其他"}, {"province": null, "city": null, "remark": null, "name": "商场", "district": null, "areaCode": "400201001", "createId": "", "userNum": 0, "mall": "商场1", "updateTime": "2018-07-16 14:11:07", "createTime": "2018-07-16 14:11:07", "mobile": "18000000911", "manager": "张三", "updateId": "", "isDelete": 0, "circle": null, "id": "92ee881006ab4dcf89c0660fa2af5040", "areaName": "新疆维吾尔自治区克拉玛依市独山子区其他"}], "page": {"currentResult": 0, "totalPage": 5, "pageSize": 20, "pageNo": 1, "lastPage": false, "prePage": 1, "list": null, "firstPage": true, "totalCount": 86, "firstResult": 0, "nextPage": 2}}
+{"msg": "成功", "code": 0, "data": [{"province": null, "city": null, "remark": "", "name": "商场三层电梯", "district": null, "areaCode": "100101001", "createId": "df81a0c49ad648eea4760eddf77a1b1d", "userNum": 0, "mall": "外贸商场", "updateTime": "2018-08-10 15:24:41", "createTime": "2018-08-10 15:24:41", "mobile": "17600383847", "manager": "高飞", "updateId": "df81a0c49ad648eea4760eddf77a1b1d", "isDelete": 0, "circle": null, "id": "8b9f3b3a7c7f4c6eb0a266ef90af46a2", "areaName": "北京市北京市东城区王府井外贸商场商场三层电梯"}, {"province": null, "city": null, "remark": "", "name": "测试", "district": null, "areaCode": "100101001", "createId": "df81a0c49ad648eea4760eddf77a1b1d", "userNum": 0, "mall": "哈哈哈哈", "updateTime": "2018-08-17 19:23:47", "createTime": "2018-08-17 19:23:47", "mobile": "15533334443", "manager": "小红", "updateId": "df81a0c49ad648eea4760eddf77a1b1d", "isDelete": 0, "circle": null, "id": "d1ec079d6e7447e5b3836c7e88fe3a42", "areaName": "北京市北京市东城区王府井哈哈哈哈测试"}, {"province": null, "city": null, "remark": "", "name": "一层大厅", "district": null, "areaCode": "100101005", "createId": "df81a0c49ad648eea4760eddf77a1b1d", "userNum": 0, "mall": "新世界", "updateTime": "2018-08-10 15:23:26", "createTime": "2018-08-10 15:23:26", "mobile": "17600383847", "manager": "小红", "updateId": "df81a0c49ad648eea4760eddf77a1b1d", "isDelete": 0, "circle": null, "id": "8fa90658c3b747d2a6888de28f497380", "areaName": "北京市北京市东城区东直门新世界一层大厅"}, {"province": null, "city": null, "remark": null, "name": "自动化脚本测试08108226", "district": null, "areaCode": "100101005", "createId": "df81a0c49ad648eea4760eddf77a1b1d", "userNum": 0, "mall": "自动化脚本测试点位", "updateTime": "2018-08-23 13:47:00", "createTime": "2018-08-23 13:47:00", "mobile": "18899992222", "manager": "自动化测试", "updateId": "df81a0c49ad648eea4760eddf77a1b1d", "isDelete": 0, "circle": null, "id": "fa0b314c30c44727934e6ec996fd26f8", "areaName": "北京市北京市东城区东直门自动化脚本测试点位自动化脚本测试08108226"}, {"province": null, "city": null, "remark": "", "name": "三层面馆斜对面", "district": null, "areaCode": "110101002", "createId": "df81a0c49ad648eea4760eddf77a1b1d", "userNum": 0, "mall": "皇家广场", "updateTime": "2018-08-13 13:48:50", "createTime": "2018-08-13 13:48:50", "mobile": "17755556666", "manager": "小飞飞", "updateId": "df81a0c49ad648eea4760eddf77a1b1d", "isDelete": 0, "circle": null, "id": "8743c6436eaf491eb48ae8660c713469", "areaName": "天津市天津市和平区黄家花园皇家广场三层面馆斜对面"}, {"province": null, "city": null, "remark": "", "name": "商场健身房", "district": null, "areaCode": "280303019", "createId": "df81a0c49ad648eea4760eddf77a1b1d", "userNum": 0, "mall": "航天科技广场", "updateTime": "2018-08-13 15:24:41", "createTime": "2018-08-13 15:24:41", "mobile": "18304009999", "manager": "徐姝婷", "updateId": "df81a0c49ad648eea4760eddf77a1b1d", "isDelete": 0, "circle": null, "id": "09319b75cacf4b6893f63ba3485b119e", "areaName": "广东省深圳市南山区其他航天科技广场商场健身房"}]}
 
 
     </pre>
@@ -256,19 +307,42 @@ pt1_4: 用例描述--&gt;查询点位列表
 </tr>
 
 <tr id='pt1_5' class='hiddenRow'>
-    <td class='passCase'><div class='testcase'>testupdate_1: 点位管理接口:更新点位信息#/machine/locale/update</div></td>
+    <td class='passCase'><div class='testcase'>testlist_1: 点位管理接口:查询点位列表#/machine/locale/list</div></td>
     <td colspan='5' align='center'>
     <!--默认收起错误信息 -Findyou
     <button id='btn_pt1_5' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_5'>通过</button>
     <div id='div_pt1_5' class="collapse">  -->
     <!-- 默认展开错误信息 -Findyou -->
-    <button id='btn_pt1_5' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_5'>通过</button>
-    <div id='div_pt1_5' class="collapse in" align="left">
-    <pre>
+    <button id='btn_pt1_5' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_5'>通过</button>
+    <div id='div_pt1_5' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
     
-pt1_5: 用例描述--&gt;更新点位数据信息
-发送:
-{'mobile': '18900009999', 'id': '013188e098274c2aaa64b1a47d6fe884'}
+pt1_5: 用例描述--&gt;查询点位列表
+数据:{'keword': None, 'code': None, 'pageNo': None}
+发送:/machine/locale/list
+返回:
+{"msg": "成功", "code": 0, "data": [{"province": null, "city": null, "remark": null, "name": "自动化脚本测试08108226", "district": null, "areaCode": "100101005", "createId": "df81a0c49ad648eea4760eddf77a1b1d", "userNum": 0, "mall": "自动化脚本测试点位", "updateTime": "2018-08-23 13:47:00", "createTime": "2018-08-23 13:47:00", "mobile": "18899992222", "manager": "自动化测试", "updateId": "df81a0c49ad648eea4760eddf77a1b1d", "isDelete": 0, "circle": null, "id": "fa0b314c30c44727934e6ec996fd26f8", "areaName": "北京市北京市东城区东直门"}, {"province": null, "city": null, "remark": "", "name": "测试", "district": null, "areaCode": "100101001", "createId": "df81a0c49ad648eea4760eddf77a1b1d", "userNum": 7, "mall": "哈哈哈哈", "updateTime": "2018-08-17 19:23:47", "createTime": "2018-08-17 19:23:47", "mobile": "15533334443", "manager": "小红", "updateId": "df81a0c49ad648eea4760eddf77a1b1d", "isDelete": 0, "circle": null, "id": "d1ec079d6e7447e5b3836c7e88fe3a42", "areaName": "北京市北京市东城区王府井"}, {"province": null, "city": null, "remark": "", "name": "商场健身房", "district": null, "areaCode": "280303019", "createId": "df81a0c49ad648eea4760eddf77a1b1d", "userNum": 1, "mall": "航天科技广场", "updateTime": "2018-08-13 15:24:41", "createTime": "2018-08-13 15:24:41", "mobile": "18304009999", "manager": "徐姝婷", "updateId": "df81a0c49ad648eea4760eddf77a1b1d", "isDelete": 0, "circle": null, "id": "09319b75cacf4b6893f63ba3485b119e", "areaName": "广东省深圳市南山区其他"}, {"province": null, "city": null, "remark": "", "name": "三层面馆斜对面", "district": null, "areaCode": "110101002", "createId": "df81a0c49ad648eea4760eddf77a1b1d", "userNum": 1, "mall": "皇家广场", "updateTime": "2018-08-13 13:48:50", "createTime": "2018-08-13 13:48:50", "mobile": "17755556666", "manager": "小飞飞", "updateId": "df81a0c49ad648eea4760eddf77a1b1d", "isDelete": 0, "circle": null, "id": "8743c6436eaf491eb48ae8660c713469", "areaName": "天津市天津市和平区黄家花园"}, {"province": null, "city": null, "remark": "", "name": "商场三层电梯", "district": null, "areaCode": "100101001", "createId": "df81a0c49ad648eea4760eddf77a1b1d", "userNum": 1, "mall": "外贸商场", "updateTime": "2018-08-10 15:24:41", "createTime": "2018-08-10 15:24:41", "mobile": "17600383847", "manager": "高飞", "updateId": "df81a0c49ad648eea4760eddf77a1b1d", "isDelete": 0, "circle": null, "id": "8b9f3b3a7c7f4c6eb0a266ef90af46a2", "areaName": "北京市北京市东城区王府井"}, {"province": null, "city": null, "remark": "", "name": "一层大厅", "district": null, "areaCode": "100101005", "createId": "df81a0c49ad648eea4760eddf77a1b1d", "userNum": 1, "mall": "新世界", "updateTime": "2018-08-10 15:23:26", "createTime": "2018-08-10 15:23:26", "mobile": "17600383847", "manager": "小红", "updateId": "df81a0c49ad648eea4760eddf77a1b1d", "isDelete": 0, "circle": null, "id": "8fa90658c3b747d2a6888de28f497380", "areaName": "北京市北京市东城区东直门"}], "page": {"currentResult": 0, "totalPage": 1, "pageSize": 20, "pageNo": 1, "lastPage": true, "prePage": 1, "list": null, "firstPage": true, "totalCount": 6, "firstResult": 0, "nextPage": 1}}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1_6' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testupdate_1: 点位管理接口:更新点位信息#/machine/locale/update</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_6' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_6'>通过</button>
+    <div id='div_pt1_6' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_6' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_6'>通过</button>
+    <div id='div_pt1_6' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt1_6: 用例描述--&gt;更新点位数据信息
+数据:{'mobile': '18900009999', 'id': '32d8cb0b7780445abb6a7062d6edb169'}
+发送:/machine/locale/update
 返回:
 {"msg": "成功", "code": 0, "data": null}
 
@@ -278,13 +352,1803 @@ pt1_5: 用例描述--&gt;更新点位数据信息
     </td>
 </tr>
 
+<tr class='failClass warning'>
+    <td>testInterface.channel.testchannel.TestChannel: 项目管理-渠道管理接口</td>
+    <td class="text-center">5</td>
+    <td class="text-center">4</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">
+        <a href="javascript:showClassDetail('c2',5)" class="detail" id='c2'>详细</a>
+        <a href='javascript:hidden_case()' id="case_hidden_btn" style="display:none">展开所有</a>
+    </td>
+
+</tr>
+
+<tr id='pt2_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testadd_1: 渠道管理接口:新添加渠道#/project/channel/add</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt2_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt2_1'>通过</button>
+    <div id='div_pt2_1' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt2_1' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt2_1'>通过</button>
+    <div id='div_pt2_1' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt2_1: 自动化测试
+自动化测试106014
+用例描述--&gt;新添加渠道
+数据:{'channelName': u'\u81ea\u52a8\u5316\u6d4b\u8bd5\u6e20\u9053', 'channelCode': u'\u81ea\u52a8\u5316\u6d4b\u8bd5106014'}
+发送:/project/channel/add
+返回:
+{"msg": "成功", "code": 0, "data": "操作成功"}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft2_2' class='none'>
+    <td class='failCase'><div class='testcase'>testdetele_1: 渠道管理接口:删除渠道信息#/project/channel/delete</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft2_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft2_2'>失败</button>
+    <div id='div_ft2_2' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft2_2' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft2_2'>失败</button>
+    <div id='div_ft2_2' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+ft2_2: 用例描述--&gt;删除渠道
+数据:{'id': 'f44de8e75e9d44df870382da02dc6225'}
+发送:/project/channel/delete
+返回:
+{"msg": "操作失败！", "code": 1, "data": null}
+Traceback (most recent call last):
+  File "/Users/72cy-0101-01-0027/Desktop/work/script/erpapi/venv/lib/python2.7/site-packages/ddt.py", line 144, in wrapper
+    return func(self, *args, **kwargs)
+  File "/Users/72cy-0101-01-0027/Desktop/work/script/erpapi/interface_project/testInterface/channel/testchannel.py", line 104, in testdetele
+    self.assertEqual(res['code'],0,res['msg'])
+AssertionError: 操作失败！
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt2_3' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testgetlist_1: 渠道管理接口:查询渠道列表不分页#/project/channel/getlist</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt2_3' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt2_3'>通过</button>
+    <div id='div_pt2_3' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt2_3' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt2_3'>通过</button>
+    <div id='div_pt2_3' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt2_3: 用例描述--&gt;查询渠道列表不分页
+数据:{'keword': None, 'code': None, 'pageNo': None}
+发送:/project/channel/getList
+返回:
+{"msg": "成功", "code": 0, "data": [{"updateTime": "2018-08-13 14:38:35", "createId": "df81a0c49ad648eea4760eddf77a1b1d", "channelCode": "002", "id": "76d9b533fc5645d6b6336b3fa97088b7", "updateId": "df81a0c49ad648eea4760eddf77a1b1d", "isDelete": 0, "channelName": "天猫渠道", "createTime": "2018-08-13 14:38:35"}, {"updateTime": "2018-08-23 13:47:00", "createId": "df81a0c49ad648eea4760eddf77a1b1d", "channelCode": "自动化测试106014", "id": "a9d9ee204ba043f28f21d3b3436a1db0", "updateId": "df81a0c49ad648eea4760eddf77a1b1d", "isDelete": 0, "channelName": "自动化测试渠道", "createTime": "2018-08-23 13:47:00"}]}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt2_4' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testlist_1: 渠道管理接口:查询渠道列表#/project/channel/list</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt2_4' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt2_4'>通过</button>
+    <div id='div_pt2_4' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt2_4' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt2_4'>通过</button>
+    <div id='div_pt2_4' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt2_4: 用例描述--&gt;查询渠道列表
+数据:{'keword': None, 'code': None, 'pageNo': None}
+发送:/project/channel/list
+返回:
+{"msg": "成功", "code": 0, "data": [{"updateTime": "2018-08-23 13:47:00", "createId": "df81a0c49ad648eea4760eddf77a1b1d", "channelCode": "自动化测试106014", "id": "a9d9ee204ba043f28f21d3b3436a1db0", "updateId": "df81a0c49ad648eea4760eddf77a1b1d", "isDelete": 0, "channelName": "自动化测试渠道", "createTime": "2018-08-23 13:47:00"}, {"updateTime": "2018-08-13 14:38:35", "createId": "df81a0c49ad648eea4760eddf77a1b1d", "channelCode": "002", "id": "76d9b533fc5645d6b6336b3fa97088b7", "updateId": "df81a0c49ad648eea4760eddf77a1b1d", "isDelete": 0, "channelName": "天猫渠道", "createTime": "2018-08-13 14:38:35"}], "page": {"currentResult": 0, "totalPage": 1, "pageSize": 20, "pageNo": 1, "lastPage": true, "prePage": 1, "list": null, "firstPage": true, "totalCount": 2, "firstResult": 0, "nextPage": 1}}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt2_5' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testupdate_1: 渠道管理接口:更新渠道信息#/project/channel/update</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt2_5' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt2_5'>通过</button>
+    <div id='div_pt2_5' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt2_5' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt2_5'>通过</button>
+    <div id='div_pt2_5' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt2_5: 用例描述--&gt;更新渠道数据信息
+数据:{'channelName': u'\u66f4\u65b0\u81ea\u52a8\u5316\u6e20\u9053', 'id': 'f647799ebd3e4c10883983dda12ee2c9', 'channelCode': u'\u81ea\u52a8\u5316\u6d4b\u8bd501'}
+发送:/project/channel/update
+返回:
+{"msg": "成功", "code": 0, "data": "操作成功"}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='failClass warning'>
+    <td>testInterface.merchant.testmerchant.TestMerchant: 项目管理-商户管理接口</td>
+    <td class="text-center">6</td>
+    <td class="text-center">5</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">
+        <a href="javascript:showClassDetail('c3',6)" class="detail" id='c3'>详细</a>
+        <a href='javascript:hidden_case()' id="case_hidden_btn" style="display:none">展开所有</a>
+    </td>
+
+</tr>
+
+<tr id='pt3_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testadd_1: 商户理接口:新添加商户#/project/merchant/add</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt3_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt3_1'>通过</button>
+    <div id='div_pt3_1' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt3_1' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt3_1'>通过</button>
+    <div id='div_pt3_1' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt3_1: 自动化测试商户008
+自动化测试商户008106411
+用例描述--&gt;新添加商户
+数据:{'merchantCode': u'\u81ea\u52a8\u5316\u6d4b\u8bd5\u5546\u6237008106411', 'channelId': 'f647799ebd3e4c10883983dda12ee2c9', 'merchantName': u'\u81ea\u52a8\u5316\u6d4b\u8bd5\u5546\u6237', 'originFlag': '18899991111', 'brandName': u'\u6d4b\u8bd5'}
+发送:/project/merchant/add
+返回:
+{"msg": "成功", "code": 0, "data": "操作成功"}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt3_2' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testdetail_1: 商户管理接口:查看商户详细#/project/merchant/detail</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt3_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt3_2'>通过</button>
+    <div id='div_pt3_2' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt3_2' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt3_2'>通过</button>
+    <div id='div_pt3_2' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt3_2: 用例描述--&gt;查询商户详细信息
+数据:{'id': 'e366b1b9db1042fcae9a972fc8a1c8e2'}
+发送:/project/merchant/detail
+返回:
+{"msg": "成功", "code": 0, "data": null}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft3_3' class='none'>
+    <td class='failCase'><div class='testcase'>testdetele_1: 商户管理接口:删除商户信息#/project/merchant/delete</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft3_3' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft3_3'>失败</button>
+    <div id='div_ft3_3' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft3_3' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft3_3'>失败</button>
+    <div id='div_ft3_3' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+ft3_3: 用例描述--&gt;删除商户
+数据:{'id': '4b101e776c6b44918e749668c21c866e'}
+发送:/project/merchant/delete
+返回:
+{"msg": "操作失败！", "code": 1, "data": null}
+Traceback (most recent call last):
+  File "/Users/72cy-0101-01-0027/Desktop/work/script/erpapi/venv/lib/python2.7/site-packages/ddt.py", line 144, in wrapper
+    return func(self, *args, **kwargs)
+  File "/Users/72cy-0101-01-0027/Desktop/work/script/erpapi/interface_project/testInterface/merchant/testmerchant.py", line 116, in testdetele
+    self.assertEqual(res['code'],0,res['msg'])
+AssertionError: 操作失败！
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt3_4' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testgetlist_1: 商户管理接口:查询商户列表不分页#/project/merchant/getlist</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt3_4' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt3_4'>通过</button>
+    <div id='div_pt3_4' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt3_4' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt3_4'>通过</button>
+    <div id='div_pt3_4' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt3_4: 用例描述--&gt;查询商户列表不分页
+数据:{'keword': None, 'code': None, 'pageNo': None}
+发送:/project/merchant/getList
+返回:
+{"msg": "成功", "code": 0, "data": [{"updateTime": "2018-08-22 13:03:34", "createId": "df81a0c49ad648eea4760eddf77a1b1d", "merchantName": "铃草realpetfood ", "brandName": "铃草 ", "channelId": "76d9b533fc5645d6b6336b3fa97088b7", "createTime": "2018-08-22 13:03:34", "merchantCode": "3920082863", "updateId": "df81a0c49ad648eea4760eddf77a1b1d", "isDelete": 0, "id": "7be173d5834d4fe8b371c8c213f02368", "originFlag": "铃草 "}, {"updateTime": "2018-08-13 14:50:22", "createId": "df81a0c49ad648eea4760eddf77a1b1d", "merchantName": "LAB SERIES朗仕官方旗舰店", "brandName": "LAB朗仕", "channelId": "76d9b533fc5645d6b6336b3fa97088b7", "createTime": "2018-08-13 14:50:22", "merchantCode": "2923702713", "updateId": "df81a0c49ad648eea4760eddf77a1b1d", "isDelete": 0, "id": "826932affaca4bec8e9dc3fd8cb8cf38", "originFlag": "LAB朗仕"}, {"updateTime": "2018-08-23 13:47:01", "createId": "df81a0c49ad648eea4760eddf77a1b1d", "merchantName": "自动化测试商户", "brandName": "测试", "channelId": "f647799ebd3e4c10883983dda12ee2c9", "createTime": "2018-08-23 13:47:01", "merchantCode": "自动化测试商户008106411", "updateId": "df81a0c49ad648eea4760eddf77a1b1d", "isDelete": 0, "id": "cb2850771ec9406dba02719326d553eb", "originFlag": "18899991111"}]}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt3_5' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testlist_1: 商户管理接口:查询商户列表#/project/merchant/list</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt3_5' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt3_5'>通过</button>
+    <div id='div_pt3_5' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt3_5' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt3_5'>通过</button>
+    <div id='div_pt3_5' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt3_5: 用例描述--&gt;查询商户列表
+数据:{'keword': None, 'code': None, 'pageNo': None}
+发送:/project/merchant/list
+返回:
+{"msg": "成功", "code": 0, "data": [{"updateTime": "2018-08-23 13:47:01", "createId": null, "merchantName": "自动化测试商户", "brandName": "测试", "channelId": null, "createTime": "2018-08-23 13:47:01", "merchantCode": "自动化测试商户008106411", "updateId": null, "isDelete": 0, "id": "cb2850771ec9406dba02719326d553eb", "originFlag": "18899991111"}, {"updateTime": "2018-08-22 13:03:34", "createId": null, "merchantName": "铃草realpetfood ", "brandName": "铃草 ", "channelId": "天猫渠道", "createTime": "2018-08-22 13:03:34", "merchantCode": "3920082863", "updateId": null, "isDelete": 0, "id": "7be173d5834d4fe8b371c8c213f02368", "originFlag": "铃草 "}, {"updateTime": "2018-08-13 14:50:22", "createId": null, "merchantName": "LAB SERIES朗仕官方旗舰店", "brandName": "LAB朗仕", "channelId": "天猫渠道", "createTime": "2018-08-13 14:50:22", "merchantCode": "2923702713", "updateId": null, "isDelete": 0, "id": "826932affaca4bec8e9dc3fd8cb8cf38", "originFlag": "LAB朗仕"}], "page": {"currentResult": 0, "totalPage": 1, "pageSize": 20, "pageNo": 1, "lastPage": true, "prePage": 1, "list": null, "firstPage": true, "totalCount": 3, "firstResult": 0, "nextPage": 1}}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt3_6' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testupdate_1: 商户管理接口:更新商户信息#/project/merchant/update</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt3_6' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt3_6'>通过</button>
+    <div id='div_pt3_6' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt3_6' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt3_6'>通过</button>
+    <div id='div_pt3_6' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt3_6: 用例描述--&gt;更新商户数据信息
+数据:{'merchantCode': 'L666', 'id': 'ba7d96b362db42659c6abc88b624b3d9', 'merchantName': u'\u66f4\u65b0\u81ea\u52a8\u5316\u6d4b\u8bd5'}
+发送:/project/merchant/update
+返回:
+{"msg": "成功", "code": 0, "data": "操作成功"}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='failClass warning'>
+    <td>testInterface.shops.testshops.TestShops: 项目管理-店铺管理接口</td>
+    <td class="text-center">6</td>
+    <td class="text-center">5</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">
+        <a href="javascript:showClassDetail('c4',6)" class="detail" id='c4'>详细</a>
+        <a href='javascript:hidden_case()' id="case_hidden_btn" style="display:none">展开所有</a>
+    </td>
+
+</tr>
+
+<tr id='pt4_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testadd_1: 店铺管理接口:新添加店铺#/project/shops/add</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt4_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt4_1'>通过</button>
+    <div id='div_pt4_1' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt4_1' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt4_1'>通过</button>
+    <div id='div_pt4_1' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt4_1: 自动化测试008
+自动化测试008108727
+用例描述--&gt;新添加店铺
+数据:{'sellerId': 'af5b41cfcd734a6bb2e696136a8303b5', 'shopCode': u'\u81ea\u52a8\u5316\u6d4b\u8bd5008108727', 'shopName': u'\u81ea\u52a8\u5316\u6d4b\u8bd5\u5e97\u94fa'}
+发送:/project/shops/add
+返回:
+{"msg": "成功", "code": 0, "data": "操作成功"}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt4_2' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testdetail_1: 店铺管理接口:查看店铺#/project/shops/detail</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt4_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt4_2'>通过</button>
+    <div id='div_pt4_2' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt4_2' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt4_2'>通过</button>
+    <div id='div_pt4_2' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt4_2: 用例描述--&gt;查询店铺详细信息
+数据:{'id': 'e1a8736d72284751b9b6ea704f1269e7'}
+发送:/project/shops/detail
+返回:
+{"msg": "成功", "code": 0, "data": null}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft4_3' class='none'>
+    <td class='failCase'><div class='testcase'>testdetele_1: 店铺管理接口:删除店铺信息#/project/shops/delete</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft4_3' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft4_3'>失败</button>
+    <div id='div_ft4_3' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft4_3' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft4_3'>失败</button>
+    <div id='div_ft4_3' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+ft4_3: 用例描述--&gt;删除店铺
+数据:{'id': '6887b5370e81498c9fad385765f5a766'}
+发送:/project/shops/delete
+返回:
+{"msg": "操作失败！", "code": 1, "data": null}
+Traceback (most recent call last):
+  File "/Users/72cy-0101-01-0027/Desktop/work/script/erpapi/venv/lib/python2.7/site-packages/ddt.py", line 144, in wrapper
+    return func(self, *args, **kwargs)
+  File "/Users/72cy-0101-01-0027/Desktop/work/script/erpapi/interface_project/testInterface/shops/testshops.py", line 116, in testdetele
+    self.assertEqual(res['code'],0,res['msg'])
+AssertionError: 操作失败！
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt4_4' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testgetlist_1: 项目管理接口:查询店铺列表不分页#/project/shops/getlist</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt4_4' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt4_4'>通过</button>
+    <div id='div_pt4_4' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt4_4' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt4_4'>通过</button>
+    <div id='div_pt4_4' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt4_4: 用例描述--&gt;查询店铺列表不分页
+数据:{'keword': None, 'code': None, 'pageNo': None}
+发送:/project/shops/getList
+返回:
+{"msg": "成功", "code": 0, "data": [{"remark": null, "createId": "df81a0c49ad648eea4760eddf77a1b1d", "shopName": "LAB SERIES朗仕官方旗舰店", "shopCode": "162886045", "updateTime": "2018-08-13 14:55:51", "createTime": "2018-08-13 14:55:51", "updateId": "df81a0c49ad648eea4760eddf77a1b1d", "isDelete": 0, "sellerId": "826932affaca4bec8e9dc3fd8cb8cf38", "id": "a82ab53e4b7e4da0b5aa4f6b40b2dbcc"}, {"remark": null, "createId": "df81a0c49ad648eea4760eddf77a1b1d", "shopName": "自动化测试店铺", "shopCode": "自动化测试008108727", "updateTime": "2018-08-23 13:47:01", "createTime": "2018-08-23 13:47:01", "updateId": "df81a0c49ad648eea4760eddf77a1b1d", "isDelete": 0, "sellerId": "af5b41cfcd734a6bb2e696136a8303b5", "id": "e7ca552bd2344a62b7338cbdc47b7e9e"}, {"remark": null, "createId": "df81a0c49ad648eea4760eddf77a1b1d", "shopName": "铃草", "shopCode": "231652201", "updateTime": "2018-08-22 13:04:02", "createTime": "2018-08-22 13:04:02", "updateId": "df81a0c49ad648eea4760eddf77a1b1d", "isDelete": 0, "sellerId": "7be173d5834d4fe8b371c8c213f02368", "id": "f6bb767fd64748e0b8f15ac453f2a9dc"}]}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt4_5' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testlist_1: 项目管理接口:查询店铺列表#/project/shops/list</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt4_5' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt4_5'>通过</button>
+    <div id='div_pt4_5' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt4_5' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt4_5'>通过</button>
+    <div id='div_pt4_5' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt4_5: 用例描述--&gt;查询店铺列表
+数据:{'keword': None, 'code': None, 'pageNo': None}
+发送:/project/shops/list
+返回:
+{"msg": "成功", "code": 0, "data": [{"remark": null, "createId": "df81a0c49ad648eea4760eddf77a1b1d", "shopName": "自动化测试店铺", "shopCode": "自动化测试008108727", "updateTime": "2018-08-23 13:47:01", "createTime": "2018-08-23 13:47:01", "updateId": "df81a0c49ad648eea4760eddf77a1b1d", "isDelete": 0, "sellerId": null, "id": "e7ca552bd2344a62b7338cbdc47b7e9e"}, {"remark": null, "createId": "df81a0c49ad648eea4760eddf77a1b1d", "shopName": "铃草", "shopCode": "231652201", "updateTime": "2018-08-22 13:04:02", "createTime": "2018-08-22 13:04:02", "updateId": "df81a0c49ad648eea4760eddf77a1b1d", "isDelete": 0, "sellerId": "铃草realpetfood ", "id": "f6bb767fd64748e0b8f15ac453f2a9dc"}, {"remark": null, "createId": "df81a0c49ad648eea4760eddf77a1b1d", "shopName": "LAB SERIES朗仕官方旗舰店", "shopCode": "162886045", "updateTime": "2018-08-13 14:55:51", "createTime": "2018-08-13 14:55:51", "updateId": "df81a0c49ad648eea4760eddf77a1b1d", "isDelete": 0, "sellerId": "LAB SERIES朗仕官方旗舰店", "id": "a82ab53e4b7e4da0b5aa4f6b40b2dbcc"}], "page": {"currentResult": 0, "totalPage": 1, "pageSize": 20, "pageNo": 1, "lastPage": true, "prePage": 1, "list": null, "firstPage": true, "totalCount": 3, "firstResult": 0, "nextPage": 1}}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt4_6' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testupdate_1: 店铺管理接口:更新店铺信息#/project/shops/update</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt4_6' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt4_6'>通过</button>
+    <div id='div_pt4_6' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt4_6' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt4_6'>通过</button>
+    <div id='div_pt4_6' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt4_6: 用例描述--&gt;更新店铺数据信息
+数据:{'shopCode': 'M222', 'id': '7db05782411c40f4a8faed2b12552bf6', 'shopName': u'\u66f4\u65b0\u5e97\u94fa\u81ea\u52a8\u5316'}
+发送:/project/shops/update
+返回:
+{"msg": "成功", "code": 0, "data": "操作成功"}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='failClass warning'>
+    <td>testInterface.activity.testactivity.TestActicity: 项目管理-活动管理接口</td>
+    <td class="text-center">6</td>
+    <td class="text-center">5</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">
+        <a href="javascript:showClassDetail('c5',6)" class="detail" id='c5'>详细</a>
+        <a href='javascript:hidden_case()' id="case_hidden_btn" style="display:none">展开所有</a>
+    </td>
+
+</tr>
+
+<tr id='pt5_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testadd_1: 活动管理接口:新添加活动#/project/activity/add</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt5_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt5_1'>通过</button>
+    <div id='div_pt5_1' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt5_1' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt5_1'>通过</button>
+    <div id='div_pt5_1' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt5_1: 用例描述--&gt;添加新活动
+数据:{'remark': u'\u81ea\u52a8\u5316\u6d4b\u8bd5', 'code': '1000008107020', 'name': u'\u81ea\u52a8\u5316\u6d4b\u8bd5\u6d3b\u52a8103326', 'sellerId': 'af5b41cfcd734a6bb2e696136a8303b5', 'shopId': '42d6c8d888db48da80fe1f75ab8edf6e', 'isDefault': '0'}
+发送:/project/activity/add
+返回:
+{"msg": "成功", "code": 0, "data": "操作成功"}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt5_2' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testdetail_1: 活动管理接口:查看活动详细#/project/activity/detail</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt5_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt5_2'>通过</button>
+    <div id='div_pt5_2' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt5_2' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt5_2'>通过</button>
+    <div id='div_pt5_2' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt5_2: 用例描述--&gt;查询活动详细信息
+数据:{'id': '320d4215dfab45039ae97e126df049e3'}
+发送:/project/activity/detail
+返回:
+{"msg": "成功", "code": 0, "data": null}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft5_3' class='none'>
+    <td class='failCase'><div class='testcase'>testdetele_1: 活动管理接口:删除活动信息#/project/activity/delete</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft5_3' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft5_3'>失败</button>
+    <div id='div_ft5_3' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft5_3' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft5_3'>失败</button>
+    <div id='div_ft5_3' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+ft5_3: 用例描述--&gt;删除活动
+数据:{'id': 'a48b086d759d4acca4899d9482027d24'}
+发送:/project/activity/delete
+返回:
+{"msg": "操作失败！", "code": 1, "data": null}
+Traceback (most recent call last):
+  File "/Users/72cy-0101-01-0027/Desktop/work/script/erpapi/venv/lib/python2.7/site-packages/ddt.py", line 144, in wrapper
+    return func(self, *args, **kwargs)
+  File "/Users/72cy-0101-01-0027/Desktop/work/script/erpapi/interface_project/testInterface/activity/testactivity.py", line 116, in testdetele
+    self.assertEqual(res['code'],0,res['msg'])
+AssertionError: 操作失败！
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt5_4' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testgetlist_1: 活动管理接口:查询活动列表不分页#/project/activity/getlist</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt5_4' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt5_4'>通过</button>
+    <div id='div_pt5_4' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt5_4' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt5_4'>通过</button>
+    <div id='div_pt5_4' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt5_4: 用例描述--&gt;查询活动列表不分页
+数据:{'keword': None, 'code': None, 'pageNo': None}
+发送:/project/activity/getList
+返回:
+{"msg": "成功", "code": 0, "data": [{"remark": null, "code": null, "name": "自动化测试活动103326", "createId": null, "shopId": "42d6c8d888db48da80fe1f75ab8edf6e", "createTime": null, "managerId": null, "updateTime": null, "gameId": null, "updateId": null, "isDelete": null, "sellerId": "af5b41cfcd734a6bb2e696136a8303b5", "id": "40df0a43cfda4cdd8ce6df3ba1c881dc", "isDefault": null}]}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt5_5' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testlist_1: 活动管理接口:查询活动列表#/project/activity/list</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt5_5' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt5_5'>通过</button>
+    <div id='div_pt5_5' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt5_5' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt5_5'>通过</button>
+    <div id='div_pt5_5' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt5_5: 用例描述--&gt;查询活动列表
+数据:{'keword': None, 'code': None, 'pageNo': None}
+发送:/project/activity/list
+返回:
+{"msg": "成功", "code": 0, "data": [{"remark": "自动化测试", "code": "1000008107020", "name": "自动化测试活动103326", "state": "未排期", "createId": null, "shopId": null, "createTime": "2018-08-23 13:47:02", "managerId": "高帅", "prizeType": null, "updateTime": "2018-08-23 13:47:02", "gameId": null, "updateId": null, "merchantName": null, "isDelete": 0, "sellerId": null, "id": "40df0a43cfda4cdd8ce6df3ba1c881dc", "isDefault": 0, "shopName": null}, {"remark": null, "code": "3.1", "name": "一", "state": "已结束", "createId": null, "shopId": "f6bb767fd64748e0b8f15ac453f2a9dc", "createTime": "2018-08-22 20:45:32", "managerId": "高帅", "prizeType": "100300", "updateTime": "2018-08-22 20:45:32", "gameId": null, "updateId": null, "merchantName": "铃草realpetfood ", "isDelete": 0, "sellerId": "7be173d5834d4fe8b371c8c213f02368", "id": "bb42fbb0f7064ee99974cc4012a34038", "isDefault": 0, "shopName": "铃草"}, {"remark": null, "code": "4", "name": "辛巴克", "state": "已结束", "createId": null, "shopId": "f6bb767fd64748e0b8f15ac453f2a9dc", "createTime": "2018-08-22 13:41:06", "managerId": "高帅", "prizeType": "100200", "updateTime": "2018-08-22 13:41:06", "gameId": null, "updateId": null, "merchantName": "铃草realpetfood ", "isDelete": 0, "sellerId": "7be173d5834d4fe8b371c8c213f02368", "id": "6e8bb61b00824b1e880a899180cc1a5b", "isDefault": 0, "shopName": "铃草"}, {"remark": null, "code": "5", "name": "朗仕贩卖机活动", "state": "已结束", "createId": null, "shopId": "a82ab53e4b7e4da0b5aa4f6b40b2dbcc", "createTime": "2018-08-17 19:18:24", "managerId": "高帅", "prizeType": "100300", "updateTime": "2018-08-17 19:18:24", "gameId": null, "updateId": null, "merchantName": "LAB SERIES朗仕官方旗舰店", "isDelete": 0, "sellerId": "826932affaca4bec8e9dc3fd8cb8cf38", "id": "ac9e584814e94b67b279513e2e8b6a56", "isDefault": 0, "shopName": "LAB SERIES朗仕官方旗舰店"}, {"remark": null, "code": "12", "name": "LAB朗仕深圳", "state": "进行中", "createId": null, "shopId": "a82ab53e4b7e4da0b5aa4f6b40b2dbcc", "createTime": "2018-08-14 16:00:24", "managerId": "高帅", "prizeType": "100100", "updateTime": "2018-08-14 16:00:25", "gameId": null, "updateId": null, "merchantName": "LAB SERIES朗仕官方旗舰店", "isDelete": 0, "sellerId": "826932affaca4bec8e9dc3fd8cb8cf38", "id": "85f721f697a244fdb1e8d45908fe8322", "isDefault": 0, "shopName": "LAB SERIES朗仕官方旗舰店"}], "page": {"currentResult": 0, "totalPage": 1, "pageSize": 20, "pageNo": 1, "lastPage": true, "prePage": 1, "list": null, "firstPage": true, "totalCount": 5, "firstResult": 0, "nextPage": 1}}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt5_6' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testupdate_1: 活动管理接口:更新活动信息#/project/activity/update</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt5_6' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt5_6'>通过</button>
+    <div id='div_pt5_6' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt5_6' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt5_6'>通过</button>
+    <div id='div_pt5_6' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt5_6: 用例描述--&gt;更新活动数据信息
+数据:{'id': '208c825203f844b9b428e87db3686a8c', 'name': u'\u66f4\u65b0\u81ea\u52a8\u5316\u6d4b\u8bd5\u6d3b\u52a8'}
+发送:/project/activity/update
+返回:
+{"msg": "成功", "code": 0, "data": "操作成功"}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='failClass warning'>
+    <td>testInterface.game.testgame.TestGame: 项目管理-游戏管理接口</td>
+    <td class="text-center">5</td>
+    <td class="text-center">4</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">
+        <a href="javascript:showClassDetail('c6',5)" class="detail" id='c6'>详细</a>
+        <a href='javascript:hidden_case()' id="case_hidden_btn" style="display:none">展开所有</a>
+    </td>
+
+</tr>
+
+<tr id='pt6_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testadd_1: 游戏管理接口:新添加游戏#/project/game/add</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt6_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt6_1'>通过</button>
+    <div id='div_pt6_1' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt6_1' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt6_1'>通过</button>
+    <div id='div_pt6_1' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt6_1: 用例描述--&gt;新添加游戏
+数据:{'remark': u'\u81ea\u52a8\u5316\u6d4b\u8bd5\u6e38\u620f\u5403\u9e21', 'version': '1.1.2', 'versionInno72': '1.1.1', 'name': u'\u81ea\u52a8\u5316\u6d4b\u8bd5\u6e38\u620f08'}
+发送:/project/game/add
+返回:
+{"msg": "成功", "code": 0, "data": "操作成功"}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft6_2' class='none'>
+    <td class='failCase'><div class='testcase'>testdetele_1: 游戏管理接口:删除游戏#/project/game/detele</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft6_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft6_2'>失败</button>
+    <div id='div_ft6_2' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft6_2' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft6_2'>失败</button>
+    <div id='div_ft6_2' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+ft6_2: 用例描述--&gt;删除游戏
+数据:{'id': 'c1ac2087f643473da68f874554d76fef'}
+发送:/project/game/delete
+返回:
+{"msg": "操作失败", "code": 1, "data": null}
+Traceback (most recent call last):
+  File "/Users/72cy-0101-01-0027/Desktop/work/script/erpapi/venv/lib/python2.7/site-packages/ddt.py", line 144, in wrapper
+    return func(self, *args, **kwargs)
+  File "/Users/72cy-0101-01-0027/Desktop/work/script/erpapi/interface_project/testInterface/game/testgame.py", line 96, in testdetele
+    self.assertEqual(res['code'], 0, res['msg'])
+AssertionError: 操作失败
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt6_3' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testgetlist_1: 游戏管理接口:查询游戏详情#/project/game/getlist</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt6_3' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt6_3'>通过</button>
+    <div id='div_pt6_3' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt6_3' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt6_3'>通过</button>
+    <div id='div_pt6_3' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt6_3: 用例描述--&gt;查询游戏详情
+数据:{'id': 'c5d0f998bbe94e3b9c9aad3eb835ec8a'}
+发送:/project/game/detail
+返回:
+{"msg": "成功", "code": 0, "data": null}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt6_4' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testlist_1: 游戏管理接口:查询游戏列表#/project/game/list</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt6_4' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt6_4'>通过</button>
+    <div id='div_pt6_4' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt6_4' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt6_4'>通过</button>
+    <div id='div_pt6_4' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt6_4: 用例描述--&gt;查询游戏列表
+数据:{}
+发送:/project/game/list
+返回:
+{"msg": "成功", "code": 0, "data": [{"remark": "自动化测试游戏吃鸡", "name": "自动化测试游戏08", "createId": "df81a0c49ad648eea4760eddf77a1b1d", "versionInno72": "1.1.1", "updateTime": "2018-08-23 13:47:02", "createTime": "2018-08-23 13:47:02", "version": "1.1.2", "updateId": "df81a0c49ad648eea4760eddf77a1b1d", "isDelete": 0, "id": "e86d98821a044a338658d203c5712856"}, {"remark": null, "name": "LAB朗仕互动游戏", "createId": "df81a0c49ad648eea4760eddf77a1b1d", "versionInno72": "1.0", "updateTime": "2018-08-15 18:59:33", "createTime": "2018-08-15 18:59:27", "version": "1.0", "updateId": "df81a0c49ad648eea4760eddf77a1b1d", "isDelete": 0, "id": "1a72b99035a54de08f721633d21929d1"}, {"remark": "默认游戏", "name": "默认游戏", "createId": "df81a0c49ad648eea4760eddf77a1b1d", "versionInno72": "0", "updateTime": "2018-08-14 16:20:35", "createTime": "2018-08-14 16:20:35", "version": "0", "updateId": "df81a0c49ad648eea4760eddf77a1b1d", "isDelete": 0, "id": "6e44a45b01f4487eadae697b010f8db8"}], "page": {"currentResult": 0, "totalPage": 1, "pageSize": 20, "pageNo": 1, "lastPage": true, "prePage": 1, "list": null, "firstPage": true, "totalCount": 3, "firstResult": 0, "nextPage": 1}}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt6_5' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testupdate_1: 游戏管理接口:更新游戏信息#/project/game/update</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt6_5' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt6_5'>通过</button>
+    <div id='div_pt6_5' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt6_5' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt6_5'>通过</button>
+    <div id='div_pt6_5' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt6_5: 用例描述--&gt;更新游戏数据信息
+数据:{'id': 'c5d0f998bbe94e3b9c9aad3eb835ec8a', 'name': u'\u66f4\u65b0\u81ea\u52a8\u5316\u6d4b\u8bd5\u6e38\u620f'}
+发送:/project/game/update
+返回:
+{"msg": "成功", "code": 0, "data": null}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='failClass warning'>
+    <td>testInterface.goods.testgoods.TestGoods: 项目管理-商品管理接口</td>
+    <td class="text-center">6</td>
+    <td class="text-center">4</td>
+    <td class="text-center">2</td>
+    <td class="text-center">0</td>
+    <td class="text-center">
+        <a href="javascript:showClassDetail('c7',6)" class="detail" id='c7'>详细</a>
+        <a href='javascript:hidden_case()' id="case_hidden_btn" style="display:none">展开所有</a>
+    </td>
+
+</tr>
+
+<tr id='pt7_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testadd_1: 项目管理接口:新添加商品#/project/goods/add</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt7_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt7_1'>通过</button>
+    <div id='div_pt7_1' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt7_1' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt7_1'>通过</button>
+    <div id='div_pt7_1' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt7_1: 自动化测试
+自动化测试103510
+用例描述--&gt;新添加商品
+数据:{'remark': u'\u81ea\u52a8\u5316\u6d4b\u8bd5', 'code': u'\u81ea\u52a8\u5316\u6d4b\u8bd5103510', 'name': u'\u81ea\u52a8\u5316\u6d4b\u8bd5', 'price': '100', 'shopId': '42d6c8d888db48da80fe1f75ab8edf6e', 'sellerId': 'af5b41cfcd734a6bb2e696136a8303b5'}
+发送:/project/goods/add
+返回:
+{"msg": "成功", "code": 0, "data": "操作成功"}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft7_2' class='none'>
+    <td class='failCase'><div class='testcase'>testdetail_1: 项目管理接口:查看商品详细#/project/goods/detail</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft7_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft7_2'>失败</button>
+    <div id='div_ft7_2' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft7_2' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft7_2'>失败</button>
+    <div id='div_ft7_2' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+ft7_2: 用例描述--&gt;查询商品详细信息
+数据:{'id': 'fca270c33d8048ff80410fb0ee55fc7b'}
+发送:/project/goods/detail
+返回:
+{"msg": "java.lang.NullPointerException", "code": 500, "data": null}
+Traceback (most recent call last):
+  File "/Users/72cy-0101-01-0027/Desktop/work/script/erpapi/venv/lib/python2.7/site-packages/ddt.py", line 144, in wrapper
+    return func(self, *args, **kwargs)
+  File "/Users/72cy-0101-01-0027/Desktop/work/script/erpapi/interface_project/testInterface/goods/testgoods.py", line 85, in testdetail
+    self.assertEqual(res['code'],0,res['msg'])
+AssertionError: java.lang.NullPointerException
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft7_3' class='none'>
+    <td class='failCase'><div class='testcase'>testdetele_1: 项目管理接口:删除商品信息#/project/goods/delete</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft7_3' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft7_3'>失败</button>
+    <div id='div_ft7_3' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft7_3' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft7_3'>失败</button>
+    <div id='div_ft7_3' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+ft7_3: 用例描述--&gt;删除商品
+数据:{'id': '07a2861067ce4786a4687afa7ee4243c'}
+发送:/project/goods/delete
+返回:
+{"msg": "操作失败！", "code": 1, "data": null}
+Traceback (most recent call last):
+  File "/Users/72cy-0101-01-0027/Desktop/work/script/erpapi/venv/lib/python2.7/site-packages/ddt.py", line 144, in wrapper
+    return func(self, *args, **kwargs)
+  File "/Users/72cy-0101-01-0027/Desktop/work/script/erpapi/interface_project/testInterface/goods/testgoods.py", line 116, in testdetele
+    self.assertEqual(res['code'],0,res['msg'])
+AssertionError: 操作失败！
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt7_4' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testgetlist_1: 项目管理接口:查询商品列表不分页#/project/goods/getlist</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt7_4' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt7_4'>通过</button>
+    <div id='div_pt7_4' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt7_4' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt7_4'>通过</button>
+    <div id='div_pt7_4' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt7_4: 用例描述--&gt;查询商品列表不分页
+数据:{'keword': None, 'code': None, 'pageNo': None}
+发送:/project/goods/getList
+返回:
+{"msg": "成功", "inno72Goods": {"remark": null, "code": null, "name": null, "img": null, "price": null, "createId": null, "shopId": null, "updateTime": null, "createTime": null, "updateId": null, "isDelete": 0, "sellerId": null, "id": null}, "code": 0, "data": [{"remark": null, "code": "575183937392", "name": "LAB朗仕多功能洁面乳30ml", "img": "backend/goods/badb93fef63f493995343e29d6324d37.png", "price": null, "createId": "df81a0c49ad648eea4760eddf77a1b1d", "shopId": "a82ab53e4b7e4da0b5aa4f6b40b2dbcc", "updateTime": "2018-08-13 15:03:34", "createTime": "2018-08-13 15:03:34", "updateId": "df81a0c49ad648eea4760eddf77a1b1d", "isDelete": 0, "sellerId": "826932affaca4bec8e9dc3fd8cb8cf38", "id": "2412ec6b72834c94b7a5f122abb5eb2d"}, {"remark": "自动化测试", "code": "自动化测试103510", "name": "自动化测试", "img": null, "price": 100.0, "createId": "df81a0c49ad648eea4760eddf77a1b1d", "shopId": "42d6c8d888db48da80fe1f75ab8edf6e", "updateTime": "2018-08-23 13:47:02", "createTime": "2018-08-23 13:47:02", "updateId": "df81a0c49ad648eea4760eddf77a1b1d", "isDelete": 0, "sellerId": "af5b41cfcd734a6bb2e696136a8303b5", "id": "3ec470e6655d4e4a9a1f7d341f805c3b"}, {"remark": null, "code": "574692834855", "name": "林草2", "img": null, "price": null, "createId": "df81a0c49ad648eea4760eddf77a1b1d", "shopId": "f6bb767fd64748e0b8f15ac453f2a9dc", "updateTime": "2018-08-22 20:08:27", "createTime": "2018-08-22 20:08:27", "updateId": "df81a0c49ad648eea4760eddf77a1b1d", "isDelete": 0, "sellerId": "7be173d5834d4fe8b371c8c213f02368", "id": "47baaa632e2741af829a9c38c1c0f304"}, {"remark": null, "code": "574578125712", "name": "铃草", "img": null, "price": null, "createId": "df81a0c49ad648eea4760eddf77a1b1d", "shopId": "f6bb767fd64748e0b8f15ac453f2a9dc", "updateTime": "2018-08-22 13:04:24", "createTime": "2018-08-22 13:04:24", "updateId": "df81a0c49ad648eea4760eddf77a1b1d", "isDelete": 0, "sellerId": "7be173d5834d4fe8b371c8c213f02368", "id": "ac14a80ba8914384bed04618997b0a8d"}]}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt7_5' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testlist_1: 项目管理接口:查询商品列表#/project/goods/list</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt7_5' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt7_5'>通过</button>
+    <div id='div_pt7_5' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt7_5' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt7_5'>通过</button>
+    <div id='div_pt7_5' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt7_5: 用例描述--&gt;查询商品列表
+数据:{'keword': None, 'code': None, 'pageNo': None}
+发送:/project/goods/list
+返回:
+{"msg": "成功", "code": 0, "data": [{"remark": "自动化测试", "code": "自动化测试103510", "name": "自动化测试", "img": "https://inno72.oss-cn-beijing.aliyuncs.com/null", "price": 100.0, "createId": "df81a0c49ad648eea4760eddf77a1b1d", "shopId": null, "updateTime": "2018-08-23 13:47:02", "createTime": "2018-08-23 13:47:02", "updateId": "df81a0c49ad648eea4760eddf77a1b1d", "isDelete": null, "sellerId": null, "id": "3ec470e6655d4e4a9a1f7d341f805c3b"}, {"remark": null, "code": "574692834855", "name": "林草2", "img": "https://inno72.oss-cn-beijing.aliyuncs.com/null", "price": null, "createId": "df81a0c49ad648eea4760eddf77a1b1d", "shopId": "铃草", "updateTime": "2018-08-22 20:08:27", "createTime": "2018-08-22 20:08:27", "updateId": "df81a0c49ad648eea4760eddf77a1b1d", "isDelete": null, "sellerId": "铃草realpetfood ", "id": "47baaa632e2741af829a9c38c1c0f304"}, {"remark": null, "code": "574578125712", "name": "铃草", "img": "https://inno72.oss-cn-beijing.aliyuncs.com/null", "price": null, "createId": "df81a0c49ad648eea4760eddf77a1b1d", "shopId": "铃草", "updateTime": "2018-08-22 13:04:24", "createTime": "2018-08-22 13:04:24", "updateId": "df81a0c49ad648eea4760eddf77a1b1d", "isDelete": null, "sellerId": "铃草realpetfood ", "id": "ac14a80ba8914384bed04618997b0a8d"}, {"remark": null, "code": "575183937392", "name": "LAB朗仕多功能洁面乳30ml", "img": "https://inno72.oss-cn-beijing.aliyuncs.com/backend/goods/badb93fef63f493995343e29d6324d37.png", "price": null, "createId": "df81a0c49ad648eea4760eddf77a1b1d", "shopId": "LAB SERIES朗仕官方旗舰店", "updateTime": "2018-08-13 15:03:34", "createTime": "2018-08-13 15:03:34", "updateId": "df81a0c49ad648eea4760eddf77a1b1d", "isDelete": null, "sellerId": "LAB SERIES朗仕官方旗舰店", "id": "2412ec6b72834c94b7a5f122abb5eb2d"}], "page": {"currentResult": 0, "totalPage": 1, "pageSize": 20, "pageNo": 1, "lastPage": true, "prePage": 1, "list": null, "firstPage": true, "totalCount": 4, "firstResult": 0, "nextPage": 1}}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt7_6' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testupdate_1: 项目管理接口:更新商品信息#/project/goods/update</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt7_6' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt7_6'>通过</button>
+    <div id='div_pt7_6' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt7_6' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt7_6'>通过</button>
+    <div id='div_pt7_6' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt7_6: 用例描述--&gt;更新商品数据信息
+数据:{'code': '56123456', 'id': 'f15a4c7cb66c459da5a0446899314855', 'name': u'\u66f4\u65b0\u81ea\u52a8\u5316\u6d4b\u8bd5'}
+发送:/project/goods/update
+返回:
+{"msg": "成功", "code": 0, "data": "操作成功"}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='failClass warning'>
+    <td>testInterface.activityplan.testactivityplan.TestActicityPlan: 项目排期管理-活动排期管理接口</td>
+    <td class="text-center">7</td>
+    <td class="text-center">4</td>
+    <td class="text-center">3</td>
+    <td class="text-center">0</td>
+    <td class="text-center">
+        <a href="javascript:showClassDetail('c8',7)" class="detail" id='c8'>详细</a>
+        <a href='javascript:hidden_case()' id="case_hidden_btn" style="display:none">展开所有</a>
+    </td>
+
+</tr>
+
+<tr id='pt8_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testadd_1: 活动排期管理接口:新添加活动排期#/project/activityPlan/add</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt8_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt8_1'>通过</button>
+    <div id='div_pt8_1' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt8_1' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt8_1'>通过</button>
+    <div id='div_pt8_1' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt8_1: 用例描述--&gt;添加新活动排期
+数据:{"activityId": "f3e504e9d64d41ebaf558108372c0e0e", "gameId": "8cbd9bad1829454c8672f97ff531385d", "startTimeStr": "2018-08-23 13:47", "goods": [{"prizeId": "9a6d230c5e1643caa8ead174f3fe059e", "prizeType": "0", "resultCode": "1", "resultRemark": "\u6311\u6218\u6210\u529f\u6389\u8d27"}, {"prizeId": "9a6d230c5e1643caa8ead174f3fe059e", "prizeType": "1", "resultCode": "2", "resultRemark": "\u6311\u6218\u6210\u529f\u6389\u8d27"}], "endTimeStr": "2018-08-23 13:53", "userMaxTimes": "100000", "machines": [{"machineId": "ff282cdf99224d87b0d5947aa68021ea", "state": "0", "machineCode": "18749948"}]}
+发送:/project/activityPlan/add
+返回:
+{"msg": "成功", "code": 0, "data": null}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft8_2' class='none'>
+    <td class='failCase'><div class='testcase'>testdetail_1: 活动排期管理接口:查看活动排期详细#/project/activityPlan/detail</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft8_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft8_2'>失败</button>
+    <div id='div_ft8_2' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft8_2' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft8_2'>失败</button>
+    <div id='div_ft8_2' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+ft8_2: 用例描述--&gt;查询活动排期详细信息
+数据:{'id': '965a85f124c14d78ab65526046c6be62'}
+发送:/project/activityPlan/detail
+返回:
+{"msg": "java.lang.NullPointerException", "code": 500, "data": null}
+Traceback (most recent call last):
+  File "/Users/72cy-0101-01-0027/Desktop/work/script/erpapi/venv/lib/python2.7/site-packages/ddt.py", line 144, in wrapper
+    return func(self, *args, **kwargs)
+  File "/Users/72cy-0101-01-0027/Desktop/work/script/erpapi/interface_project/testInterface/activityplan/testactivityplan.py", line 87, in testdetail
+    self.assertEqual(res['code'],0,res['msg'])
+AssertionError: java.lang.NullPointerException
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft8_3' class='none'>
+    <td class='failCase'><div class='testcase'>testdetele_1: 活动排期管理接口:删除活动排期信息#/project/activityPlan/delete</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft8_3' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft8_3'>失败</button>
+    <div id='div_ft8_3' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft8_3' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft8_3'>失败</button>
+    <div id='div_ft8_3' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+ft8_3: 用例描述--&gt;删除活动排期
+数据:{'id': 'f9d03dffbc944daf857f89b8fda8d4d8'}
+发送:/project/activityPlan/delete
+返回:
+{"msg": "操作失败！", "code": 1, "data": null}
+Traceback (most recent call last):
+  File "/Users/72cy-0101-01-0027/Desktop/work/script/erpapi/venv/lib/python2.7/site-packages/ddt.py", line 144, in wrapper
+    return func(self, *args, **kwargs)
+  File "/Users/72cy-0101-01-0027/Desktop/work/script/erpapi/interface_project/testInterface/activityplan/testactivityplan.py", line 119, in testdetele
+    self.assertEqual(res['code'],0,res['msg'])
+AssertionError: 操作失败！
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt8_4' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testgetlist_1: 活动排期管理接口:查询活动排期不分页#/project/activityPlan/planMachineDetailList</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt8_4' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt8_4'>通过</button>
+    <div id='div_pt8_4' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt8_4' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt8_4'>通过</button>
+    <div id='div_pt8_4' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt8_4: 用例描述--&gt;查询活动排期机器详情
+数据:{'id': '965a85f124c14d78ab65526046c6be62'}
+发送:/project/activityPlan/planMachineDetailList
+返回:
+{"msg": "成功", "code": 0, "data": []}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt8_5' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testlist_1: 活动排期管理接口:查询活动排期列表#/project/activityPlan/list</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt8_5' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt8_5'>通过</button>
+    <div id='div_pt8_5' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt8_5' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt8_5'>通过</button>
+    <div id='div_pt8_5' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt8_5: 用例描述--&gt;查询活动排期列表
+数据:{'code': None, 'startTime': None, 'endTime': None}
+发送:/project/activityPlan/list
+返回:
+{"msg": "成功", "code": 0, "data": [{"updateTime": "2018-08-14 16:27:02", "gameName": null, "userMaxTimes": null, "isDelete": 0, "id": "9617371696db48b8bf711bb1783fd7a9", "machines": null, "merchantName": null, "activityName": "LAB朗仕深圳", "endTimeStr": null, "prizeType": null, "activityId": "85f721f697a244fdb1e8d45908fe8322", "gameId": "1a72b99035a54de08f721633d21929d1", "createId": null, "updateId": null, "startTime": "2018-08-13 15:31:00", "createTime": "2018-08-14 16:27:02", "coupons": null, "remark": "已选择1台机器，分别位于广东省", "goods": null, "startTimeStr": null, "shopName": null, "shopId": null, "dayUserMaxTimes": null, "endTime": "2018-09-13 23:59:59"}, {"updateTime": "2018-08-23 13:47:03", "gameName": null, "userMaxTimes": null, "isDelete": 0, "id": "9fb6f0b3016842bdbab4d91b7dceed53", "machines": null, "merchantName": null, "activityName": null, "endTimeStr": null, "prizeType": null, "activityId": "f3e504e9d64d41ebaf558108372c0e0e", "gameId": "8cbd9bad1829454c8672f97ff531385d", "createId": null, "updateId": null, "startTime": "2018-08-23 13:47:00", "createTime": "2018-08-23 13:47:03", "coupons": null, "remark": null, "goods": null, "startTimeStr": null, "shopName": null, "shopId": null, "dayUserMaxTimes": null, "endTime": "2018-08-23 13:53:59"}]}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt8_6' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testselect_1: 活动排期管理接口:选择机器#//project/activityPlan/selectAreaMachines</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt8_6' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt8_6'>通过</button>
+    <div id='div_pt8_6' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt8_6' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt8_6'>通过</button>
+    <div id='div_pt8_6' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt8_6: 用例描述--&gt;排期添加选择机器
+数据:{'code': '100101001', 'endTime': '2018-08-12 23:59', 'startTime': '2018-08-10 00:00', 'level': '5'}
+发送:/project/activityPlan/selectAreaMachines
+返回:
+{"msg": "成功", "code": 0, "data": [{"province": "北京市", "city": "北京市", "code": "2b7c93e0d1984c58a913776f8eb20da2", "name": "外贸商场商场三层电梯—18760472", "district": "东城区", "level": 5, "canUseNum": null, "parentCode": "", "machines": [], "circle": "王府井", "planed": "1", "totalNum": null}, {"province": "北京市", "city": "北京市", "code": "68c64e4236cf4ad5baccedf451557388", "name": "哈哈哈哈测试—18589171", "district": "东城区", "level": 5, "canUseNum": null, "parentCode": "", "machines": [], "circle": "王府井", "planed": "0", "totalNum": null}, {"province": "北京市", "city": "北京市", "code": "e67d866f77bb42228449e12a16193278", "name": "哈哈哈哈测试—18669682", "district": "东城区", "level": 5, "canUseNum": null, "parentCode": "", "machines": [], "circle": "王府井", "planed": "0", "totalNum": null}]}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft8_7' class='none'>
+    <td class='failCase'><div class='testcase'>testupdate_1: 活动排期管理接口:更新活动排期信息#/project/activityPlan/update</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft8_7' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft8_7'>失败</button>
+    <div id='div_ft8_7' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft8_7' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft8_7'>失败</button>
+    <div id='div_ft8_7' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+ft8_7: 用例描述--&gt;更新活动排期数据信息
+数据:{"gameId": "8cbd9bad1829454c8672f97ff531385d", "startTimeStr": "2018-08-10 15:04", "activityName": "\u81ea\u52a8\u5316\u6d4b\u8bd5\u6d3b\u52a808", "userMaxTimes": "10000", "activityId": "8c9d37f5481d42d08d0221a4119bc5c2", "goods": [{"prizeType": "1", "name": "\u81ea\u52a8\u5316\u6d4b\u8bd5", "key": 0, "prizeId": "9a6d230c5e1643caa8ead174f3fe059e", "resultCode": 1, "resultRemark": "\u6311\u6218\u6210\u529f\u6389\u8d27"}, {"prizeType": "1", "name": "\u81ea\u52a8\u5316\u6d4b\u8bd5", "key": 1, "prizeId": "9a6d230c5e1643caa8ead174f3fe059e", "resultCode": 2, "resultRemark": "\u6311\u6218\u6210\u529f\u6389\u8d27\u66f4\u65b0"}], "dayUserMaxTimes": "10000", "coupons": [], "endTimeStr": "2018-08-31 15:04", "id": "849790f5f8424e5ca0d5e3bf46170b72", "machines": [{"machineId": "d33733a6dd5c47c3b03b2ccccba4b9d9", "state": 0, "machineCode": ""}]}
+发送:/project/activityPlan/update
+返回:
+{"msg": "操作失败！", "code": 1, "data": null}
+Traceback (most recent call last):
+  File "/Users/72cy-0101-01-0027/Desktop/work/script/erpapi/venv/lib/python2.7/site-packages/ddt.py", line 144, in wrapper
+    return func(self, *args, **kwargs)
+  File "/Users/72cy-0101-01-0027/Desktop/work/script/erpapi/interface_project/testInterface/activityplan/testactivityplan.py", line 104, in testupdate
+    self.assertEqual(res['code'],0,res['msg'])
+AssertionError: 操作失败！
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='failClass warning'>
+    <td>testInterface.machine.testmachine.TestMachine: 机器后台-管理接口</td>
+    <td class="text-center">7</td>
+    <td class="text-center">3</td>
+    <td class="text-center">4</td>
+    <td class="text-center">0</td>
+    <td class="text-center">
+        <a href="javascript:showClassDetail('c9',7)" class="detail" id='c9'>详细</a>
+        <a href='javascript:hidden_case()' id="case_hidden_btn" style="display:none">展开所有</a>
+    </td>
+
+</tr>
+
+<tr id='pt9_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testgetapp_1: 机器后台管理接口:获取机器上app#/app/getAppByBlong</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt9_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt9_1'>通过</button>
+    <div id='div_pt9_1' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt9_1' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt9_1'>通过</button>
+    <div id='div_pt9_1' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt9_1: 用例描述--&gt;获取机器上app
+数据:2751265ef6f9698fde799bd2b661c9a2
+发送:/app/getAppByBlong
+返回:
+"6a54f7c88ed80836fcaba17d5eb4c79d45f0eb8a004b54ef6a4e3011ea1c2aaf7f562ab7f16b5be74822ee5602a84adb9ad7f7b85466755ef48df7a7930198fdc1c0b84e1859d2cfd923ab3f33761c19a4bf0a2bcd6789a8b2652ed5e08ff31f4676dcbca315d05f0631c1b26a96585242702aa32e27f77ecab63b7fc7a7d9913ea66e8d6e353753910bdb72529fa6a98f7f921eda48d0aaa119b30a95f672a480ace8e90fd7e3704a5c855235d5ff8ac19d98e849fb78e6720c48b49c83b664417964bd866a8553ee3b15a6b0a0f23c478b4edcdfd64b273dcad974d5abfae783ec74ed27977579ca4fe1f5e55a044cd2635b09cabd805ccb5d65c876a1d8bf1b4e5ee79387c93ea3f53b76c4990c72fcf63b3978cebef87bbd7ca659b13c511ba0f1a7ade49a7ac4612426cf4894f8f88d53ec7b2ba352bb813d0a6c1eee436957c219faec29f0e1272d24fe1555ab762d12017265c7a6587c714a87d874aec28616f55c8b24525707c85163ef6deefe11ae63a6b71f7c9269f5c2c0b3fc1495eb5f7bd19c5f1a63305bfcb385f52029db9c3561278e06aaed29c4b941818cc079be6cfdce1ada20b134ea0e288b0291ba7a03e8d9f62858e75fc3af7bdeb5351088886849823fe59e89b82cc29ac261b2e01fc715a0e48300d0eef4dfb7ca644d3e62d8eb6b8fef5eedfdf876bc96ebbcac79ba9f9863ce03ed99ba48d069bf8f536b063ba5a3d9011d677dc209a018ab8806481fae985381c944a89c063826a768ec5d9bffae3484e5305d2d332696495a66a35403adbc33137a1b17c23b3e4fc8edc7a9d48196f951a24e5bea948ab27cc858f4a3fbabe1028070e2aadce55a29b3bc942601a12cc7eead4403b08eb9313414b08bc3a95a63ae825f336e8b7cfb804904a5f8e9bac983dedb062aa634fbf3cedaa2b5ae851c0fa08c9d30bc5eed2b64c2184dccdbca64d6b4e94b518226658b83ae86f524ccdc51cb7130e04ab1d49d5742d8d8369330d3668d864c3d89da8692ad541cc6e841eca7f5821da3ef1b501f75305ffec28bfe9463ab131610860276bca4394f3d7fb5b2e41d3038a5b8326bfed5893fa06a3dd7abcf997068763e121e9182ecc9e5c01f62f9b67fe0f19ce38d7c13a70b341d2d6be0c2f2ff7f7b85c8da6091e43816a9efcb32d3bfcbf5c9d795c505462f4be586881763963314480e7800e3153da47ce81578ad96fee23773c882d1b1cf12f28837d0a5810ea8e0e8665c171fbaafa1f834ee290db20937eef782efe6b1ab928528a5d6617abc7b9a4ba60f88fb52183729e8cf7176903c0136fc4d515f0d7c2d33e7d5cc7c6b675dbe5ae7d4d54170a3f97dbf3eaa0eb9fc7e81af78dd9a1f3580a18c348a45ed44182f9a7cb33f3abeb58ae4a5e8dbfe095dad58b973858ff4d2674b6405588a58af3d75abe6923650d6"
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt9_2' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testgetid_1: 机器后台管理接口:获取机器ID#/machine/generateMachineId</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt9_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt9_2'>通过</button>
+    <div id='div_pt9_2' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt9_2' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt9_2'>通过</button>
+    <div id='div_pt9_2' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt9_2: 用例描述--&gt;获取机器ID
+数据:d8f8a103c5a84ab80dae91bc095722d988d2c274c9487748d4f3048b9a950ac0
+发送:/machine/generateMachineId
+返回:
+"6a54f7c88ed80836fcaba17d5eb4c79df5c065fb3dcc880fbd868a0a450aecf3882585903d71a65365aa6f54c25ee209"
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt9_3' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testgetlocale_1: 机器后台管理接口:获取机器点位#/machine/getMachineLocale</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt9_3' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt9_3'>通过</button>
+    <div id='div_pt9_3' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt9_3' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt9_3'>通过</button>
+    <div id='div_pt9_3' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt9_3: 用例描述--&gt;获取机器点位
+数据:e73578fbd3f6811e2a7c1d23551f73b001c971044a544a2e2dc2d311afbe20d5
+发送:/machine/getMachineLocale
+返回:
+"6a54f7c88ed80836fcaba17d5eb4c79dd319c7a18157c7eb59d75e49eafda571b2836631799d7a1ee408b55f64d22de2"
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft9_4' class='none'>
+    <td class='failCase'><div class='testcase'>testgetstatus_1: 机器后台管理接口:获取机器状态#/machine/getMachineStatus</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft9_4' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft9_4'>失败</button>
+    <div id='div_ft9_4' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft9_4' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft9_4'>失败</button>
+    <div id='div_ft9_4' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+ft9_4: 用例描述--&gt;获取机器状态
+数据:e73578fbd3f6811e2a7c1d23551f73b001c971044a544a2e2dc2d311afbe20d5
+发送:/machine/getMachineStatus
+返回:
+"cb85630feeda8d8e857b162bde909f82a2a219b10fa10d66e8c9706d8549f91397125b24de9080a602e2537d502f056447128be07ab49ccf614d5740559163ac"
+Traceback (most recent call last):
+  File "/Users/72cy-0101-01-0027/Desktop/work/script/erpapi/venv/lib/python2.7/site-packages/ddt.py", line 144, in wrapper
+    return func(self, *args, **kwargs)
+  File "/Users/72cy-0101-01-0027/Desktop/work/script/erpapi/interface_project/testInterface/machine/testmachine.py", line 72, in testgetstatus
+    self.assertEqual(res2['code'],0)#断言
+AssertionError: 1 != 0
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft9_5' class='none'>
+    <td class='failCase'><div class='testcase'>testint_1: 机器后台管理接口:初始化机器#/machine/initMachine</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft9_5' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft9_5'>失败</button>
+    <div id='div_ft9_5' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft9_5' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft9_5'>失败</button>
+    <div id='div_ft9_5' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+ft9_5: 用例描述--&gt;初始化机器
+数据:374ca4d9c398a8b3362166776744eea8c23e8af2c32f3a594e29b58e195d16f81f42820592288be7dd8580962bc60d0c711d531f60f910a64817bf5eaa0b60423c6c969e4f9964b69807eb3fa5b3aba8f112fb79c176f7097f0fd60f97e75dce874adcaa5d1d9677db5d1acdc3cc365ace4949bb09475807591a65ef0c721ee823446278c3f9dbf3b57512bef7f426e2edbac084c38d9bbf767641ebb3c7d3bf2d3cc7c6fca0fb44acba0e852b541cf4cac953ee0341ea5b9c466a604e9fff621217a41225e7ac641d95eeb818e2e41eeaea5952b7a76a1d7ac8e67f1f19db7839a84c88c4960647bc1a88995e795a86b2da4b10638bf942a462fa0b923f5c72fd6d945d5be42a2732135465ab17186cbf13dd53755c3d09291116ba8fd73f21be6b88a3a49c31aa9e32a70e9c071000e0df2a2823111701608b2a6cb7f0c4b0127db5bc57f1f5f064c12d83bf40776d8b06e5146c65b04fe59e95d874786f1097d69d9db0b6eb3db37d1926e9b9f0d80a7c822661b0db264796c516ea01305ac7959650ab195e807221a7008a2cf51688d8a408e61d1043828b798c84610bad2d877ddd8a4a79872e56cbdd2f6b12ed43229a25ba3f6b667aa248ccbb2bac436e0b937c0036c845124522b80e0c989bb64353d9cddc982553acc233c5c001d425981aafea7762ede583c9b33420e110ba4829539d0029bfd6be58bb5f755194b0a6f88ee4c488fc253038768b793fed771c441d83b3059a0a0774300cd2b3f76e1f2c8ba31d05985cec00abbe65a44813f5a17252364257b763c7fabdcf382a4d4580bf2b0c72e3688c3ae0ec76d52de08024c1fb0f9a9424292d2d08c5acb8c6a9396e355e779bffd0f6d3fd602bfe005a110a0fc6d3fdd050fe64244c38e3ad99037cfb165f63ce4bdeb77040cda06bdf273ea4a179b62b377e44b6c676142240b4046f60bc89ff1b18893af4951bf1d66298d9c94f5dbe6ac8db53755c7f0e7acaecd625357c0ecf54c0fc235365b5e80b3980fdb00d02c55f5000dd27d1147fb56b056287fbd9179c431a3bf98e0f057a59639386570636afa7bdd256609af1f049f2c49234f3922c016fddbfd14b1fc1c9859e6af3b0af661b16e89878b46879873521efc1fb8bca680e18e05757c0adbd4428943c0b6944b2d6c6c96df62bbce6a4995e0d1d904a8ef37f26fd27461973f2be9aec9e5c1241aebf0c561c75f341f27a80bc5264c5cac33fdc14b81b2fd5bc52be4bd7ab8ea63d81f94c45783f75b223dafe093d705326ec058dfeda8f502dadb4489aacc92c12aa80d476fcad95e52b0870925fd970e8310224c6590a1662a0359dc1ed4e58acae55dcd47ef833e05068ad9be066f14de566e3a641fea59fb8022160d6619f7a7142d624c72013bf3a35c4e71c19be8d743737293c60afc0be4c4210091745289f601941b496e6f26e9b46d48b7b1d3e86e177a2a3e6eaac9aaa86797fde008f1cca1edd43aaba565418be38ef5ed9eed169faa6fb99dec638e86e006a9cab5d0974e934188d97aa20633cf8b1f2a9450b5c0875fd8500c9acadfa1f453ad1425a324a1e5c29fdebd821f80e2e63dff804868d7abccc0256dd54faa759cb8f58f77c8239766752379d89cc319c8e58d30df7e7d1f614c7797fceec8419260d65ff90ce5dcdc62d7aa31d7d66b5bfb12bafcb6c43e09cfae7ccb17ad2c1482d50e87bbf4329116230b92de7ae2063b70c7499905e5d68df7b84383687e0527962e176c3bfee699ff5184c3dbb0fba5c28c4419db448375d7f5c459eed75361d114398d4b84133bfdb53e39f7217efd6ffa9442b47ba8a58cbe7e944a708e40d29c41d0f1998d572fbd1703e1ccbb511cfbdf48c40a40cbb66ea56ed27d2195b6a9f50de2996d4e0a4059faa4f31ec506c0b56a03b06d36e643febaf75ad2c88f92ddef301719579e22e7084f85c704299008d280593ca25ea1ef5144f10e08b45b22ddd3518e314a673b3e545e529d512e34b99b26fd7f327499d3bdb9be3c353227c035caa197d6eb9e129118c1e808253dc873c343b99854c117ee76fbaa8e5198ab41431fd60a3eacdec6b09999bc724050277447ce7844cba639962d8dcd2ac6e49deda2b5a53a46a463ee528cfbbb67d02a2a244acaa5036957af11a4b31dd8d740f0a43c7be85a09ec8b5379a327946cc9506ab9ce3a25ea1edb639f54eb87883b7877c71b2e2a5b2bf8ee9020dbeb24b23fb6a1db2b3f52ab1d39696ae7514f2874d3f78ad0983ec08028db804933b21c478ff6acd82c215d2f5e5ac071bbacf795ff600664991fb68613ba00310025f5cb6ba29a40b90141d9d1eef3ca20a0c12dc7d77ec5d4812f6d75675684cd8c62c43db0021440361b2298ae24168a43f8c4dcceb625fff27b491e42effa38ae2e655754793ce897961626913a058ba303c032e8a47c7dbb50f1af7d1e1278307315ae0dd6239f227b8b724f135ef04783a0fabf6d7a280e3f6703e98675112c4e53f7b96fb9132c5ee0a5edd7665b1c9aea886f2cc338c4776042f6ae74f4adabbc391c4eef7dc6b6e1e3f837633d1fd3d5d962bd04766f74b5f026e1461b926581e817878d4251c3cc2582927e2d1f41ae2b5b624e841dc88800061295b2c60ecdeb6aa57e7307b04fbad45100514646de62a41757924be54d2ddc503ff5a6b49731a4b50f402578d87e78a1aaa131c96ff74dc526128933a396e259d64dcf9ea312678a4db2c91dfaabfb23fbb34096dc7ab0975c13559e3576d826467b21bc4b5911adb5a872086b3f090c5ebd6f34bee15662ad72305c7d916e919a28878c0069bfc9dd3f67f26f45d589a8c79d0126066c8371830a0024e10d89c6da6ff87652d8b6ca8746e32eaf18b7d2b610dcd82d5168149fe108574d08735f2260c
+发送:/machine/initMachine
+返回:
+"cb85630feeda8d8e857b162bde909f82a2a219b10fa10d66e8c9706d8549f91397125b24de9080a602e2537d502f056447128be07ab49ccf614d5740559163ac"
+Traceback (most recent call last):
+  File "/Users/72cy-0101-01-0027/Desktop/work/script/erpapi/venv/lib/python2.7/site-packages/ddt.py", line 144, in wrapper
+    return func(self, *args, **kwargs)
+  File "/Users/72cy-0101-01-0027/Desktop/work/script/erpapi/interface_project/testInterface/machine/testmachine.py", line 36, in testint
+    self.assertEqual(res2['code'],0)#断言
+AssertionError: 1 != 0
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft9_6' class='none'>
+    <td class='failCase'><div class='testcase'>testsetchannel_1: 机器后台管理接口:合并拆分货道#//machine/setMachineChannel</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft9_6' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft9_6'>失败</button>
+    <div id='div_ft9_6' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft9_6' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft9_6'>失败</button>
+    <div id='div_ft9_6' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+ft9_6: 用例描述--&gt;合并拆分货道
+数据:e73578fbd3f6811e2a7c1d23551f73b09813e499730217489697a077d5433faf319d8c207dc9a1e7ea6cd02b07340210e95938946ee061c6b3b7d2a3999bbc155d570a70dad6f17022bc8335d02ca79a
+发送:/machine/setMachineChannel
+返回:
+"cb85630feeda8d8e857b162bde909f82a2a219b10fa10d66e8c9706d8549f91397125b24de9080a602e2537d502f056447128be07ab49ccf614d5740559163ac"
+Traceback (most recent call last):
+  File "/Users/72cy-0101-01-0027/Desktop/work/script/erpapi/venv/lib/python2.7/site-packages/ddt.py", line 144, in wrapper
+    return func(self, *args, **kwargs)
+  File "/Users/72cy-0101-01-0027/Desktop/work/script/erpapi/interface_project/testInterface/machine/testmachine.py", line 140, in testsetchannel
+    self.assertEqual(res2['code'],0)#断言
+AssertionError: 1 != 0
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft9_7' class='none'>
+    <td class='failCase'><div class='testcase'>testupstatus_1: 机器后台管理接口:更改机器状态#/machine/updateMachineStatus</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft9_7' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft9_7'>失败</button>
+    <div id='div_ft9_7' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft9_7' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft9_7'>失败</button>
+    <div id='div_ft9_7' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+ft9_7: 用例描述--&gt;更新机器状态
+数据:4bac1406b18298079812a053b5625827fcbe834c6eafcf5de046126f2391c713ed4d77f9e5b1769417b9ba23a6d927af
+发送:/machine/updateMachineStatus
+返回:
+"cb85630feeda8d8e857b162bde909f82a2a219b10fa10d66e8c9706d8549f91397125b24de9080a602e2537d502f056447128be07ab49ccf614d5740559163ac"
+Traceback (most recent call last):
+  File "/Users/72cy-0101-01-0027/Desktop/work/script/erpapi/venv/lib/python2.7/site-packages/ddt.py", line 144, in wrapper
+    return func(self, *args, **kwargs)
+  File "/Users/72cy-0101-01-0027/Desktop/work/script/erpapi/interface_project/testInterface/machine/testmachine.py", line 89, in testupstatus
+    self.assertEqual(res2['code'],0)#断言
+AssertionError: 1 != 0
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='failClass warning'>
+    <td>testInterface.checkerp.testerpcheck.TestERPCheck: 后台巡检管理-巡检管理接口</td>
+    <td class="text-center">19</td>
+    <td class="text-center">13</td>
+    <td class="text-center">6</td>
+    <td class="text-center">0</td>
+    <td class="text-center">
+        <a href="javascript:showClassDetail('c10',19)" class="detail" id='c10'>详细</a>
+        <a href='javascript:hidden_case()' id="case_hidden_btn" style="display:none">展开所有</a>
+    </td>
+
+</tr>
+
+<tr id='pt10_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testadd_1: 后台巡检管理:  添加人员#/check/user/add</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt10_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt10_1'>通过</button>
+    <div id='div_pt10_1' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt10_1' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt10_1'>通过</button>
+    <div id='div_pt10_1' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt10_1: 用例描述--&gt;人员信息添加
+数据:{"phone": "13712103724", "remark": "\u671d\u9633\u516c\u56ed", "name": "\u81ea\u52a8\u5316\u6d4b\u8bd5\u4eba\u5458107019", "enterprise": "\u81ea\u52a8\u5316\u6d4b\u8bd5\u516c\u53f8", "cardNo": "210102199110109727", "machines": [{"machineId": "03825cefe7954141ae935f8a6629f452"}]}
+发送:/check/user/add
+返回:
+{"msg": "成功", "code": 0, "data": null}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt10_2' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testaddfault_1: 后台巡检管理:  新增类型/check/user/add</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt10_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt10_2'>通过</button>
+    <div id='div_pt10_2' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt10_2' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt10_2'>通过</button>
+    <div id='div_pt10_2' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt10_2: 自动化测试故障类型100911
+用例描述--&gt;新增类型
+数据:{"name": "\u81ea\u52a8\u5316\u6d4b\u8bd5\u6545\u969c\u7c7b\u578b100911", "solutions": [{"name": "\u6d4b\u8bd5\u5173\u673a"}, {"name": "\u518d\u6b21\u6d4b\u8bd5\u5173\u673a"}]}
+发送:/check/faultType/add
+返回:
+{"msg": "成功", "code": 0, "data": null}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft10_3' class='none'>
+    <td class='failCase'><div class='testcase'>testdelete_1: 后台巡检管理:  人员删除/check/user/delete</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft10_3' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft10_3'>失败</button>
+    <div id='div_ft10_3' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft10_3' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft10_3'>失败</button>
+    <div id='div_ft10_3' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+ft10_3: 用例描述--&gt;人员删除
+数据:{'id': 'b65456ffa45e4df78c8e60dc47f5f038'}
+发送:/check/user/delete
+返回:
+{"msg": "操作失败", "code": 1, "data": null}
+Traceback (most recent call last):
+  File "/Users/72cy-0101-01-0027/Desktop/work/script/erpapi/venv/lib/python2.7/site-packages/ddt.py", line 144, in wrapper
+    return func(self, *args, **kwargs)
+  File "/Users/72cy-0101-01-0027/Desktop/work/script/erpapi/interface_project/testInterface/checkerp/testerpcheck.py", line 164, in testdelete
+    self.assertEqual(res['code'], 0, res['msg'])  # 断言
+AssertionError: 操作失败
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft10_4' class='none'>
+    <td class='failCase'><div class='testcase'>testdetail_1: 后台巡检管理:  查看人员详情/check/user/detail</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft10_4' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft10_4'>失败</button>
+    <div id='div_ft10_4' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft10_4' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft10_4'>失败</button>
+    <div id='div_ft10_4' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+ft10_4: 用例描述--&gt;人员详情
+数据:{'id': '583b18957e12412492b46390fae63c60'}
+发送:/check/user/detail
+返回:
+{"msg": "java.lang.NullPointerException", "code": 500, "data": null}
+Traceback (most recent call last):
+  File "/Users/72cy-0101-01-0027/Desktop/work/script/erpapi/venv/lib/python2.7/site-packages/ddt.py", line 144, in wrapper
+    return func(self, *args, **kwargs)
+  File "/Users/72cy-0101-01-0027/Desktop/work/script/erpapi/interface_project/testInterface/checkerp/testerpcheck.py", line 91, in testdetail
+    self.assertEqual(res['code'],0,res['msg'])#断言
+AssertionError: java.lang.NullPointerException
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt10_5' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testdetailfault_1: 后台巡检管理:  编辑页详情/check/faultType/detailfault</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt10_5' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt10_5'>通过</button>
+    <div id='div_pt10_5' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt10_5' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt10_5'>通过</button>
+    <div id='div_pt10_5' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt10_5: 用例描述--&gt;编辑页详情
+数据:{'code': '43ec20882d674639822ab4acc929311e'}
+发送:/check/faultType/detail
+返回:
+{"msg": "成功", "code": 0, "data": null}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft10_6' class='none'>
+    <td class='failCase'><div class='testcase'>testerpanswer_1: 后台巡检管理:  工单列表接口/check/fault/erpanswer</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft10_6' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft10_6'>失败</button>
+    <div id='div_ft10_6' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft10_6' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft10_6'>失败</button>
+    <div id='div_ft10_6' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+ft10_6: 用例描述--&gt;工单编辑接口
+数据:{'remark': u'\u81ea\u52a8\u5316\u6d4b\u8bd5', 'userId': '583b18957e12412492b46390fae63c60', 'id': '6b518163f7944c5abd877897e43e66eb'}
+发送:/check/fault/answer
+返回:
+{"msg": "操作失败", "code": 1, "data": null}
+Traceback (most recent call last):
+  File "/Users/72cy-0101-01-0027/Desktop/work/script/erpapi/venv/lib/python2.7/site-packages/ddt.py", line 144, in wrapper
+    return func(self, *args, **kwargs)
+  File "/Users/72cy-0101-01-0027/Desktop/work/script/erpapi/interface_project/testInterface/checkerp/testerpcheck.py", line 317, in testerpanswer
+    self.assertEqual(res['code'], 0, res['msg'])  # 断言
+AssertionError: 操作失败
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt10_7' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testerpdetail_1: 后台巡检管理:  工单详情/check/fault/erpdetail</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt10_7' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt10_7'>通过</button>
+    <div id='div_pt10_7' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt10_7' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt10_7'>通过</button>
+    <div id='div_pt10_7' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt10_7: 用例描述--&gt;查看工单详情
+数据:{'id': 'ded6a544b3ae4cdea4e5e92cf8321fa5'}
+发送:/check/fault/detail
+返回:
+{"msg": "成功", "code": 0, "data": null}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt10_8' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testerplist_1: 后台巡检管理:  工单列表接口/check/fault/erplist</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt10_8' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt10_8'>通过</button>
+    <div id='div_pt10_8' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt10_8' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt10_8'>通过</button>
+    <div id='div_pt10_8' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt10_8: 用例描述--&gt;工单列表
+数据:{'keyword': '', 'pageNo': ''}
+发送:/check/fault/list
+返回:
+{"msg": "成功", "code": 0, "data": [{"updateTime": null, "code": "FEU4JBI20180817155637", "receiveUser": "高帅", "finishUser": "张鸣朔", "remindStatus": 0, "id": "fd225e9f8c68430e8a33d86cab78bb10", "receiveId": null, "title": "18618166出现普通黑屏的故障，请尽快处理", "source": 1, "type": null, "finishId": null, "submitId": null, "status": 3, "answerList": null, "submitTime": "2018-08-17 15:56:37", "submitUser": "高帅", "workType": 1, "finishTime": "2018-08-17 19:24:15", "finishRemark": "1", "remark": "黑屏 继续继续继续江西九江", "machineId": null, "talkingTime": null, "machineCode": "18618166", "urgentStatus": 1, "submitUserType": null}, {"updateTime": null, "code": "FS60B8Q20180817155609", "receiveUser": "高帅", "finishUser": null, "remindStatus": 0, "id": "3a663909b8e04e0eb9765812885f9fc0", "receiveId": null, "title": "18618166出现普通黑屏的故障，请尽快处理", "source": 1, "type": null, "finishId": null, "submitId": null, "status": 2, "answerList": null, "submitTime": "2018-08-17 15:56:09", "submitUser": "高帅", "workType": 1, "finishTime": null, "finishRemark": null, "remark": "黑屏 交叉口查酒驾", "machineId": null, "talkingTime": null, "machineCode": "18618166", "urgentStatus": 1, "submitUserType": null}, {"updateTime": null, "code": "FEI0SXV20180814191347", "receiveUser": null, "finishUser": null, "remindStatus": 0, "id": "f7b6eb9e6f014a31ba7ba23db8a59949", "receiveId": null, "title": null, "source": null, "type": null, "finishId": null, "submitId": null, "status": 0, "answerList": null, "submitTime": "2018-08-14 19:13:48", "submitUser": "张鸣朔", "workType": null, "finishTime": null, "finishRemark": null, "remark": "黑屏 黑", "machineId": null, "talkingTime": null, "machineCode": "18618166", "urgentStatus": null, "submitUserType": null}, {"updateTime": null, "code": "FPAQ6S920180814185420", "receiveUser": null, "finishUser": null, "remindStatus": 0, "id": "2cb4c3f5e70c4115a0d5a50bf53f5720", "receiveId": null, "title": null, "source": null, "type": null, "finishId": null, "submitId": null, "status": 0, "answerList": null, "submitTime": "2018-08-14 18:54:20", "submitUser": "张鸣朔", "workType": null, "finishTime": null, "finishRemark": null, "remark": "黑屏 问题1", "machineId": null, "talkingTime": null, "machineCode": "18618166", "urgentStatus": null, "submitUserType": null}, {"updateTime": null, "code": "FSUSJXA20180814164831", "receiveUser": null, "finishUser": "高帅", "remindStatus": 0, "id": "f7c2595d5030468cbfb450bd69b7eb7d", "receiveId": null, "title": null, "source": null, "type": null, "finishId": null, "submitId": null, "status": 1, "answerList": null, "submitTime": "2018-08-14 16:48:32", "submitUser": "高帅", "workType": null, "finishTime": "2018-08-14 16:49:11", "finishRemark": "完毕", "remark": "黑屏 机器丢了", "machineId": null, "talkingTime": null, "machineCode": "18205616", "urgentStatus": null, "submitUserType": null}], "page": {"currentResult": 0, "totalPage": 1, "pageSize": 20, "pageNo": 1, "lastPage": true, "prePage": 1, "list": null, "firstPage": true, "totalCount": 5, "firstResult": 0, "nextPage": 1}}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft10_9' class='none'>
+    <td class='failCase'><div class='testcase'>testerpupdata_1: 后台巡检管理:  工单状态操作/check/fault/erplist</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft10_9' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft10_9'>失败</button>
+    <div id='div_ft10_9' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft10_9' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft10_9'>失败</button>
+    <div id='div_ft10_9' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+ft10_9: 用例描述--&gt;工单状态操作
+数据:{'status': '5', 'id': '325d142958ef478c94fa63787e3a8880'}
+发送:/check/fault/updateStatus
+返回:
+{"msg": "操作失败", "code": 1, "data": null}
+Traceback (most recent call last):
+  File "/Users/72cy-0101-01-0027/Desktop/work/script/erpapi/venv/lib/python2.7/site-packages/ddt.py", line 144, in wrapper
+    return func(self, *args, **kwargs)
+  File "/Users/72cy-0101-01-0027/Desktop/work/script/erpapi/interface_project/testInterface/checkerp/testerpcheck.py", line 303, in testerpupdata
+    self.assertEqual(res['code'], 0, res['msg'])  # 断言
+AssertionError: 操作失败
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt10_10' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testerpuserlist_1: 后台巡检管理:  工单指派人员列表/check/fault/erpuserlist</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt10_10' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt10_10'>通过</button>
+    <div id='div_pt10_10' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt10_10' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt10_10'>通过</button>
+    <div id='div_pt10_10' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt10_10: 用例描述--&gt;工单指派人员列表
+数据:{'machineId': '9466fdb47eb14df59fa15d5e2d76dcdb'}
+发送:/check/fault/getMachineUserList
+返回:
+{"msg": "成功", "code": 0, "data": []}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt10_11' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testgetmachine_1: 后台巡检管理:  查看机器/check/user/getUserMachinDetailList</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt10_11' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt10_11'>通过</button>
+    <div id='div_pt10_11' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt10_11' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt10_11'>通过</button>
+    <div id='div_pt10_11' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt10_11: 用例描述--&gt;查看机器
+数据:{'id': '4bdbf98c8e04436f95be61754b641d1d'}
+发送:/check/user/getUserMachinDetailList
+返回:
+{"msg": "成功", "code": 0, "data": []}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt10_12' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testlist_1: 后台巡检管理:  人员列表/check/user/list</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt10_12' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt10_12'>通过</button>
+    <div id='div_pt10_12' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt10_12' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt10_12'>通过</button>
+    <div id='div_pt10_12' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt10_12: 用例描述--&gt;人员列表
+数据:{'keword': None, 'pageNo': None}
+发送:/check/user/list
+返回:
+{"msg": "成功", "code": 0, "data": [{"status": 0, "openId": null, "updateTime": null, "headImage": null, "name": "自动化测试人员107019", "area": null, "cardNo": "210102199110109727", "createId": null, "remark": null, "createTime": null, "sex": null, "phone": "13712103724", "email": null, "updateId": null, "enterprise": "自动化测试公司", "wechatUserId": null, "isDelete": 0, "password": null, "id": "dddbbbda2ff349119f71789d08475766"}, {"status": 0, "openId": null, "updateTime": null, "headImage": null, "name": "111", "area": "天津市", "cardNo": "110101199003070417", "createId": null, "remark": null, "createTime": null, "sex": null, "phone": "18000200022", "email": null, "updateId": null, "enterprise": "111", "wechatUserId": null, "isDelete": 0, "password": null, "id": "144cfb1814374fc3acab4e28e31f61f0"}, {"status": 0, "openId": null, "updateTime": null, "headImage": null, "name": "张鸣朔", "area": "北京市", "cardNo": "210102199304011023", "createId": null, "remark": null, "createTime": null, "sex": null, "phone": "15811486500", "email": null, "updateId": null, "enterprise": "点72", "wechatUserId": null, "isDelete": 0, "password": null, "id": "b9dcef2555eb42088aa3804baa4c8219"}, {"status": 0, "openId": null, "updateTime": null, "headImage": null, "name": "万能人", "area": null, "cardNo": "210102199304011028", "createId": null, "remark": null, "createTime": null, "sex": null, "phone": "13888888888", "email": null, "updateId": null, "enterprise": "点72", "wechatUserId": null, "isDelete": 0, "password": null, "id": "67eb44ea35bb47f7bb66d9872686c8c0"}, {"status": 0, "openId": null, "updateTime": null, "headImage": null, "name": "老大", "area": null, "cardNo": "142631201010102023", "createId": null, "remark": null, "createTime": null, "sex": null, "phone": "18866668888", "email": null, "updateId": null, "enterprise": "点72", "wechatUserId": null, "isDelete": 0, "password": null, "id": "fdad91f2891f48509982118d7d0cfa60"}, {"status": 0, "openId": null, "updateTime": null, "headImage": null, "name": "高帅", "area": null, "cardNo": "142631201010102020", "createId": null, "remark": null, "createTime": null, "sex": null, "phone": "17600383847", "email": null, "updateId": null, "enterprise": "点72", "wechatUserId": null, "isDelete": 0, "password": null, "id": "252a3c9e3af8473895edbdfea1d04070"}], "page": {"currentResult": 0, "totalPage": 1, "pageSize": 20, "pageNo": 1, "lastPage": true, "prePage": 1, "list": null, "firstPage": true, "totalCount": 6, "firstResult": 0, "nextPage": 1}}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt10_13' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testlistfault_1: 后台巡检管理:  故障类型列表/check/user/listfault</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt10_13' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt10_13'>通过</button>
+    <div id='div_pt10_13' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt10_13' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt10_13'>通过</button>
+    <div id='div_pt10_13' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt10_13: 用例描述--&gt;故障类型列表
+数据:{'keyword': '', 'pageNo': ''}
+发送:/check/faultType/list
+返回:
+{"msg": "成功", "code": 0, "data": [{"updateTime": null, "code": "058b60d282944774978bf9238baae018", "name": "自动化测试故障类型100911", "level": null, "parentName": "再次测试关机,测试关机", "parentCode": null, "updateId": null, "createTime": "2018-08-23 13:47:06", "createId": "高帅"}, {"updateTime": null, "code": "2818d63b492e4a66ab12e702aff9aeea", "name": "黑屏", "level": null, "parentName": "是否开机", "parentCode": null, "updateId": null, "createTime": "2018-08-14 16:47:27", "createId": "赵振楠"}, {"updateTime": null, "code": "546e8611f74649e480f5b2b117718567", "name": "游戏卡顿", "level": null, "parentName": "关机重启", "parentCode": null, "updateId": null, "createTime": "2018-08-15 12:14:03", "createId": "高帅"}], "page": {"currentResult": 0, "totalPage": 1, "pageSize": 20, "pageNo": 1, "lastPage": true, "prePage": 1, "list": null, "firstPage": true, "totalCount": 3, "firstResult": 0, "nextPage": 1}}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt10_14' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testlistyuser_1: 后台巡检管理:  故障类型列表/check/user/listyuser</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt10_14' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt10_14'>通过</button>
+    <div id='div_pt10_14' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt10_14' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt10_14'>通过</button>
+    <div id='div_pt10_14' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt10_14: 用例描述--&gt;打卡列表
+数据:{'code': ''}
+发送:/check/signIn/list
+返回:
+{"msg": "成功", "code": 0, "data": [{"province": null, "updateTime": null, "sex": null, "enterprise": "点72", "wechatUserId": null, "isDelete": null, "id": "feec410663654ab2a02d2fb54595c194", "machines": null, "openId": null, "headImage": null, "area": null, "cardNo": null, "localeName": "北京市北京市东城区王府井哈哈哈哈测试", "email": null, "status": 0, "createId": null, "phone": "15811486500", "updateId": null, "password": null, "createTime": "2018-08-14 19:13:27", "remark": null, "name": "张鸣朔", "machineCode": "18205616"}, {"province": null, "updateTime": null, "sex": null, "enterprise": "点72", "wechatUserId": null, "isDelete": null, "id": "849ab4f1c65c43169ba1d3cd40374df4", "machines": null, "openId": null, "headImage": null, "area": null, "cardNo": null, "localeName": "北京市北京市东城区王府井哈哈哈哈测试", "email": null, "status": 0, "createId": null, "phone": "15811486500", "updateId": null, "password": null, "createTime": "2018-08-14 18:54:23", "remark": null, "name": "张鸣朔", "machineCode": "18618166"}], "page": {"currentResult": 0, "totalPage": 1, "pageSize": 20, "pageNo": 1, "lastPage": true, "prePage": 1, "list": null, "firstPage": true, "totalCount": 2, "firstResult": 0, "nextPage": 1}}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft10_15' class='none'>
+    <td class='failCase'><div class='testcase'>testsave_1: 后台巡检管理:  新增工单/check/fault/save</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft10_15' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft10_15'>失败</button>
+    <div id='div_ft10_15' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft10_15' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft10_15'>失败</button>
+    <div id='div_ft10_15' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+ft10_15: 用例描述--&gt;创建工单
+数据:{'urgentStatus': '1', 'remark': u'\u81ea\u52a8\u5316\u6d4b\u8bd5\u5de5\u5355103321', 'workType': '1', 'machineId': '9466fdb47eb14df59fa15d5e2d76dcdb'}
+发送:/check/fault/save
+返回:
+{"msg": "操作失败", "code": 1, "data": null}
+Traceback (most recent call last):
+  File "/Users/72cy-0101-01-0027/Desktop/work/script/erpapi/venv/lib/python2.7/site-packages/ddt.py", line 144, in wrapper
+    return func(self, *args, **kwargs)
+  File "/Users/72cy-0101-01-0027/Desktop/work/script/erpapi/interface_project/testInterface/checkerp/testerpcheck.py", line 261, in testsave
+    self.assertEqual(res['code'], 0, res['msg'])  # 断言
+AssertionError: 操作失败
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt10_16' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testselectmachines_1: 后台巡检管理:  选择机器/check/user/selectmachines</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt10_16' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt10_16'>通过</button>
+    <div id='div_pt10_16' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt10_16' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt10_16'>通过</button>
+    <div id='div_pt10_16' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt10_16: 用例描述--&gt;选择机器
+数据:{'level': '1'}
+发送:/check/user/selectAreaMachines
+返回:
+{"msg": "成功", "code": 0, "data": [{"province": "北京市", "city": null, "code": "100000000", "name": "北京市", "district": null, "level": 1, "canUseNum": null, "parentCode": null, "machines": [{"province": null, "machineId": "2b7c93e0d1984c58a913776f8eb20da2", "state": null, "machineCode": "18760472"}, {"province": null, "machineId": "68c64e4236cf4ad5baccedf451557388", "state": null, "machineCode": "18589171"}, {"province": null, "machineId": "e67d866f77bb42228449e12a16193278", "state": null, "machineCode": "18669682"}], "circle": null, "planed": null, "totalNum": "3"}, {"province": "天津市", "city": null, "code": "110000000", "name": "天津市", "district": null, "level": 1, "canUseNum": null, "parentCode": null, "machines": [], "circle": null, "planed": null, "totalNum": "0"}, {"province": "河北省", "city": null, "code": "120000000", "name": "河北省", "district": null, "level": 1, "canUseNum": null, "parentCode": null, "machines": [], "circle": null, "planed": null, "totalNum": "0"}, {"province": "山西省", "city": null, "code": "130000000", "name": "山西省", "district": null, "level": 1, "canUseNum": null, "parentCode": null, "machines": [], "circle": null, "planed": null, "totalNum": "0"}, {"province": "内蒙古自治区", "city": null, "code": "140000000", "name": "内蒙古自治区", "district": null, "level": 1, "canUseNum": null, "parentCode": null, "machines": [], "circle": null, "planed": null, "totalNum": "0"}, {"province": "辽宁省", "city": null, "code": "150000000", "name": "辽宁省", "district": null, "level": 1, "canUseNum": null, "parentCode": null, "machines": [], "circle": null, "planed": null, "totalNum": "0"}, {"province": "吉林省", "city": null, "code": "160000000", "name": "吉林省", "district": null, "level": 1, "canUseNum": null, "parentCode": null, "machines": [], "circle": null, "planed": null, "totalNum": "0"}, {"province": "黑龙江省", "city": null, "code": "170000000", "name": "黑龙江省", "district": null, "level": 1, "canUseNum": null, "parentCode": null, "machines": [], "circle": null, "planed": null, "totalNum": "0"}, {"province": "上海市", "city": null, "code": "180000000", "name": "上海市", "district": null, "level": 1, "canUseNum": null, "parentCode": null, "machines": [], "circle": null, "planed": null, "totalNum": "0"}, {"province": "江苏省", "city": null, "code": "190000000", "name": "江苏省", "district": null, "level": 1, "canUseNum": null, "parentCode": null, "machines": [], "circle": null, "planed": null, "totalNum": "0"}, {"province": "浙江省", "city": null, "code": "200000000", "name": "浙江省", "district": null, "level": 1, "canUseNum": null, "parentCode": null, "machines": [], "circle": null, "planed": null, "totalNum": "0"}, {"province": "安徽省", "city": null, "code": "210000000", "name": "安徽省", "district": null, "level": 1, "canUseNum": null, "parentCode": null, "machines": [], "circle": null, "planed": null, "totalNum": "0"}, {"province": "福建省", "city": null, "code": "220000000", "name": "福建省", "district": null, "level": 1, "canUseNum": null, "parentCode": null, "machines": [], "circle": null, "planed": null, "totalNum": "0"}, {"province": "江西省", "city": null, "code": "230000000", "name": "江西省", "district": null, "level": 1, "canUseNum": null, "parentCode": null, "machines": [], "circle": null, "planed": null, "totalNum": "0"}, {"province": "山东省", "city": null, "code": "240000000", "name": "山东省", "district": null, "level": 1, "canUseNum": null, "parentCode": null, "machines": [], "circle": null, "planed": null, "totalNum": "0"}, {"province": "河南省", "city": null, "code": "250000000", "name": "河南省", "district": null, "level": 1, "canUseNum": null, "parentCode": null, "machines": [], "circle": null, "planed": null, "totalNum": "0"}, {"province": "湖北省", "city": null, "code": "260000000", "name": "湖北省", "district": null, "level": 1, "canUseNum": null, "parentCode": null, "machines": [], "circle": null, "planed": null, "totalNum": "0"}, {"province": "湖南省", "city": null, "code": "270000000", "name": "湖南省", "district": null, "level": 1, "canUseNum": null, "parentCode": null, "machines": [], "circle": null, "planed": null, "totalNum": "0"}, {"province": "广东省", "city": null, "code": "280000000", "name": "广东省", "district": null, "level": 1, "canUseNum": null, "parentCode": null, "machines": [{"province": null, "machineId": "386247f9f6a14e368309944c53685c5e", "state": null, "machineCode": "18822178"}], "circle": null, "planed": null, "totalNum": "1"}, {"province": "广西壮族自治区", "city": null, "code": "290000000", "name": "广西壮族自治区", "district": null, "level": 1, "canUseNum": null, "parentCode": null, "machines": [], "circle": null, "planed": null, "totalNum": "0"}, {"province": "海南省", "city": null, "code": "300000000", "name": "海南省", "district": null, "level": 1, "canUseNum": null, "parentCode": null, "machines": [], "circle": null, "planed": null, "totalNum": "0"}, {"province": "重庆市", "city": null, "code": "310000000", "name": "重庆市", "district": null, "level": 1, "canUseNum": null, "parentCode": null, "machines": [], "circle": null, "planed": null, "totalNum": "0"}, {"province": "四川省", "city": null, "code": "320000000", "name": "四川省", "district": null, "level": 1, "canUseNum": null, "parentCode": null, "machines": [], "circle": null, "planed": null, "totalNum": "0"}, {"province": "贵州省", "city": null, "code": "330000000", "name": "贵州省", "district": null, "level": 1, "canUseNum": null, "parentCode": null, "machines": [], "circle": null, "planed": null, "totalNum": "0"}, {"province": "云南省", "city": null, "code": "340000000", "name": "云南省", "district": null, "level": 1, "canUseNum": null, "parentCode": null, "machines": [], "circle": null, "planed": null, "totalNum": "0"}, {"province": "西藏自治区", "city": null, "code": "350000000", "name": "西藏自治区", "district": null, "level": 1, "canUseNum": null, "parentCode": null, "machines": [], "circle": null, "planed": null, "totalNum": "0"}, {"province": "陕西省", "city": null, "code": "360000000", "name": "陕西省", "district": null, "level": 1, "canUseNum": null, "parentCode": null, "machines": [], "circle": null, "planed": null, "totalNum": "0"}, {"province": "甘肃省", "city": null, "code": "370000000", "name": "甘肃省", "district": null, "level": 1, "canUseNum": null, "parentCode": null, "machines": [], "circle": null, "planed": null, "totalNum": "0"}, {"province": "青海省", "city": null, "code": "380000000", "name": "青海省", "district": null, "level": 1, "canUseNum": null, "parentCode": null, "machines": [], "circle": null, "planed": null, "totalNum": "0"}, {"province": "宁夏回族自治区", "city": null, "code": "390000000", "name": "宁夏回族自治区", "district": null, "level": 1, "canUseNum": null, "parentCode": null, "machines": [], "circle": null, "planed": null, "totalNum": "0"}, {"province": "新疆维吾尔自治区", "city": null, "code": "400000000", "name": "新疆维吾尔自治区", "district": null, "level": 1, "canUseNum": null, "parentCode": null, "machines": [], "circle": null, "planed": null, "totalNum": "0"}, {"province": "香港特别行政区", "city": null, "code": "410000000", "name": "香港特别行政区", "district": null, "level": 1, "canUseNum": null, "parentCode": null, "machines": [], "circle": null, "planed": null, "totalNum": "0"}, {"province": "澳门特别行政区", "city": null, "code": "420000000", "name": "澳门特别行政区", "district": null, "level": 1, "canUseNum": null, "parentCode": null, "machines": [], "circle": null, "planed": null, "totalNum": "0"}, {"province": "台湾省", "city": null, "code": "430000000", "name": "台湾省", "district": null, "level": 1, "canUseNum": null, "parentCode": null, "machines": [], "circle": null, "planed": null, "totalNum": "0"}]}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt10_17' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testudpatafault_1: 后台巡检管理:  更新类型/check/faultType/udpatafault</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt10_17' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt10_17'>通过</button>
+    <div id='div_pt10_17' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt10_17' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt10_17'>通过</button>
+    <div id='div_pt10_17' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt10_17: 用例描述--&gt;更新类型
+数据:{"code": "43ec20882d674639822ab4acc929311e", "name": "\u66f4\u65b0\u81ea\u52a8\u5316\u6d4b\u8bd5108924", "solutions": [{"code": "05c8f15f946742f99afba8910bc14ea2", "name": "\u66f4\u65b01"}, {"code": "da5bc7cdccd746bf98e1bbb91e8206e2", "name": "\u66f4\u65b02"}]}
+发送:/check/faultType/update
+返回:
+{"msg": "成功", "code": 0, "data": null}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt10_18' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testupdata_1: 后台巡检管理:  更新人员#/check/user/update</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt10_18' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt10_18'>通过</button>
+    <div id='div_pt10_18' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt10_18' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt10_18'>通过</button>
+    <div id='div_pt10_18' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt10_18: 210102199108100922
+13823108816
+更新自动化测试人员106519
+用例描述--&gt;更新人员信息
+数据:{"phone": "13823108816", "name": "\u66f4\u65b0\u81ea\u52a8\u5316\u6d4b\u8bd5\u4eba\u5458106519", "enterprise": "\u81ea\u52a8\u5316\u6d4b\u8bd5\u516c\u53f8", "cardNo": "210102199108100922", "id": "4bdbf98c8e04436f95be61754b641d1d", "machines": [{"machineId": "03825cefe7954141ae935f8a6629f452"}]}
+发送:/check/user/update
+返回:
+{"msg": "成功", "code": 0, "data": null}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft10_19' class='none'>
+    <td class='failCase'><div class='testcase'>testupdatastatus_1: 后台巡检管理:  更新人员状态/check/user/updateStatus</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft10_19' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft10_19'>失败</button>
+    <div id='div_ft10_19' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft10_19' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft10_19'>失败</button>
+    <div id='div_ft10_19' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+ft10_19: 用例描述--&gt;更新人员状态
+数据:{'status': '0', 'id': '4bdbf98c8e04436f95be61754b641d1d'}
+发送:/check/user/updateStatus
+返回:
+{"msg": "操作失败", "code": 1, "data": null}
+Traceback (most recent call last):
+  File "/Users/72cy-0101-01-0027/Desktop/work/script/erpapi/venv/lib/python2.7/site-packages/ddt.py", line 144, in wrapper
+    return func(self, *args, **kwargs)
+  File "/Users/72cy-0101-01-0027/Desktop/work/script/erpapi/interface_project/testInterface/checkerp/testerpcheck.py", line 134, in testupdatastatus
+    self.assertEqual(res['code'],0,res['msg'])#断言
+AssertionError: 操作失败
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
 <tr id='total_row' class="text-center active">
     <td>总计</td>
-    <td>5</td>
-    <td>4</td>
-    <td>1</td>
+    <td>73</td>
+    <td>51</td>
+    <td>22</td>
     <td>0</td>
-    <td>通过率：80.00%</td>
+    <td>通过率：69.86%</td>
 </tr>
 </table>
 

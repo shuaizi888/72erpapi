@@ -1,0 +1,48 @@
+name: 项目管理-商品管理接口
+
+GOODS_CASE1: #查询商品列表
+    Url: /project/goods/list
+    Case1: #/project/goods/list
+        Desc: 查询商品列表
+        List: {"keword":,"code":,"pageNo":}
+
+
+
+GOODS_CASE2: #查询商品列表不分页
+    Url: /project/goods/getList
+    Case1: #/project/goods/getList
+        Desc: 查询商品列表不分页
+        GetList: {"keword":,"code":,"pageNo":}
+
+
+
+GOODS_CASE3: #新添加商品
+    Url: /project/goods/add
+    Case1: #/project/goods/add
+        Desc: 新添加商品
+        Add: {"name":"自动化测试","code":"自动化测试","price":"100","sellerId":"af5b41cfcd734a6bb2e696136a8303b5","remark":"自动化测试","shopId":"42d6c8d888db48da80fe1f75ab8edf6e"}
+
+
+GOODS_CASE4: #查询商品详细信息
+    Url: /project/goods/detail
+    Case1: #/project/goods/detail
+        Desc: 查询商品详细信息
+        Detail: {"id":"fca270c33d8048ff80410fb0ee55fc7b"}
+
+
+
+GOODS_CASE5: #更新商品数据信息
+    Url: /project/goods/update
+    Case1: #/project/goods/update
+        Desc: 更新商品数据信息
+        Updata: {"id":"f15a4c7cb66c459da5a0446899314855","name":"更新自动化测试","code":"56123456"}
+
+
+
+GOODS_CASE6: #删除商品
+    Url: /project/goods/delete
+    Case1: #/project/goods/delete
+        Desc: 删除商品
+        detele: {"id":"07a2861067ce4786a4687afa7ee4243c"}
+
+

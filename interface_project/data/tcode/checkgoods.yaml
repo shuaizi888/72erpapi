@@ -1,0 +1,37 @@
+name: 巡检补货接口
+
+CHGOODS_CASE1: #商品维度缺货app 加密有数量
+    Url: /machine/channel/goodsLack
+    Case1: #/machine/channel/goodsLack
+        Desc: 商品维度缺货app
+        applack:
+
+CHGOODS_CASE2: #商品维度缺货H5 不加密有数量
+    Url: /machine/channel/h5/goodsLack
+    Case1: #/machine/channel/h5/goodsLack
+        Desc: 商品维度缺货H5
+        h5lack:
+
+CHGOODS_CASE3: #工单列表
+    Url: /machine/channel/workOrderList
+    Case1: #/machine/channel/workOrderList
+        Desc: 工单列表
+        list:
+
+CHGOODS_CASE4: #工单详情
+    Url: /machine/channel/workOrderDetail
+    Case1: #/machine/channel/workOrderDetail
+        Desc: 工单详情
+        detail:
+
+CHGOODS_CASE5: #商品维度缺货app 加密无数量
+    Url: /machine/channel/goodsLack
+    Case1: #/machine/channel/goodsLack
+        Desc: 商品维度缺货app
+        applack:
+
+CHGOODS_CASE6: #商品维度缺货H5 不加密无数量
+    Url: /machine/channel/h5/goodsLack
+    Case1: #/machine/channel/h5/goodsLack
+        Desc: 商品维度缺货H5
+        h5lack:

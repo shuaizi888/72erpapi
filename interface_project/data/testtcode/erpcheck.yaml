@@ -1,0 +1,120 @@
+name: 巡检人员后台管理接口
+
+ERPCHECK_CASE1: #人员列表
+    Url: /check/user/list
+    Case1: #/check/user/list
+        Desc: 人员列表
+        list: {"keword":,"pageNo":}
+
+ERPCHECK_CASE2: #查看机器
+    Url: /check/user/getUserMachinDetailList
+    Case1: #/check/user/getUserMachinDetailList
+        Desc: 查看机器
+        getmachine: {"id":"4bdbf98c8e04436f95be61754b641d1d"}
+
+ERPCHECK_CASE3: #人员信息添加
+    Url: /check/user/add
+    Case1: #/check/user/add
+        Desc: 人员信息添加
+        add: {"name": "自动化测试人员","phone": "13712","cardNo": "210102199110","enterprise":"自动化测试公司","remark":"朝阳公园","machines": [{"machineId": "03825cefe7954141ae935f8a6629f452"}]}
+
+
+ERPCHECK_CASE4: #人员详情
+    Url: /check/user/detail
+    Case1: #/check/user/detail
+        Desc: 人员详情
+        detail: {"id":"583b18957e12412492b46390fae63c60"}
+
+ERPCHECK_CASE5: #更新人员信息
+    Url: /check/user/update
+    Case1: #/check/user/update
+        Desc: 更新人员信息
+        updata: {"name": "更新自动化测试人员","phone": "13823","cardNo": "210102199108","enterprise":"自动化测试公司","id":"4bdbf98c8e04436f95be61754b641d1d","machines": [{"machineId": "03825cefe7954141ae935f8a6629f452"}]}
+
+
+ERPCHECK_CASE6: #更新人员状态  0启用1停用
+    Url: /check/user/updateStatus
+    Case1: #/check/user/updateStatus
+        Desc: 更新人员状态
+        updatastatus: {"id":"4bdbf98c8e04436f95be61754b641d1d","status":"0"}
+
+ERPCHECK_CASE7: #选择机器 省1，市2，区/县2，商圈4
+    Url: /check/user/selectAreaMachines
+    Case1: #/check/user/selectAreaMachines
+        Desc: 选择机器
+        selectmachines: {"level":"1"}
+
+ERPCHECK_CASE8: #人员删除
+    Url: /check/user/delete
+    Case1: #/check/user/delete
+        Desc: 人员删除
+        delete: {"id":"b65456ffa45e4df78c8e60dc47f5f038"}
+
+
+ERPCHECK_CASE9: #打卡列表
+    Url: /check/signIn/list
+    Case1: #/check/signIn/list
+        Desc: 打卡列表
+        listyuser: {"code":""}
+
+
+ERPCHECK_CASE10: #新增类型
+    Url: /check/faultType/add
+    Case1: #/check/faultType/add
+        Desc: 新增类型
+        addfault: {"name": "自动化测试故障类型","solutions": [{"name": "测试关机"}, {"name": "再次测试关机"}]}
+
+ERPCHECK_CASE11: #故障类型列表
+    Url: /check/faultType/list
+    Case1: #/check/faultType/list
+        Desc: 故障类型列表
+        listfault: {"keyword":"","pageNo":""}
+
+ERPCHECK_CASE12: #编辑页详情
+    Url: /check/faultType/detail
+    Case1: #/check/faultType/detail
+        Desc: 编辑页详情
+        detailfault: {"code":"43ec20882d674639822ab4acc929311e"}
+
+ERPCHECK_CASE13: #更新类型
+    Url: /check/faultType/update
+    Case1: #/check/faultType/update
+        Desc: 更新类型
+        udpatafault: {"code":"43ec20882d674639822ab4acc929311e","name":"更新自动化测试","solutions":[{"code":"05c8f15f946742f99afba8910bc14ea2","name":"更新1"},{"code":"da5bc7cdccd746bf98e1bbb91e8206e2","name":"更新2"}]}
+
+
+ERPCHECK_CASE14: #创建工单 1故障  2 报警 3 补货 4 其他  1日常 2 紧急
+    Url: /check/fault/save
+    Case1: #/check/fault/save
+        Desc: 创建工单
+        save: {"workType":"1","machineId":"9466fdb47eb14df59fa15d5e2d76dcdb","remark":"自动化测试工单","urgentStatus":"1"}
+
+ERPCHECK_CASE15: #工单列表接口
+    Url: /check/fault/list
+    Case1: #/check/fault/list
+        Desc: 工单列表
+        erplist: {"keyword":"","pageNo":""}
+
+ERPCHECK_CASE16: #查看工单详情
+    Url: /check/fault/detail
+    Case1: #/check/fault/detail
+        Desc: 查看工单详情
+        erpdetail: {"id":"ded6a544b3ae4cdea4e5e92cf8321fa5"}
+
+ERPCHECK_CASE17: #工单状态操作 4确认  5 关闭
+    Url: /check/fault/updateStatus
+    Case1: #/check/fault/updateStatus
+        Desc: 工单状态操作
+        erpupdata: {"id":"325d142958ef478c94fa63787e3a8880","status":"5"}
+
+ERPCHECK_CASE18: #工单编辑接口
+    Url: /check/fault/answer
+    Case1: #/check/fault/answer
+        Desc: 工单编辑接口
+        erpanswer: {"remark":"自动化测试","userId":"583b18957e12412492b46390fae63c60","id":"6b518163f7944c5abd877897e43e66eb"}
+
+ERPCHECK_CASE19: #工单指派人员列表
+    Url: /check/fault/getMachineUserList
+    Case1: #/check/fault/getMachineUserList
+        Desc: 工单指派人员列表
+        erpuserlist: {"machineId":"9466fdb47eb14df59fa15d5e2d76dcdb"}

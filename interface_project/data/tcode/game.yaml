@@ -1,0 +1,41 @@
+name: 项目管理-游戏后台管理接口
+
+GAME_CASE1: #查询游戏列表
+    Url: /project/game/list
+    Case1: #/project/game/list
+        Desc: 查询游戏列表
+        List: {}
+
+
+
+GAME_CASE2: #查询游戏详情
+    Url: /project/game/detail
+    Case1: #/project/game/detail
+        Desc: 查询游戏详情
+        Detail: {"id":"c5d0f998bbe94e3b9c9aad3eb835ec8a"}
+
+
+
+GAME_CASE3: #新添加游戏
+    Url: /project/game/add
+    Case1: #/project/game/add
+        Desc: 新添加游戏
+        Add: {"name":"自动化测试游戏08","version":"1.1.2","versionInno72":"1.1.1","remark":"自动化测试游戏吃鸡"}
+
+
+
+GAME_CASE4: #更新游戏信息
+    Url: /project/game/update
+    Case1: #/project/game/update
+        Desc: 更新游戏数据信息
+        Updata: {"id":"c5d0f998bbe94e3b9c9aad3eb835ec8a","name":"更新自动化测试游戏"}
+
+
+
+GAME_CASE5: #删除游戏
+    Url: /project/game/delete
+    Case1: #/project/game/delete
+        Desc: 删除游戏
+        detele: {"id":"c1ac2087f643473da68f874554d76fef"}
+
+

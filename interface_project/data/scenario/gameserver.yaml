@@ -1,0 +1,32 @@
+NAME: 游戏服务接口场景正常出货
+
+GameServer:
+    #>>>>>>>>生成二维码>>获取登录信息>>>查看游戏列表>>>查看商品信息>>>>下单>>查看订单状态>>>>出货后商品减量>>>>>>>>>>>>>>>>>>>
+    Case1: #生成二维码->获取登录信息->查看游戏列表->查看商品信息->下单->查看订单状态->出货后商品减量
+        Desc: 生成二维码->获取登录信息->查看游戏列表->查看商品信息->下单->查看订单状态->出货后商品减量
+        GameUrl: http://api.game.36solo.com/inno72/service/open
+        #生成二维码
+        CreateQrCodedata: '{"serviceName":"createQrCode","params":{"machineId":"18925234"},"version":"1.0.0"}'
+
+        #获取登录信息
+        Pollingdata: '{"serviceName":"polling","params":{"sessionUuid":""},"version":"1.0.0"}'
+
+        #查看游戏列表
+        FindGamedata: '{"serviceName":"findGame","params":{"machineId":"18335598","planId":"","version":"2.0","versionInno72":"2.2"},"version":"1.0.0"}'
+
+        #查看商品信息
+        FindProductdata: '{"serviceName":"findProduct","params":{"sessionUuid":"{{SUuidtoken}}","machineId":"18925234","activityPlanId":"45cbe9275c5a4ed6907fba529b9a2452","channelId":"","report":"1"},"version":"1.0.0"}'
+
+        #下单
+        Orderdata: '{"serviceName":"order","params":{"sessionUuid":"{{SUuidtoken}}","machineId":"18925234","activityPlanId":"bcbe6e83d5bd4c12bedfa386a155e71e","activityId":"919e88511cb84891b283af457440df6c","channelId":"c18984e0bef34087bc2569d49538225d","itemId":"574007454781"},"version":"1.0.0"}'
+        #{"serviceName": "oneKeyOrder", "params": {"itemId": "575183937392", "ua": "110#iUjkAUkfk1c/WGfl2wgAMuy2kMJQhxHOmkm2hQ7/8DBLkFT9Xx2IjQa2UG5aUMKxVwmghQ7y8bkJkuzMweudVGckkGapq1NQGbSkhjlF8EsnkKfl61G7zls2UGrl81GQmlSghwXtt4BLkKvy7wqtjnhHuFOBhxJGFqfmhnadVdiYEZBxhedyfwDIGTUt5EaZNH3/o1cRVPGBoP2WdKXI92PBsAkwsBOV5wzCj9cwkP5ysLgwxLsOncjOpVzv836apOHu59kwfklY8DEes9Fk4yaOs3cwsK2CoLkijOkmUh23sOgkc5gP2ZI/sAgPk9j1sBjM2pUkDlvk82flhcyvE6AXWJuk+NLVcOv78OyreXoc84bXH74b3O7XWY+HDrNZjb1gGhERi5j36WCAgkJMB+hSD+MvPv22RAFJ25wjNmZY/GDXzcqOhz9ODkMInDj62tT4QRQTaVe+1IN6NRtkkPp5nrKZAsJfLGQowMzzPYmEGP32xC7XI2YGEc/x", "sessionUuid": "{{}}", "machineId": "19012626", "umid": "HV01PAAZ0b0b7f1adb8da9a45b854bd500f51879", "report": "2"}, "version": "1.0.0"}
+        #查看订单状态
+        OrderPollingdata: '{"serviceName":"orderPolling","params":{"sessionUuid": "{{SUuidtoken}}","order":"195424627360293213"},"version":"1.0.0"}'
+
+        #出货后商品减量
+        ShipmentReportdata: '{"serviceName":"shipmentReport","params":{"machineId":"18925234","channelId":"c18984e0bef34087bc2569d49538225d","sessionUuid":"{{SUuidtoken}}","orderId":"195424627360293213"},"version":"1.0.0"}'
+
+        #查看商品信息
+        FindProductdata: '{"serviceName":"findProduct","params":{"sessionUuid":"{{SUuidtoken}}","machineId":"18925234","activityPlanId":"45cbe9275c5a4ed6907fba529b9a2452","report":"1"},"version":"1.0.0"}'
+
+

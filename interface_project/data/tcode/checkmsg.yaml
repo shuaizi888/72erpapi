@@ -1,0 +1,9 @@
+name: 巡检消息
+
+CHLOCALE_CASE1: #巡检消息列表
+    Url: /alarm/msg/list
+    Case1: #/alarm/msg/list
+        Desc: 巡检消息列表
+        msg:
+
+

@@ -1,0 +1,9 @@
+name: 巡检获取最新版本
+
+CHVERSION_CASE1: #巡检获取最新版本
+    Url: /app/version/find
+    Case1: #/app/version/find
+        Desc: 巡检获取最新版本
+        version:
+
+

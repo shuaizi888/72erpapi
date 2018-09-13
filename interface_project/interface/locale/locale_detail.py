@@ -8,7 +8,7 @@ from interface_project.base.basepage import BaseConfig
 class LocaleClass(object):
     url = "/machine/locale/detail"
 
-    payload = 'id=013188e098274c2aaa64b1a47d6fe884'
+    payload = 'id=2ee7fd62a87d4887acb5f17e0c69bc79'
     # headers = {
     #     'Content-Type':"application/x-www-form-urlencoded",
     #     'cache-control': "no-cache",

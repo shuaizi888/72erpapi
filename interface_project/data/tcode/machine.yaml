@@ -1,0 +1,67 @@
+name: 机器后台管理接口
+
+MACHINE_CASE1: #初始化机器
+    Url: /machine/initMachine
+    Case1: #/machine/initMachine
+        Desc: 初始化机器
+        int: {"channelJson":[{"code":1,"volumeCount":11,"workStatus":0},{"code":2,"volumeCount":11,"workStatus":0},{"code":3,"volumeCount":11,"workStatus":0},{"code":4,"volumeCount":11,"workStatus":0},{"code":5,"volumeCount":11,"workStatus":0},{"code":6,"volumeCount":11,"workStatus":0},{"code":7,"volumeCount":11,"workStatus":0},{"code":8,"volumeCount":11,"workStatus":0},{"code":11,"volumeCount":11,"workStatus":0},{"code":12,"volumeCount":11,"workStatus":0},{"code":13,"volumeCount":11,"workStatus":0},{"code":14,"volumeCount":11,"workStatus":0},{"code":15,"volumeCount":11,"workStatus":0},{"code":16,"volumeCount":11,"workStatus":0},{"code":17,"volumeCount":11,"workStatus":0},{"code":18,"volumeCount":11,"workStatus":0},{"code":21,"volumeCount":11,"workStatus":0},{"code":23,"volumeCount":11,"workStatus":0},{"code":25,"volumeCount":11,"workStatus":0},{"code":27,"volumeCount":11,"workStatus":0},{"code":31,"volumeCount":11,"workStatus":0},{"code":32,"volumeCount":11,"workStatus":0},{"code":33,"volumeCount":11,"workStatus":0},{"code":34,"volumeCount":11,"workStatus":0},{"code":35,"volumeCount":11,"workStatus":0},{"code":36,"volumeCount":11,"workStatus":0},{"code":37,"volumeCount":11,"workStatus":0},{"code":38,"volumeCount":11,"workStatus":0},{"code":41,"volumeCount":11,"workStatus":0},{"code":42,"volumeCount":11,"workStatus":0},{"code":43,"volumeCount":11,"workStatus":0},{"code":44,"volumeCount":11,"workStatus":0},{"code":45,"volumeCount":11,"workStatus":0},{"code":46,"volumeCount":11,"workStatus":0},{"code":51,"volumeCount":11,"workStatus":0},{"code":52,"volumeCount":11,"workStatus":0},{"code":53,"volumeCount":11,"workStatus":0},{"code":54,"volumeCount":11,"workStatus":0},{"code":55,"volumeCount":11,"workStatus":0},{"code":56,"volumeCount":11,"workStatus":0}],"machineCode":"18865687","bluetoothAddress":""}
+
+
+MACHINE_CASE2: #获取机器ID
+    Url: /machine/generateMachineId
+    Case1: #/machine/generateMachineId
+        Desc: 获取机器ID
+        getid: {"deviceId":"18865687"}
+
+
+MACHINE_CASE3: #获取机器状态
+    Url: /machine/getMachineStatus
+    Case1: #/machine/getMachineStatus
+        Desc: 获取机器状态
+        getstatus: {"machineCode":"18865687"}
+
+
+MACHINE_CASE4: #更新机器状态 1 2 3 4
+    Url: /machine/updateMachineStatus
+    Case1: #/machine/updateMachineStatus
+        Desc: 更新机器状态
+        upstatus: {"machineCode":"18865687","status":"3"}
+
+
+
+MACHINE_CASE5: #获取机器点位
+    Url: /machine/getMachineLocale
+    Case1: #/machine/getMachineLocale
+        Desc: 获取机器点位
+        getlocale: {"machineCode":"18865687"}
+
+
+
+MACHINE_CASE6: #获取机器上app 1.点72自己的app 2.天猫app
+    Url: /app/getAppByBlong
+    Case1: #/app/getAppByBlong
+        Desc: 获取机器上app
+        getapp: {"belong":"1"}
+
+
+
+MACHINE_CASE7: #合并拆分货道 1.合并 2.拆分
+    Url: /machine/setMachineChannel
+    Case1: #/machine/setMachineChannel
+        Desc: 合并拆分货道
+        setchannel: {"machineCode":"18865687","channelCode":"1","operates":"2"}
+
+
+MACHINE_CASE8: #加密
+    enUrl: /machine/encrypt
+    deUrL: /machine/decrypt
+    Case1: #/machine/encrypt #/machine/decrypt
+        Desc: 加密
+        int: {"channelJson":[{"code":1,"volumeCount":11,"workStatus":0},{"code":2,"volumeCount":11,"workStatus":0},{"code":3,"volumeCount":11,"workStatus":0},{"code":4,"volumeCount":11,"workStatus":0},{"code":5,"volumeCount":11,"workStatus":0},{"code":6,"volumeCount":11,"workStatus":0},{"code":7,"volumeCount":11,"workStatus":0},{"code":8,"volumeCount":11,"workStatus":0},{"code":11,"volumeCount":11,"workStatus":0},{"code":12,"volumeCount":11,"workStatus":0},{"code":13,"volumeCount":11,"workStatus":0},{"code":14,"volumeCount":11,"workStatus":0},{"code":15,"volumeCount":11,"workStatus":0},{"code":16,"volumeCount":11,"workStatus":0},{"code":17,"volumeCount":11,"workStatus":0},{"code":18,"volumeCount":11,"workStatus":0},{"code":21,"volumeCount":11,"workStatus":0},{"code":23,"volumeCount":11,"workStatus":0},{"code":25,"volumeCount":11,"workStatus":0},{"code":27,"volumeCount":11,"workStatus":0},{"code":31,"volumeCount":11,"workStatus":0},{"code":32,"volumeCount":11,"workStatus":0},{"code":33,"volumeCount":11,"workStatus":0},{"code":34,"volumeCount":11,"workStatus":0},{"code":35,"volumeCount":11,"workStatus":0},{"code":36,"volumeCount":11,"workStatus":0},{"code":37,"volumeCount":11,"workStatus":0},{"code":38,"volumeCount":11,"workStatus":0},{"code":41,"volumeCount":11,"workStatus":0},{"code":42,"volumeCount":11,"workStatus":0},{"code":43,"volumeCount":11,"workStatus":0},{"code":44,"volumeCount":11,"workStatus":0},{"code":45,"volumeCount":11,"workStatus":0},{"code":46,"volumeCount":11,"workStatus":0},{"code":51,"volumeCount":11,"workStatus":0},{"code":52,"volumeCount":11,"workStatus":0},{"code":53,"volumeCount":11,"workStatus":0},{"code":54,"volumeCount":11,"workStatus":0},{"code":55,"volumeCount":11,"workStatus":0},{"code":56,"volumeCount":11,"workStatus":0}],"machineCode":"18865687","bluetoothAddress":""}
+        getid: {"deviceId":"18865687"}
+        getstatus: {"machineCode":"18865687"}
+        upstatus: {"machineCode":"18865687","status":"3"}
+        getlocale: {"machineCode":"18865687"}
+        getapp: {"belong":"1"}
+        setchannel: {"machineCode":"18865687","channelCode":"1","operates":"1"}
+

@@ -1,0 +1,53 @@
+name: 货机管理-活动排期管理接口
+
+ACTIVITYPLAN_CASE1: #查询活动排期列表
+    Url: /project/activityPlan/list
+    Case1: #/project/activityPlan/list
+        Desc: 查询活动排期列表
+        List: {"startTime":,"code":,"endTime":}
+
+
+
+ACTIVITYPLAN_CASE2: #查询活动排期机器详情
+    Url: /project/activityPlan/planMachineDetailList
+    Case1: #/project/activityPlan/planMachineDetailList
+        Desc: 查询活动排期机器详情
+        GetList: {"id":"965a85f124c14d78ab65526046c6be62"}
+
+
+
+ACTIVITYPLAN_CASE3: #添加新活动排期
+    Url: /project/activityPlan/add
+    Case1: #/project/activityPlan/add
+        Desc: 添加新活动排期
+        Add: {"gameId": "8cbd9bad1829454c8672f97ff531385d","userMaxTimes": "100000","goods": [{"resultCode":"1","prizeId": "9a6d230c5e1643caa8ead174f3fe059e","resultRemark": "挑战成功掉货","prizeType": "0"}, {"resultCode":"2","resultRemark": "挑战成功掉货","prizeId": "9a6d230c5e1643caa8ead174f3fe059e","prizeType": "1"}],"activityId": "f3e504e9d64d41ebaf558108372c0e0e","startTimeStr":"2018-08-20 15:04","endTimeStr":"2018-08-20 15:08","machines": [{"machineCode": "18749948","machineId": "ff282cdf99224d87b0d5947aa68021ea","state": "0"}]}
+
+
+ACTIVITYPLAN_CASE4: #查询活动排期详细信息
+    Url: /project/activityPlan/detail
+    Case1: #/project/activityPlan/detail
+        Desc: 查询活动排期详细信息
+        Detail: {"id":"965a85f124c14d78ab65526046c6be62"}
+
+
+
+ACTIVITYPLAN_CASE5: #更新活动排期数据信息
+    Url: /project/activityPlan/update
+    Case1: #/project/activityPlan/update
+        Desc: 更新活动排期数据信息
+        Updata: {"activityId":"8c9d37f5481d42d08d0221a4119bc5c2","activityName":"自动化测试活动08","startTimeStr":"2018-08-10 15:04","endTimeStr":"2018-08-31 15:04","gameId":"8cbd9bad1829454c8672f97ff531385d","userMaxTimes":"10000","dayUserMaxTimes":"10000","goods":[{"key":0,"name":"自动化测试","prizeId":"9a6d230c5e1643caa8ead174f3fe059e","prizeType":"1","resultCode":1,"resultRemark":"挑战成功掉货"},{"key":1,"name":"自动化测试","prizeId":"9a6d230c5e1643caa8ead174f3fe059e","prizeType":"1","resultCode":2,"resultRemark":"挑战成功掉货更新"}],"coupons":[],"machines":[{"machineCode":"","machineId":"d33733a6dd5c47c3b03b2ccccba4b9d9","state":0}],"id":"849790f5f8424e5ca0d5e3bf46170b72"}
+
+ACTIVITYPLAN_CASE6: #删除活动排期
+    Url: /project/activityPlan/delete
+    Case1: #/project/activityPlan/delete
+        Desc: 删除活动排期
+        detele: {"id":"f9d03dffbc944daf857f89b8fda8d4d8"}
+
+
+ACTIVITYPLAN_CASE7: #排期添加选择机器
+    Url: /project/activityPlan/selectAreaMachines
+    Case1: #/project/activityPlan/selectAreaMachines
+        Desc: 排期添加选择机器
+        select: {"code":"100101001","level":"5","startTime":"2018-08-10 00:00","endTime":"2018-08-12 23:59"}
+
+

@@ -1,0 +1,48 @@
+name: 项目管理-商户管理接口
+
+MERCHANT_CASE1: #查询商户列表
+    Url: /project/merchant/list
+    Case1: #/project/merchant/list
+        Desc: 查询商户列表
+        List: {"keword":,"code":,"pageNo":}
+
+
+
+MERCHANT_CASE2: #查询商户列表不分页
+    Url: /project/merchant/getList
+    Case1: #/project/merchant/getList
+        Desc: 查询商户列表不分页
+        GetList: {"keword":,"code":,"pageNo":}
+
+
+
+MERCHANT_CASE3: #新添加商户
+    Url: /project/merchant/add
+    Case1: #/project/merchant/add
+        Desc: 新添加商户
+        Add: {"merchantCode":"自动化测试商户008","merchantName":"自动化测试商户","channelId":"f647799ebd3e4c10883983dda12ee2c9","brandName":"测试","originFlag":"18899991111"}
+
+
+MERCHANT_CASE4: #查询商户详细信息
+    Url: /project/merchant/detail
+    Case1: #/project/merchant/detail
+        Desc: 查询商户详细信息
+        Detail: {"id":"e366b1b9db1042fcae9a972fc8a1c8e2"}
+
+
+
+MERCHANT_CASE5: #更新商户数据信息
+    Url: /project/merchant/update
+    Case1: #/project/merchant/update
+        Desc: 更新商户数据信息
+        Updata: {"id":"ba7d96b362db42659c6abc88b624b3d9","merchantCode":"L666","merchantName":"更新自动化测试"}
+
+
+
+MERCHANT_CASE6: #删除商户
+    Url: /project/merchant/delete
+    Case1: #/project/merchant/delete
+        Desc: 删除商户
+        detele: {"id":"4b101e776c6b44918e749668c21c866e"}
+
+

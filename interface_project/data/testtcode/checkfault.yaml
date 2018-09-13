@@ -1,0 +1,45 @@
+name: 巡检工单接口
+
+CHFAULT_CASE1: #获取验证码app
+    Url: /check/user/smsCode
+    Case1: #/check/user/smsCode
+        Desc: 获取验证码
+        appcode:
+
+CHFAULT_CASE2: #登录app
+    Url: /check/user/login
+    Case1: #/check/user/login
+        Desc: 登录app
+        applogin:
+
+CHFAULT_CASE3: #上传头像app
+    Url: /check/user/upload
+    Case1: #/check/user/upload
+        Desc: 上传头像app
+        appupload:
+
+
+CHFAULT_CASE4: #编辑用户app
+    Url: /check/user/update
+    Case1: #/check/user/update
+        Desc: 编辑用户app
+        appupdata:
+
+CHFAULT_CASE5: #退出登录
+    Url: /check/user/logout
+    Case1: #/check/user/logout
+        Desc: 退出登录
+        logout:
+
+
+CHFAULT_CASE6: #登录H5  get不加密
+    Url: /check/user/h5/login
+    Case1: #/check/user/h5/login
+        Desc: 登录H5
+        h5login:
+
+CHFAULT_CASE7: #获取验证码H5  get不加密
+    Url: /check/user/h5/smsCode
+    Case1: #/check/user/h5/smsCode
+        Desc: 获取验证码H5
+        h5code:

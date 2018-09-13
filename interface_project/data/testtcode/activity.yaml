@@ -1,0 +1,48 @@
+name: 货机管理-活动管理接口
+
+ACTIVITY_CASE1: #查询活动列表
+    Url: /project/activity/list
+    Case1: #/project/activity/list
+        Desc: 查询活动列表
+        List: {"keword":,"code":,"pageNo":}
+
+
+
+ACTIVITY_CASE2: #查询活动列表不分页
+    Url: /project/activity/getList
+    Case1: #/project/activity/getList
+        Desc: 查询活动列表不分页
+        GetList: {"keword":,"code":,"pageNo":}
+
+
+
+ACTIVITY_CASE3: #添加新活动
+    Url: /project/activity/add
+    Case1: #/project/activity/add
+        Desc: 添加新活动
+        Add: {"sellerId":"af5b41cfcd734a6bb2e696136a8303b5","shopId":"42d6c8d888db48da80fe1f75ab8edf6e","name":"自动化测试活动","code":"1000008","remark":"自动化测试","isDefault":"0"}
+
+
+ACTIVITY_CASE4: #查询活动详细信息
+    Url: /project/activity/detail
+    Case1: #/project/activity/detail
+        Desc: 查询活动详细信息
+        Detail: {"id":"320d4215dfab45039ae97e126df049e3"}
+
+
+
+ACTIVITY_CASE5: #更新活动数据信息
+    Url: /project/activity/update
+    Case1: #/project/activity/update
+        Desc: 更新活动数据信息
+        Updata: {"id":"208c825203f844b9b428e87db3686a8c","name":"更新自动化测试活动"}
+
+
+
+ACTIVITY_CASE6: #删除活动
+    Url: /project/activity/delete
+    Case1: #/project/activity/delete
+        Desc: 删除活动
+        detele: {"id":"a48b086d759d4acca4899d9482027d24"}
+
+

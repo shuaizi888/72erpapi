@@ -20,14 +20,14 @@ LOCALE_CASE3: #新添加点位
     Url: /machine/locale/add
     Case1: #/machine/locale/add
         Desc: 新添加点位
-        Add: {"areaCode":"11","name":"33","mall":"55","manager":"66","mobile":"18899990000"}
+        Add: {"areaCode":"100101005","name":"自动化脚本测试08","mall":"自动化脚本测试点位","manager":"自动化测试","mobile":"18899992222"}
 
 
 LOCALE_CASE4: #查询点位详细信息
     Url: /machine/locale/detail
     Case1: #/machine/locale/detail
         Desc: 查询点位详细信息
-        Detail: {"id":"013188e098274c2aaa64b1a47d6fe88477"}
+        Detail: {"id":"fa0b314c30c44727934e6ec996fd26f8"}
 
 
 
@@ -35,7 +35,7 @@ LOCALE_CASE5: #更新点位数据信息
     Url: /machine/locale/update
     Case1: #/machine/locale/update
         Desc: 更新点位数据信息
-        Updata: {"id":"013188e098274c2aaa64b1a47d6fe884","mobile":"18900009999"}
+        Updata: {"id":"fa0b314c30c44727934e6ec996fd26f8","mobile":"18900009999"}
 
 
 
@@ -43,6 +43,6 @@ LOCALE_CASE6: #删除点位
     Url: /machine/locale/delete
     Case1: #/machine/locale/delete
         Desc: 删除点位
-        detele: {"id":}
+        detele: {"id":"fc22fd6b785746c4b24fc78da23cfde6"}
 
 
