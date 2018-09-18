@@ -3,10 +3,10 @@ NAME: 标准游戏服务接口
 GAMECASEWU:
     #>>>>>>>>获得活动信息>>预登录接口>>>polling用户登录session信息>>>>下单接口>>polling订单支付状态>>>>出货接口>>>>>>>>>>>>>>>>>>>
     Case1: #获得活动信息->预登录接口无需登录->polling用户登录session信息->下单接口->polling订单支付状态->出货接口
-        Desc: 获得活动信息->预登录接口->polling用户登录session信息->下单接口->polling订单支付状态->出货接口
+        Desc: 无需登录
         GameUrl: http://api.game.36solo.com/inno72/service/open
         #获得活动信息
-        standardFindActivitydata: {"serviceName": "standardFindActivity","version": "1.0.0","params": {"machineId": "18342471","planId": "","version": "","versionInno72": ""}}
+        standardFindActivitydata: {"serviceName": "standardFindActivity","version": "1.0.0","params": {"machineId": "18335598","planId": "","version": "","versionInno72": ""}}
 
         #预登录接口
         standardPrepareLogindata: {"serviceName": "standardPrepareLogin","version": "1.0.0","params": {"machineCode": "192941247","loginType": 1}}
@@ -23,10 +23,33 @@ GAMECASEWU:
 GAMECASELOGIN:
     #>>>>>>>>获得活动信息>>预登录接口>>>polling用户登录session信息>>>>下单接口>>polling订单支付状态>>>>出货接口>>>>>>>>>>>>>>>>>>>
     Case1: #获得活动信息->预登录接口登录->polling用户登录session信息->下单接口->polling订单支付状态->出货接口
-        Desc: 获得活动信息->预登录接口登录->polling用户登录session信息->下单接口->polling订单支付状态->出货接口
+        Desc: 登录入会派样
         GameUrl: http://api.game.36solo.com/inno72/service/open
-                #获得活动信息
-        standardFindActivitydata: {"serviceName": "standardFindActivity","version": "1.0.0","params": {"machineId": "18109717","planId": "","version": "","versionInno72": ""}}
+        #获得活动信息
+        standardFindActivitydata: {"serviceName": "standardFindActivity","version": "1.0.0","params": {"machineId": "18774616","planId": "","version": "","versionInno72": ""}}
+
+        #预登录接口
+        standardPrepareLogindata: {"serviceName": "standardPrepareLogin","version": "1.0.0","params": {"machineCode": "19294124","loginType": 0,"ext": {"isVip": 1,"itemId": "5192a58a19f345e1833238f95151fe57","sessionKey": "6102622e6fb5de17af88c7be97eb0b10b488a33bbf793431589666223"}}}
+
+        #polling用户登录session信息
+        standardSessionPollingdata: {"serviceName": "standardSessionPolling","version": "1.0.0","params": {"sessionUuid": "{{SUuidtoken}}"}}
+
+        #下单接口
+        standardOrderdata: {"serviceName": "standardOrder","version": "1.0.0","params": {"sessionUuid": "{{SUuidtoken}}","report":"","umid":"HV01PAAZ0b0ad785db8da9a45b9b223002222b57","ua":"110#WCykAUkfkryQTs+J2wgAMuy2kMUtfq5OmKs2hQ7/8Dsnk3gxpx2IjQmkFXCS+MzYmpkht+2y8MIZOkRlIPJENgs55QxU89qOqkkkhn7yvKPZGTUt5EaZ1FrAhdldR6MCO0OmC1x30FfDc5KijTkiLFpX7cqis9kk4EKQFEgKbelUGOPC7VwXNHTPDPpiTCV4brxts1aisrkUGOmwjTcwkkT4+OvisOTLUc/BviC3c4lPNLBXj9gJk9tEKmjM2pUkDlDoYDfcH+9e4VrVJMc2nkbjaOm8kmb2/AECdI6detaY4CjelbLWhZtERsS1xCNKETxIFsyR3mKeAV6omGvpXa6Lhv+ezBWqcJSmh89dkJGJZYTtGCrFzBjW9XrVb66OmretGVkKF0eVo2uKZ8ixs2Ba1kvqsGg5XD0cMsXhP74hWMTGGF43zyq6IOHbLrs9c0J69wwsKKhY"}}
+
+        #polling订单支付状态
+        standardOrderPollingdata: {"serviceName": "standardOrderPolling","version": "1.0.0","params": {"sessionUuid": "{{SUuidtoken}}","orderId": ""}}
+
+        #出货接口
+        standardShipmentdata: {"serviceName": "standardShipment","version": "1.0.0","params": {"machineCode": "19294124","sessionUuid":"{{SUuidtoken}}","channelId":"{{channelids}}","failChannelIds":""}}
+
+GAMECASEPAI:
+    #>>>>>>>>获得活动信息>>预登录接口>>>polling用户登录session信息>>>>下单接口>>polling订单支付状态>>>>出货接口>>>>>>>>>>>>>>>>>>>
+    Case1: #派样获得活动信息->预登录接口无需登录->polling用户登录session信息->下单接口->polling订单支付状态->出货接口
+        Desc: 登录互动
+        GameUrl: http://api.game.36solo.com/inno72/service/open
+        #获得活动信息
+        standardFindActivitydata: {"serviceName": "standardFindActivity","version": "1.0.0","params": {"machineId": "18335598","planId": "","version": "","versionInno72": ""}}
 
         #预登录接口
         standardPrepareLogindata: {"serviceName": "standardPrepareLogin","version": "1.0.0","params": {"machineCode": "192941247","loginType": 0}}
@@ -35,33 +58,10 @@ GAMECASELOGIN:
         standardSessionPollingdata: {"serviceName": "standardSessionPolling","version": "1.0.0","params": {"sessionUuid": "{{SUuidtoken}}"}}
 
         #下单接口
-        standardOrderdata: {"serviceName": "standardOrder","version": "1.0.0","params": {"sessionUuid": "{{SUuidtoken}}","report":"1"}}
+        standardOrderdata: {"serviceName": "standardOrder","version": "1.0.0","params": {"sessionUuid": "{{SUuidtoken}}","report":"1","umid":"HV01PAAZ0b0ad785db8da9a45b9b223002222b57","ua":"110#WCykAUkfkryQTs+J2wgAMuy2kMUtfq5OmKs2hQ7/8Dsnk3gxpx2IjQmkFXCS+MzYmpkht+2y8MIZOkRlIPJENgs55QxU89qOqkkkhn7yvKPZGTUt5EaZ1FrAhdldR6MCO0OmC1x30FfDc5KijTkiLFpX7cqis9kk4EKQFEgKbelUGOPC7VwXNHTPDPpiTCV4brxts1aisrkUGOmwjTcwkkT4+OvisOTLUc/BviC3c4lPNLBXj9gJk9tEKmjM2pUkDlDoYDfcH+9e4VrVJMc2nkbjaOm8kmb2/AECdI6detaY4CjelbLWhZtERsS1xCNKETxIFsyR3mKeAV6omGvpXa6Lhv+ezBWqcJSmh89dkJGJZYTtGCrFzBjW9XrVb66OmretGVkKF0eVo2uKZ8ixs2Ba1kvqsGg5XD0cMsXhP74hWMTGGF43zyq6IOHbLrs9c0J69wwsKKhY"}}
 
         #polling订单支付状态
-        standardOrderPollingdata: {"serviceName": "standardOrderPolling","version": "1.0.0","params": {"sessionUuid": "{{SUuidtoken}}","orderId": "{{Order}}"}}
-
-        #出货接口
-        standardShipmentdata: {"serviceName": "standardShipment","version": "1.0.0","params": {"machineCode": "19294124","sessionUuid":"{{SUuidtoken}}","channelId":"{{channelids}}","failChannelIds":""}}
-
-GAMECASEPAI:
-    #>>>>>>>>获得活动信息>>预登录接口>>>polling用户登录session信息>>>>下单接口>>polling订单支付状态>>>>出货接口>>>>>>>>>>>>>>>>>>>
-    Case1: #派样获得活动信息->预登录接口无需登录->polling用户登录session信息->下单接口->polling订单支付状态->出货接口
-        Desc: 获得活动信息->预登录接口无需登录->polling用户登录session信息->下单接口->polling订单支付状态->出货接口
-        GameUrl: http://api.game.36solo.com/inno72/service/open
-                #获得活动信息
-        standardFindActivitydata: {"serviceName": "standardFindActivity","version": "1.0.0","params": {"machineId": "18109717","planId": "","version": "","versionInno72": ""}}
-
-        #预登录接口
-        standardPrepareLogindata: {"serviceName": "standardPrepareLogin","version": "1.0.0","params": {"machineCode": "192941247","loginType": 1}}
-
-        #polling用户登录session信息
-        standardSessionPollingdata: {"serviceName": "standardSessionPolling","version": "1.0.0","params": {"sessionUuid": "{{SUuidtoken}}"}}
-
-        #下单接口
-        standardOrderdata: {"serviceName": "standardOrder","version": "1.0.0","params": {"sessionUuid": "{{SUuidtoken}}","report":"1"}}
-
-        #polling订单支付状态
-        standardOrderPollingdata: {"serviceName": "standardOrderPolling","version": "1.0.0","params": {"sessionUuid": "{{SUuidtoken}}","orderId": "{{Order}}"}}
+        standardOrderPollingdata: {"serviceName": "standardOrderPolling","version": "1.0.0","params": {"sessionUuid": "{{SUuidtoken}}","orderId": ""}}
 
         #出货接口
         standardShipmentdata: {"serviceName": "standardShipment","version": "1.0.0","params": {"machineCode": "19294124","sessionUuid":"{{SUuidtoken}}","channelId":"{{channelids}}","failChannelIds":""}}

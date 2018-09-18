@@ -39,7 +39,7 @@ RUNING:
     testgameserver: {'Flag':'Y'} #老游戏服务接口:成功掉货
     testbiaoserverwu: {'Flag':'Y'} #游戏服务接口无需登录
     testbiaoserverlogin: {'Flag':'Y'} #游戏服务接口登录
-    testbiaoserverpai: {'Flag':'Y'} #游戏服务接口派样无需登录
+    testbiaoserverhulogin: {'Flag':'Y'} #游戏服务接口派样无需登录
 
 
 

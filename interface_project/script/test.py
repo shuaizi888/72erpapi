@@ -515,12 +515,74 @@ def updataApp(list_data):
 # a='abcdef'
 # print a[0]\
 
-a = []
+# a = []
+#
+# for i in range(9):
+#     if i == 3:
+#         a.append(i)
+#         print  a
+# a = ['123','344','4444']
+# falied = []
+# for b in a:
+#     falied.append(b)
+#
+# print falied
 
-for i in range(9):
-    if i == 3:
-        a.append(i)
-        print  a
+success_arr = []
+failed_arr = []
+
+# def update(i):
+#     if i:
+#         success_arr.append('机器编号1')
+#     else:
+#         failed_arr.append('机器编号2')
+#
+# update(True)
+#
+# print(success_arr)
+# print(failed_arr)
+
+# import requests
+# success_arr = []
+# failed_arr = []
+# def updataAPP(Url,machineId,appPackageName,appurl,versionCode):
+#     data = {"machineId": machineId, "appPackageName": appPackageName, "url": appurl,"versionCode": versionCode}
+#     res = requests.request('POST', Url, data=data, headers=tokens())
+#
+#     if res.status_code == 200:
+#         newres = res.json()
+#         i = 0
+#         if newres['code'] ==0:
+#             # print ("升级成功机器编号："+ newmachineId +"   "+appPackageName)
+#             q.put('p-%d'%i)
+#             success_arr.append(newmachineId)
+#         else:
+#             # print ("升级失败机器编号："+newmachineId+"   "+appPackageName+ "   "+newres['msg'].encode("utf-8"))
+#             q.put('f-%d' % i)
+#             failed_arr.append(newmachineId)
+#     else:
+#         return {"errcode": 8888, "errmsg": str(res)}
 
 
+# appname = ['com.inno72.monitorapp']
+# appurl = ['http://inno72.oss.72solo.com/apk/prod/prod_monitor1.1.0.apk']
+# appversion = ['10']
+# machineId = ['123','344','555']
+#
+# a=0
+# b=0
+# for a, b in enumerate(appname):
+#     #starttime()
+#     newappnew = ('appname{}'.format(b))
+#     newappurl = ('appurl{}'.format(appurl[a]))
+#     newappversion = ('appversion{}'.format(appversion[a]))
+#     for newmachineId in machineId:
+#         # time.sleep(1)
+#         updataAPP(Url, newmachineId, b, appurl[a], appversion[a])
+#
+#
+# print('升级成功机器编号:{}'.format(success_arr))
+# print('升级失败机器编号:{}'.format(failed_arr))
 
+a = 1
+print '测试'+ str(a)
