@@ -584,5 +584,51 @@ failed_arr = []
 # print('升级成功机器编号:{}'.format(success_arr))
 # print('升级失败机器编号:{}'.format(failed_arr))
 
-a = 1
-print '测试'+ str(a)
+# a = 1
+# print '测试'+ str(a)
+import time
+# print time.strftime("%Y-%m-%d %H:%M", time.localtime())
+#
+# a = {"type": 1,
+#      "appId": "3",
+#      "appVersion": "10",
+#      "appUrl": "http://inno72.oss.72solo.com/apk/prod/prod_monitor.apk ",
+#      "doTimeStr": "2018-09-18 18:51",
+#      "doType": 1,
+#      "machineList": [{"machineCode": "18047652", "machineId": "5d80295b4b144fbbb55b15e6d1f22ac0"}]}
+#
+# print a['machineList'][0]['machineCode']
+# print a['machineList'][0]['machineId']
+#
+# machine = {'18047652': '5d80295b4b144fbbb55b15e6d1f22ac0','123':'23'}
+# print len(machine)
+# def endtime():
+#     endtimes = (datetime.datetime.now() + datetime.timedelta(minutes=1)).strftime("%Y-%m-%d %H:%M")
+#     print endtimes
+# endtime()
+#
+#
+# a = u'18851456'
+# print type(a)
+#
+# print "测试" + a.encode('utf-8')
+
+
+# a = {"alias": "18047652", "machineCode": "18047652", "title": "1", "text": "1", "pushType": 1, "msgInfo": {
+#     "apps": [{
+#         "url": "http://inno72.oss.72solo.com/apk/prod/prod_monitor.apk",
+#         "startStatus": 1,
+#         "appPackageName": "com.inno72.monitorapp",
+#         "versionCode": 9
+#     }]
+# }
+#      }
+#
+# print a['msgInfo']['apps'][0]['url']
+# print a['msgInfo']['apps'][0]['appPackageName']
+# print a['msgInfo']['apps'][0]['versionCode']
+
+
+a = ['1','a']
+b = ['2','b']
+print list(enumerate(a))

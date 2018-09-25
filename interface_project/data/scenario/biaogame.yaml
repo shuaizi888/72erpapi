@@ -29,7 +29,7 @@ GAMECASELOGIN:
         standardFindActivitydata: {"serviceName": "standardFindActivity","version": "1.0.0","params": {"machineId": "18774616","planId": "","version": "","versionInno72": ""}}
 
         #预登录接口
-        standardPrepareLogindata: {"serviceName": "standardPrepareLogin","version": "1.0.0","params": {"machineCode": "19294124","loginType": 0,"ext": {"isVip": 1,"itemId": "5192a58a19f345e1833238f95151fe57","sessionKey": "6102622e6fb5de17af88c7be97eb0b10b488a33bbf793431589666223"}}}
+        standardPrepareLogindata: {"serviceName": "standardPrepareLogin","version": "1.0.0","params": {"machineCode": "18774616","loginType": 0,"ext": {"isVip": 1,"itemId": "5192a58a19f345e1833238f95151fe57","sessionKey": "6102622e6fb5de17af88c7be97eb0b10b488a33bbf793431589666223"}}}
 
         #polling用户登录session信息
         standardSessionPollingdata: {"serviceName": "standardSessionPolling","version": "1.0.0","params": {"sessionUuid": "{{SUuidtoken}}"}}
