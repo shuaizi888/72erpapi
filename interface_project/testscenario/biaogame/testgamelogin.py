@@ -91,10 +91,12 @@ class TestBGameScenario(unittest.TestCase):#点72后台接口测试场景
         canOrder = res['data']['canOrder']
         goodsId = res['data']['goodsId']
         goodsCode = res['data']['goodsCode']
+        isScanned = res['data']['isScanned']
         print userNick
         print canOrder
         print goodsId
         print goodsCode
+        print isScanned
         #断言
         self.assertEqual(res['code'],0,res['msg'])
         self.assertTrue(res['data']['userNick'])
@@ -102,6 +104,7 @@ class TestBGameScenario(unittest.TestCase):#点72后台接口测试场景
         self.assertEqual(res['data']['logged'],True,res['msg'])
         self.assertTrue(res['data']['goodsId'])
         self.assertTrue(res['data']['goodsCode'])
+        self.assertEqual(res['data']['isScanned'], True, res['msg'])
 
 
         '''--------------------------下单接口----------------------'''
