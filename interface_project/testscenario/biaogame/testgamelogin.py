@@ -46,13 +46,13 @@ class TestBGameScenario(unittest.TestCase):#点72后台接口测试场景
         #     desc=data['Desc'],
         #     url=data['GameUrl']
         # )
-
-        sessionUuid = reslogin['data']['sessionUuid']
-        print 'sessionUuid: ' + sessionUuid
-        #断言
-        self.assertEqual(reslogin['code'],0,reslogin['msg'])
-        print reslogin['data']['qrCodeUrl']
-
+        #
+        # sessionUuid = reslogin['data']['sessionUuid']
+        # print 'sessionUuid: ' + sessionUuid
+        # #断言
+        # self.assertEqual(reslogin['code'],0,reslogin['msg'])
+        # print reslogin['data']['qrCodeUrl']
+        #
         sleep(30)
 
 
@@ -67,17 +67,20 @@ class TestBGameScenario(unittest.TestCase):#点72后台接口测试场景
             url=data['GameUrl']
         )
         #断言
+        print type(res)
         machineCode = res['data']['machineCode']
         activityPlanId = res['data']['activityPlanId']
         activityId = res['data']['activityId']
         channelId = res['data']['channelId']
+        activityType = res['data']['activityType']
         print '各数据信息：' +'machineCode: '+ machineCode+'  ' +'activityPlanId: '+ activityPlanId+'  ' +'activityId: '+activityId+'  ' +'channelId: '+channelId
         self.assertEqual(res['code'],0,res['msg'])#断言
+        self.assertEqual(res['data']['activityType'], 0, res['msg'])
 
         '''--------------------------polling用户登录session信息----------------------'''
         # 整合数据，调用接口，获取返回结果
         #polling用户登录session信息
-        data['standardSessionPollingdata']['params']['sessionUuid'] = sessionUuid
+        data['standardSessionPollingdata']['params']['sessionUuid'] = machineCode
 
         res = scripts.loadtestInterface(
             instance=HttpWebRequest(),
@@ -86,31 +89,38 @@ class TestBGameScenario(unittest.TestCase):#点72后台接口测试场景
             desc=data['Desc'],
             url=data['GameUrl']
         )
+
         #断言
         userNick = res['data']['userNick']
         canOrder = res['data']['canOrder']
         goodsId = res['data']['goodsId']
         goodsCode = res['data']['goodsCode']
         isScanned = res['data']['isScanned']
+        countGoods = res['data']['countGoods']
+        sellerId  = res['data']['sellerId']
         print userNick
         print canOrder
         print goodsId
         print goodsCode
         print isScanned
+        print countGoods
+        print sellerId
         #断言
         self.assertEqual(res['code'],0,res['msg'])
         self.assertTrue(res['data']['userNick'])
         self.assertEqual(res['data']['canOrder'],True,res['msg'])
+        self.assertEqual(res['data']['countGoods'], True, res['msg'])
         self.assertEqual(res['data']['logged'],True,res['msg'])
         self.assertTrue(res['data']['goodsId'])
         self.assertTrue(res['data']['goodsCode'])
+        self.assertTrue(res['data']['sellerId'])
         self.assertEqual(res['data']['isScanned'], True, res['msg'])
 
 
         '''--------------------------下单接口----------------------'''
         # 整合数据，调用接口，获取返回结果
         #下单接口
-        data['standardOrderdata']['params']['sessionUuid'] = sessionUuid
+        data['standardOrderdata']['params']['sessionUuid'] = machineCode
 
         res = scripts.loadtestInterface(
             instance=HttpWebRequest(),
@@ -133,7 +143,7 @@ class TestBGameScenario(unittest.TestCase):#点72后台接口测试场景
         '''--------------------------polling订单支付状态----------------------'''
         # 整合数据，调用接口，获取返回结果
         #polling订单支付状态
-        data['standardOrderPollingdata']['params']['sessionUuid'] = sessionUuid
+        data['standardOrderPollingdata']['params']['sessionUuid'] = machineCode
 
         res = scripts.loadtestInterface(
             instance=HttpWebRequest(),
@@ -151,7 +161,7 @@ class TestBGameScenario(unittest.TestCase):#点72后台接口测试场景
         '''--------------------------出货接口----------------------'''
         # 整合数据，调用接口，获取返回结果
         #出货接口
-        data['standardShipmentdata']['params']['sessionUuid'] = sessionUuid
+        data['standardShipmentdata']['params']['sessionUuid'] = machineCode
         data['standardShipmentdata']['params']['machineCode'] = machineCode
         data['standardShipmentdata']['params']['channelId'] = channelIds
         res = scripts.loadtestInterface(
@@ -175,11 +185,11 @@ if __name__=="__main__":
     '''--------------------------预登录接口需登录----------------------'''
     # 整合数据，调用接口，获取返回结果
     # 预登录接口
-
+    #
     reslogin = scripts.loadtestInterface(
         instance=HttpWebRequest(),
         instance_pro='post',
-        data='{"serviceName": "standardPrepareLogin","version": "1.0.0","params": {"machineCode": "18774616","loginType": 0,"ext": {"isVip": 1,"itemId": "5192a58a19f345e1833238f95151fe57","sessionKey": "6102622e6fb5de17af88c7be97eb0b10b488a33bbf793431589666223"}}}',
+        data='{"serviceName": "standardPrepareLogin","version": "1.0.0","params": {"machineCode": "18774616","loginType": 0,"operType":"1","ext": {"isVip": 1,"itemId": "67f0aaeb38944527b1db4a52e4b580be","sessionKey": "6102622e6fb5de17af88c7be97eb0b10b488a33bbf793431589666223"}}}',
         desc='预登录接口需登录',
         url='http://api.game.36solo.com/inno72/service/open'
     )

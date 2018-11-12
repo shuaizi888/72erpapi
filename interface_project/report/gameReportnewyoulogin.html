@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>点72标准游戏服务接口自动化测试报告</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2.1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    
+<style type="text/css" media="screen">
+body        { font-family: Microsoft YaHei,Tahoma,arial,helvetica,sans-serif;padding: 20px; font-size: 80%; }
+table       { font-size: 100%; }
+/* -- heading ---------------------------------------------------------------------- */
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+/* -- report ------------------------------------------------------------------------ */
+#total_row  { font-weight: bold; }
+.passCase   { color: #5cb85c; }
+.failCase   { color: #d9534f; font-weight: bold; }
+.errorCase  { color: #f0ad4e; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+</style>
+
+</head>
+<body >
+<script language="javascript" type="text/javascript">
+output_list = Array();
+/*level 调整增加只显示通过用例的分类 --Findyou
+0:Summary //all hiddenRow
+1:Failed  //pt hiddenRow, ft none
+2:Pass    //pt none, ft hiddenRow
+3:All     //pt none, ft none
+*/
+function showCase(level) {
+    //展开或折叠用例按钮显示
+    var hidden_case = document.getElementById("case_hidden_btn");
+    if(level !=0) {
+
+        hidden_case.style.display = "block";
+    }else {
+        hidden_case.style.display = "none";
+    }
+
+    //更改通过时，显示通过按钮，样式，颜色bootstrap按钮
+    var btnpass = $('button[id^="btn_pt"]');
+    for(var i=0;i<btnpass.length;i++){
+        if(btnpass[i].innerText=="通过"){
+            btnpass[i].className="btn btn-success btn-xs";
+        }else{
+            btnpass[i].className="btn btn-danger btn-xs";
+        }
+    }
+
+
+
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level == 2 || level == 0 ) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level < 2) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+    }
+    //加入【详细】切换文字变化 --Findyou
+    detail_class=document.getElementsByClassName('detail');
+	//console.log(detail_class.length)
+	if (level == 3) {
+		for (var i = 0; i < detail_class.length; i++){
+			detail_class[i].innerHTML="收起"
+		}
+	}
+	else{
+			for (var i = 0; i < detail_class.length; i++){
+			detail_class[i].innerHTML="详细"
+		}
+	}
+}
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        //ID修改 点 为 下划线 -Findyou
+        tid0 = 't' + cid.substr(1) + '_' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        //修改点击无法收起的BUG，加入【详细】切换文字变化 --Findyou
+        if (toHide) {
+            document.getElementById(tid).className = 'hiddenRow';
+            document.getElementById(cid).innerText = "详细"
+        }
+        else {
+            document.getElementById(tid).className = '';
+            document.getElementById(cid).innerText = "收起"
+        }
+    }
+}
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+
+function hidden_case() {
+    var case_btn = document.getElementById("case_hidden_btn");
+    var btn_text = case_btn.innerText;
+
+    var a = $('div[id^="div_pt"]');
+    for(var i=0;i<a.length;i++){
+        if(btn_text=='展开所有'){
+            a[i].className = 'in';
+            a[i].style.height = "auto";
+            case_btn.innerText = "折叠所有";
+        }else {
+            a[i].className = 'collapse';
+            a[i].style.height = "0px";
+            case_btn.innerText = "展开所有";
+        }
+    }
+}
+</script>
+<div class='heading'>
+<h4 style="font-family: Microsoft YaHei">点72标准游戏服务接口自动化测试报告</h4>
+<p class='attribute'><strong>测试人员 : </strong> sgao</p>
+<p class='attribute'><strong>开始时间 : </strong> 2018-11-09 16:35:40</p>
+<p class='attribute'><strong>合计耗时 : </strong> 0:00:30.417071</p>
+<p class='attribute'><strong>测试结果 : </strong> 共 1，通过 1，通过率= 100.00%</p>
+
+<p class='description'>详细测试用例结果</p>
+</div>
+
+
+<p id='show_detail_line'>
+<a class="btn btn-primary" href='javascript:showCase(0)'>概要{ 100.00% }</a>
+<a class="btn btn-danger" href='javascript:showCase(1)'>失败{ 0 }</a>
+<a class="btn btn-success" href='javascript:showCase(2)'>通过{ 1 }</a>
+<a class="btn btn-info" href='javascript:showCase(3)'>所有{ 1 }</a>
+</p>
+<table id='result_table' class="table table-condensed table-bordered table-hover">
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row' class="text-center success" style="font-weight: bold;font-size: 14px;">
+    <td>用例集/测试用例</td>
+    <td>总计</td>
+    <td>通过</td>
+    <td>失败</td>
+    <td>错误</td>
+    <td>详细</td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>TestBGameScenario: 点72后台－API接口场景</td>
+    <td class="text-center">1</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center">
+        <a href="javascript:showClassDetail('c1',1)" class="detail" id='c1'>详细</a>
+        <a href='javascript:hidden_case()' id="case_hidden_btn" style="display:none">展开所有</a>
+    </td>
+
+</tr>
+
+<tr id='pt1_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>testbiaoservernewhulogin_1: 获得活动信息->预登录接口->polling用户登录session信息->下单接口->polling订单支付状态->出货接口</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_1'>通过</button>
+    <div id='div_pt1_1' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_1' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_1'>通过</button>
+    <div id='div_pt1_1' class="collapse" align="left">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt1_1: 用例描述--&gt;登录新互派
+数据:{"serviceName": "standardFindActivity", "params": {"machineId": "18257189", "versionInno72": "", "version": "", "planId": ""}, "version": "1.0.0"}
+发送:http://api.game.36solo.com/inno72/service/open
+返回:
+{"msg": "成功", "code": 0, "data": {"updateTime": "2018-11-01 16:39:52", "localeId": "a91c5a07377d43ce9af8c5d41dcb4603", "point": "朝阳公园", "machineName": null, "activityType": 1, "paiyangType": 1, "activityPlanId": "02b32c34bb2448279dc9151958682188", "tag": null, "id": "77b2f901194a4130bd8c8eb24defb666", "city": "北京市", "activityName": "误删自动化测试互派", "netStatus": 0, "prizeType": null, "activityId": "02b32c34bb2448279dc9151958682188", "inno72Games": {"remark": "kjasjglaslgjlsjglii uiu 呕呕呕呕呕呕呕呕呕呕呕呕呕呕", "name": "测试", "createId": "89dbe3bd836f44859114a19635ecc94a", "versionInno72": "1.0.0", "createTime": "2018-10-29 10:49:43", "maxGoodsNum": 100, "minGoodsNum": 1, "updateTime": "2018-10-29 10:49:44", "version": "1.0.0", "updateId": "89dbe3bd836f44859114a19635ecc94a", "isDelete": 0, "id": "4a5e3264d73a41518270dcdf48c215d8"}, "createId": "generateMachineId", "updateId": "generateMachineId", "deviceId": "73506", "address": null, "machineStatus": 4, "provence": "北京市", "createTime": "2018-11-01 16:39:52", "inno72ActivityPlan": null, "district": "朝阳区", "planCode": "p5", "reload": true, "brandName": null, "openStatus": 0, "machineCode": "18257189", "channelId": null, "playCode": null, "bluetoothAddress": null}}
+1
+各数据信息：machineCode: 18257189  activityPlanId: 02b32c34bb2448279dc9151958682188  activityId: 02b32c34bb2448279dc9151958682188
+用例描述--&gt;登录新互派
+数据:------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="machineCode"
+
+18257189
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+发送:http://api.game.36solo.com/api/getSamplingNew
+返回:
+{"msg": "成功", "code": 0, "data": [{"updateTime": null, "code": "a012ce36-f79e-4e25-a688-84605d4d35d6", "num": null, "isDelete": 0, "id": "606eae77c9a140c2a23dd3b50a03948b", "machineSurplusGoodsNum": null, "img": "https://inno72.oss-cn-beijing.aliyuncs.com/backend/goods/c705a115226840ea9af60cd92215ca7c.jpg", "sessionKey": "6102b219dae418749de83498af62f17ea14e97ceae17e162215679551", "sellerId": null, "goodsType": 1, "isVip": 1, "price": null, "createId": null, "updateId": null, "activeId": null, "banner": "https://inno72.oss-cn-beijing.aliyuncs.com/backend/goods/2bd44d0b797445e0ae7e013c18f705f7.jpg", "createTime": null, "shopName": "高洁丝店铺互派", "remark": null, "name": "高洁丝优惠券互派", "sellerCode": null, "shopId": "020e74544d63443d958b3c4c8ca99a92", "machineId": null}]}
+606eae77c9a140c2a23dd3b50a03948b a012ce36-f79e-4e25-a688-84605d4d35d6 None 020e74544d63443d958b3c4c8ca99a92 6102b219dae418749de83498af62f17ea14e97ceae17e162215679551 None
+用例描述--&gt;登录新互派
+数据:{"serviceName": "standardSessionPolling", "params": {"sessionUuid": "18257189"}, "version": "1.0.0"}
+发送:http://api.game.36solo.com/inno72/service/open
+返回:
+{"msg": "成功", "code": 0, "data": {"activityType": 0, "mixnick": null, "inno72CouponOrderId": null, "userId": "%E7%9D%A10190%2FKzkp3MV7%2B2qzY5W8C%2BLp16BEfuZzkxGjPTA62EVk%3D", "loginType": 0, "channelId": "514a012c2451482b8a42ccf2e7e6e12f", "activityPlanId": "02b32c34bb2448279dc9151958682188", "scanUrl": "", "gameReport": null, "traceId": "1a2fce75562b43adac3e18c0352e04c7", "newRetailMemberUrl": null, "merchantName": "高洁丝商户互派", "logged": true, "mid": null, "source": null, "activityId": "02b32c34bb2448279dc9151958682188", "sessionKey": null, "displayNewRetailMemberUrlFlag": null, "canGame": false, "sellerId": "2215679551", "goodsType": 1, "isVip": "0", "gameId": "4a5e3264d73a41518270dcdf48c215d8", "canOrder": true, "goodsList": null, "userNick": "睡****帅", "scanLoginUrl": null, "machineCode": "18257189", "refOrderStatus": null, "goodsId": "606eae77c9a140c2a23dd3b50a03948b", "interactId": null, "inno72OrderId": null, "goodsName": null, "goodsCode": null, "shipmentNum": null, "isScanned": true, "countGoods": true, "accessToken": "6202308b83cefc2egi3a09c988610fe781c610e646d13cc1922291332", "sessionUuid": "18257189", "playTimes": 0, "sellerName": "高洁丝商户互派", "authUrl": null, "scanPayUrl": null, "inno72MachineVo": null, "machineId": "77b2f901194a4130bd8c8eb24defb666", "needPay": false, "refOrderId": null, "planCode": "p5"}}
+睡****帅
+True
+606eae77c9a140c2a23dd3b50a03948b
+None
+True
+True
+2215679551
+用例描述--&gt;登录新互派
+数据:{"serviceName": "standardOrder", "params": {"report": "", "ua": "112#Znc4o74WNJ++4Aj0F7AQTAEPoz8pD0Wuz7k89eeI//sDsuUnRiOLQZiJ96/MBunIQdW5+dhnbjjtXzWr22KDp7PYTvXwU/0ai4X2Xx7NX6gA+AEAbQB2R+R1L6lw0cZNfLNsvRKb7WhawSCUeXriCAT44hsjuEL+gX1D/d7PpPhjAbMXeHVShXYBvMzZOA0s6ZKphM/dA7J/e9No/RFjEQoq2wnVL2s6zR+2x10AN5MUSWRIUPYlgDLoadCGbk38cmtBTF6mHSCNfwUzGMP1idOYFkPIJekh/3F9fv/o3iI/8tNFuPi9Tql1jRtC8Q8Ld8tZku+SM1s1mciKPhX8sJ6hR7DBqofg2JBr09pVuWE0xKNTGDcMxS3+9c2bGcFgqcNO83ezDbvYIwGtqPyAACMPipI6dCy8Cd3NFjfdbiOFuEDIw8nHY/Wy89u1y6hARSzNsInviIdHVMZ3URQZEx2tfgK5qmmJBPol7gjybGFpS8LfMkFy+f36PocogeGxzchG2XR=", "umid": "HV01PAAZ0b01e349db8da9a45bbdc33706291cb4", "sessionUuid": "18257189"}, "version": "1.0.0"}
+发送:http://api.game.36solo.com/inno72/service/open
+返回:
+{"msg": "成功", "code": 0, "data": {"orderResult": -1, "needPay": false, "time": 1541752565370, "lotteryResult": 1, "payQrcodeImage": ""}}
+orderResult:-1
+payQrcodeImage: 
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='total_row' class="text-center active">
+    <td>总计</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>通过率：100.00%</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+    <div style=" position:fixed;right:50px; bottom:30px; width:20px; height:20px;cursor:pointer">
+    <a href="#"><span class="glyphicon glyphicon-eject" style = "font-size:30px;" aria-hidden="true">
+    </span></a></div>
+    
+</body>
+</html>

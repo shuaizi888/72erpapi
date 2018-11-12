@@ -29,10 +29,13 @@ GAMECASELOGIN:
         standardFindActivitydata: {"serviceName": "standardFindActivity","version": "1.0.0","params": {"machineId": "18774616","planId": "","version": "","versionInno72": ""}}
 
         #预登录接口
-        standardPrepareLogindata: {"serviceName": "standardPrepareLogin","version": "1.0.0","params": {"machineCode": "18774616","loginType": 0,"ext": {"isVip": 1,"itemId": "5192a58a19f345e1833238f95151fe57","sessionKey": "6102622e6fb5de17af88c7be97eb0b10b488a33bbf793431589666223"}}}
+        standardPrepareLogindata: {"serviceName": "standardPrepareLogin","version": "1.0.0","params": {"machineCode": "18774616","loginType": 0,"operType":"1","ext": {"isVip": 1,"itemId": "5192a58a19f345e1833238f95151fe57","sessionKey": "6102622e6fb5de17af88c7be97eb0b10b488a33bbf793431589666223"}}}
 
         #polling用户登录session信息
         standardSessionPollingdata: {"serviceName": "standardSessionPolling","version": "1.0.0","params": {"sessionUuid": "{{SUuidtoken}}"}}
+
+        #查看商品信息
+        standardPrepareFindgoodsdata: {"serviceName": "findGoods","version": "1.0.0","params": {"sessionUuid": "18335598"}}
 
         #下单接口
         standardOrderdata: {"serviceName": "standardOrder","version": "1.0.0","params": {"sessionUuid": "{{SUuidtoken}}","report":"","umid":"HV01PAAZ0b0ad785db8da9a45b9b223002222b57","ua":"110#WCykAUkfkryQTs+J2wgAMuy2kMUtfq5OmKs2hQ7/8Dsnk3gxpx2IjQmkFXCS+MzYmpkht+2y8MIZOkRlIPJENgs55QxU89qOqkkkhn7yvKPZGTUt5EaZ1FrAhdldR6MCO0OmC1x30FfDc5KijTkiLFpX7cqis9kk4EKQFEgKbelUGOPC7VwXNHTPDPpiTCV4brxts1aisrkUGOmwjTcwkkT4+OvisOTLUc/BviC3c4lPNLBXj9gJk9tEKmjM2pUkDlDoYDfcH+9e4VrVJMc2nkbjaOm8kmb2/AECdI6detaY4CjelbLWhZtERsS1xCNKETxIFsyR3mKeAV6omGvpXa6Lhv+ezBWqcJSmh89dkJGJZYTtGCrFzBjW9XrVb66OmretGVkKF0eVo2uKZ8ixs2Ba1kvqsGg5XD0cMsXhP74hWMTGGF43zyq6IOHbLrs9c0J69wwsKKhY"}}
@@ -43,7 +46,7 @@ GAMECASELOGIN:
         #出货接口
         standardShipmentdata: {"serviceName": "standardShipment","version": "1.0.0","params": {"machineCode": "19294124","sessionUuid":"{{SUuidtoken}}","channelId":"{{channelids}}","failChannelIds":""}}
 
-GAMECASEPAI:
+GAMECASEHUDONG:
     #>>>>>>>>获得活动信息>>预登录接口>>>polling用户登录session信息>>>>下单接口>>polling订单支付状态>>>>出货接口>>>>>>>>>>>>>>>>>>>
     Case1: #派样获得活动信息->预登录接口无需登录->polling用户登录session信息->下单接口->polling订单支付状态->出货接口
         Desc: 登录互动
@@ -52,16 +55,81 @@ GAMECASEPAI:
         standardFindActivitydata: {"serviceName": "standardFindActivity","version": "1.0.0","params": {"machineId": "18335598","planId": "","version": "","versionInno72": ""}}
 
         #预登录接口
-        standardPrepareLogindata: {"serviceName": "standardPrepareLogin","version": "1.0.0","params": {"machineCode": "192941247","loginType": 0}}
+        standardPrepareLogindata: {"serviceName": "standardPrepareLogin","version": "1.0.0","params": {"machineCode": "192941247","loginType": 0,"operType":"1","ext": {"isVip": 0,"itemId": "","sessionKey": "", "goodsCode":""}}}
 
         #polling用户登录session信息
         standardSessionPollingdata: {"serviceName": "standardSessionPolling","version": "1.0.0","params": {"sessionUuid": "{{SUuidtoken}}"}}
 
+        #查看商品信息
+        standardPrepareFindgoodsdata: {"serviceName": "findGoods","version": "1.0.0","params": {"sessionUuid": "18335598"}}
+
         #下单接口
-        standardOrderdata: {"serviceName": "standardOrder","version": "1.0.0","params": {"sessionUuid": "{{SUuidtoken}}","report":"1","umid":"HV01PAAZ0b0ad785db8da9a45b9b223002222b57","ua":"110#WCykAUkfkryQTs+J2wgAMuy2kMUtfq5OmKs2hQ7/8Dsnk3gxpx2IjQmkFXCS+MzYmpkht+2y8MIZOkRlIPJENgs55QxU89qOqkkkhn7yvKPZGTUt5EaZ1FrAhdldR6MCO0OmC1x30FfDc5KijTkiLFpX7cqis9kk4EKQFEgKbelUGOPC7VwXNHTPDPpiTCV4brxts1aisrkUGOmwjTcwkkT4+OvisOTLUc/BviC3c4lPNLBXj9gJk9tEKmjM2pUkDlDoYDfcH+9e4VrVJMc2nkbjaOm8kmb2/AECdI6detaY4CjelbLWhZtERsS1xCNKETxIFsyR3mKeAV6omGvpXa6Lhv+ezBWqcJSmh89dkJGJZYTtGCrFzBjW9XrVb66OmretGVkKF0eVo2uKZ8ixs2Ba1kvqsGg5XD0cMsXhP74hWMTGGF43zyq6IOHbLrs9c0J69wwsKKhY"}}
+        standardOrderdata: {"serviceName": "standardOrder","version": "1.0.0","params": {"sessionUuid": "{{SUuidtoken}}","report":"2","umid":"HV01PAAZ0b0ad785db8da9a45b9b223002222b57","ua":"110#WCykAUkfkryQTs+J2wgAMuy2kMUtfq5OmKs2hQ7/8Dsnk3gxpx2IjQmkFXCS+MzYmpkht+2y8MIZOkRlIPJENgs55QxU89qOqkkkhn7yvKPZGTUt5EaZ1FrAhdldR6MCO0OmC1x30FfDc5KijTkiLFpX7cqis9kk4EKQFEgKbelUGOPC7VwXNHTPDPpiTCV4brxts1aisrkUGOmwjTcwkkT4+OvisOTLUc/BviC3c4lPNLBXj9gJk9tEKmjM2pUkDlDoYDfcH+9e4VrVJMc2nkbjaOm8kmb2/AECdI6detaY4CjelbLWhZtERsS1xCNKETxIFsyR3mKeAV6omGvpXa6Lhv+ezBWqcJSmh89dkJGJZYTtGCrFzBjW9XrVb66OmretGVkKF0eVo2uKZ8ixs2Ba1kvqsGg5XD0cMsXhP74hWMTGGF43zyq6IOHbLrs9c0J69wwsKKhY"}}
 
         #polling订单支付状态
         standardOrderPollingdata: {"serviceName": "standardOrderPolling","version": "1.0.0","params": {"sessionUuid": "{{SUuidtoken}}","orderId": ""}}
 
         #出货接口
         standardShipmentdata: {"serviceName": "standardShipment","version": "1.0.0","params": {"machineCode": "19294124","sessionUuid":"{{SUuidtoken}}","channelId":"{{channelids}}","failChannelIds":""}}
+
+
+GAMECASENEWHUPAI:
+    #>>>>>>>>获得活动信息>>查看机器商品信息>>预登录接口>>>polling用户登录session信息>>>>下单接口>>polling订单支付状态>>>>出货接口>>>>>>>>>>>>>>>>>>>
+    Case1: #派样获得活动信息->查看机器商品信息->预登录接口无需登录->polling用户登录session信息->下单接口->polling订单支付状态->出货接口
+        Desc: 登录新互派
+        GameUrl: http://api.game.36solo.com/inno72/service/open
+        GoodsUrl: http://api.game.36solo.com/api/getSamplingNew
+        #获得活动信息
+        standardFindActivitydata: {"serviceName": "standardFindActivity","version": "1.0.0","params": {"machineId": "18383061","planId": "","version": "","versionInno72": ""}}
+
+        #获取商品信息
+        standardgetSamplingNew: {"machineCode":"18383061"}
+
+        #预登录接口
+        standardPrepareLogindata: {"serviceName": "standardPrepareLogin","version": "1.0.0","params": {"machineCode": "18383061","loginType": 0,"operType":"1","ext": {"isVip": 1,"itemId": "f4293f0f33f44679b7e5821b601709ef","sessionKey": "61001288e56d65a89185f8faf88ae3333c33160f50cf5771098970761","goodsCode": ""}}}
+
+        #polling用户登录session信息
+        standardSessionPollingdata: {"serviceName": "standardSessionPolling","version": "1.0.0","params": {"sessionUuid": "{{SUuidtoken}}"}}
+
+        #查看商品信息
+        standardPrepareFindgoodsdata: {"serviceName": "findGoods","version": "1.0.0","params": {"sessionUuid": "18335598"}}
+
+        #下单接口
+        standardOrderdata: {"serviceName": "standardOrder","version": "1.0.0","params": {"sessionUuid": "{{SUuidtoken}}","report":"","umid":"HV01PAAZ0b01e349db8da9a45bbdc33706291cb4","ua":"112#Znc4o74WNJ++4Aj0F7AQTAEPoz8pD0Wuz7k89eeI//sDsuUnRiOLQZiJ96/MBunIQdW5+dhnbjjtXzWr22KDp7PYTvXwU/0ai4X2Xx7NX6gA+AEAbQB2R+R1L6lw0cZNfLNsvRKb7WhawSCUeXriCAT44hsjuEL+gX1D/d7PpPhjAbMXeHVShXYBvMzZOA0s6ZKphM/dA7J/e9No/RFjEQoq2wnVL2s6zR+2x10AN5MUSWRIUPYlgDLoadCGbk38cmtBTF6mHSCNfwUzGMP1idOYFkPIJekh/3F9fv/o3iI/8tNFuPi9Tql1jRtC8Q8Ld8tZku+SM1s1mciKPhX8sJ6hR7DBqofg2JBr09pVuWE0xKNTGDcMxS3+9c2bGcFgqcNO83ezDbvYIwGtqPyAACMPipI6dCy8Cd3NFjfdbiOFuEDIw8nHY/Wy89u1y6hARSzNsInviIdHVMZ3URQZEx2tfgK5qmmJBPol7gjybGFpS8LfMkFy+f36PocogeGxzchG2XR="}}
+
+        #polling订单支付状态
+        standardOrderPollingdata: {"serviceName": "standardOrderPolling","version": "1.0.0","params": {"sessionUuid": "{{SUuidtoken}}","orderId": ""}}
+
+        #出货接口
+        standardShipmentdata: {"serviceName": "standardShipment","version": "1.0.0","params": {"machineCode": "18383061","sessionUuid":"{{SUuidtoken}}","channelId":"{{channelids}}","failChannelIds":""}}
+
+
+GAMECASENEWYOUHUPAI:
+    #>>>>>>>>获得活动信息>>查看机器商品信息>>预登录接口>>>polling用户登录session信息>>>>下单接口>>polling订单支付状态>>>>出货接口>>>>>>>>>>>>>>>>>>>
+    Case1: #派样获得活动信息->查看机器商品信息->预登录接口无需登录->polling用户登录session信息->下单接口->polling订单支付状态->出货接口
+        Desc: 登录新互派
+        GameUrl: http://api.game.36solo.com/inno72/service/open
+        GoodsUrl: http://api.game.36solo.com/api/getSamplingNew
+        #获得活动信息
+        standardFindActivitydata: {"serviceName": "standardFindActivity","version": "1.0.0","params": {"machineId": "18257189","planId": "","version": "","versionInno72": ""}}
+
+        #获取商品信息
+        standardgetSamplingNew: {"machineCode":"18257189"}
+
+        #预登录接口
+        standardPrepareLogindata: {"serviceName": "standardPrepareLogin","version": "1.0.0","params": {"machineCode": "18257189","loginType": 0,"operType":"1","ext": {"isVip": 1,"itemId": "f4293f0f33f44679b7e5821b601709ef","sessionKey": "61001288e56d65a89185f8faf88ae3333c33160f50cf5771098970761","goodsCode": ""}}}
+
+        #polling用户登录session信息
+        standardSessionPollingdata: {"serviceName": "standardSessionPolling","version": "1.0.0","params": {"sessionUuid": "{{SUuidtoken}}"}}
+
+        #查看商品信息
+        standardPrepareFindgoodsdata: {"serviceName": "findGoods","version": "1.0.0","params": {"sessionUuid": "18257189"}}
+
+        #下单接口
+        standardOrderdata: {"serviceName": "standardOrder","version": "1.0.0","params": {"sessionUuid": "{{SUuidtoken}}","report":"","umid":"HV01PAAZ0b01e349db8da9a45bbdc33706291cb4","ua":"112#Znc4o74WNJ++4Aj0F7AQTAEPoz8pD0Wuz7k89eeI//sDsuUnRiOLQZiJ96/MBunIQdW5+dhnbjjtXzWr22KDp7PYTvXwU/0ai4X2Xx7NX6gA+AEAbQB2R+R1L6lw0cZNfLNsvRKb7WhawSCUeXriCAT44hsjuEL+gX1D/d7PpPhjAbMXeHVShXYBvMzZOA0s6ZKphM/dA7J/e9No/RFjEQoq2wnVL2s6zR+2x10AN5MUSWRIUPYlgDLoadCGbk38cmtBTF6mHSCNfwUzGMP1idOYFkPIJekh/3F9fv/o3iI/8tNFuPi9Tql1jRtC8Q8Ld8tZku+SM1s1mciKPhX8sJ6hR7DBqofg2JBr09pVuWE0xKNTGDcMxS3+9c2bGcFgqcNO83ezDbvYIwGtqPyAACMPipI6dCy8Cd3NFjfdbiOFuEDIw8nHY/Wy89u1y6hARSzNsInviIdHVMZ3URQZEx2tfgK5qmmJBPol7gjybGFpS8LfMkFy+f36PocogeGxzchG2XR="}}
+
+        #polling订单支付状态
+        standardOrderPollingdata: {"serviceName": "standardOrderPolling","version": "1.0.0","params": {"sessionUuid": "{{SUuidtoken}}","orderId": ""}}
+
+        #出货接口
+        standardShipmentdata: {"serviceName": "standardShipment","version": "1.0.0","params": {"machineCode": "18383061","sessionUuid":"{{SUuidtoken}}","channelId":"{{channelids}}","failChannelIds":""}}

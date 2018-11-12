@@ -26,7 +26,7 @@ class Httpupdata(object):
 
     #数据信息
     updatas = {"machineId":newmachineId,"updateStatus":"3"}
-    payload = {"machineId":'c2f5a701a5244d158ceb5cbba8d8e16a',"appPackageName":datas['appPackageName'],"url":datas['url'],"versionCode":datas['versionCode']}
+    # payload = {"machineId":'c2f5a701a5244d158ceb5cbba8d8e16a',"appPackageName":datas['appPackageName'],"url":datas['url'],"versionCode":datas['versionCode']}
 
 
     def __init__(self):

@@ -2,7 +2,8 @@
 #Author:sgao
 
 import execjs
-
+# ua: ctl.getUA(),
+#         umid: ctl.getUmidToken(),
 
 
 # ctx = execjs.compile('''function add(a,b){return a+b;}''')

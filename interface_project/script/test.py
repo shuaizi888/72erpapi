@@ -586,7 +586,7 @@ failed_arr = []
 
 # a = 1
 # print '测试'+ str(a)
-import time
+# import time
 # print time.strftime("%Y-%m-%d %H:%M", time.localtime())
 #
 # a = {"type": 1,
@@ -629,6 +629,265 @@ import time
 # print a['msgInfo']['apps'][0]['versionCode']
 
 
-a = ['1','a']
-b = ['2','b']
-print list(enumerate(a))
+# a = ['1','a']
+# b = ['2','b']
+# print list(enumerate(a))
+# data = {"machineCode": '123', "msg": {"type": 3,
+#                                           "data": {"className": "com.inno72.seventytwo.openapi.SeventyTwoApi",
+#                                                    "methonName": "setShipFailCountLock", "paramList": [9]}}}
+# print data['machineCode']
+# print data['msg']['type']
+# print data['msg']['data']
+# print data['msg']['data']['className']
+# print data['msg']['data']['methonName']
+# print data['msg']['data']['paramList'][0]
+# print type(data)
+
+
+#
+# import requests
+# import json
+# url = "http://api.monitor.inno72.com/sendMsgToClient/sendMsgStr"
+#
+# payload = "{\n    \"machineCode\":\"123\",\n    \"msg\":{\n        \"type\":3,\n        \"data\":{\n            \"className\":\"com.inno72.seventytwo.openapi.SeventyTwoApi\",\n            \"methonName\":\"setShipFailCountLock\",\n            \"paramList\":[\n                9\n            ]\n        }\n    }\n}"
+# headers = {
+#     'Content-Type': "application/json",
+#     'lf-None-Matoh': "7e91454ec997430fb9b2a29c85982aba",
+#     'Cache-Control': "no-cache",
+#     'Postman-Token': "3b0e2971-6a94-4798-8354-506a0561a36c"
+#     }
+#
+# response = requests.request("POST", url, data=payload, headers=headers)
+#
+# # print(response.text)
+# a = response.json()
+# print type(a)
+# print a['data']['123']
+# # c= json.loads(a)
+# # d= c['data']
+# # print json.dumps(a).encode('utf-8')
+# # b= a.encode('utf-8')
+# # print b
+#
+#
+# n = {"data":{"123":"发送失败"}}
+# print type(n)
+# print n['data']['123']
+
+# import random
+#
+# a = random.uniform(2,9)
+# print round(a,1)
+
+# import requests
+# import json
+#
+# url = "http://api.game.36solo.com/inno72/service/open"
+# headers = {
+#     'Cache-Control': "no-cache",
+#     'Content-Type': "application/json",
+#     'Postman-Token': "d8aea2f5-df7b-49b4-88d7-94d06b6e3162"
+#     }
+# url = "http://api.game.36solo.com/api/getSamplingNew"
+#
+# payload = "------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"machineCode\"\r\n\r\n18383061\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW--"
+# print type(payload)
+# headers = {
+#     'content-type': "multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW",
+#     'Cache-Control': "no-cache",
+#     'Content-Type': "application/form-data",
+#     'Postman-Token': "2c094024-cbe0-4843-8e7e-941ef125ab96"
+#     }
+#
+# response = requests.request("POST", url, data=payload, headers=headers)
+#
+# print '------查看活动资源-----'
+#
+# payload = "{\n\"serviceName\": \"standardFindActivity\",\n\n\"version\": \"1.0.0\",\n\"params\": {\n\"machineId\": \"18335598\",\n\"planId\": \"\",\n\"version\": \"\",\n\"versionInno72\": \"\"\n}\n}"
+# response = requests.request("POST", url, data=payload, headers=headers)
+#
+# activity= response.json()
+# print json.dumps(activity).decode('unicode-escape')
+# res = activity
+# msg = res['data']['msg']
+# code = res['data']['code']
+# machineCode = res['data']['machineCode']
+# activityPlanId = res['data']['activityPlanId']
+# activityId = res['data']['activityId']
+# channelId = res['data']['channelId']
+# activityType = res['data']['activityType']
+# print 'machineCode: ' + machineCode + '  ' + 'activityPlanId: ' + activityPlanId + '  ' + 'activityId: ' + activityId + '  ' + 'channelId: ' + channelId
+
+# res = {"msg": "成功", "code": 0, "data": {"goods": [{"goodsNum": 233, "goodsId": "576402814187", "goodsRule": 0, "goodsCount": 0, "goodsName": "乔治卡罗尔男士洗面奶", "channelIds": ["53", "54", "55", "56", "52"]}], "payQrcodeImage": "", "orderResult": 0, "lotteryResult": 1, "time": 1539310267020, "needPay": 'false'}}
+# # print type(res)
+# #
+# # channelIds = res['data']['goods'][0]['channelIds'][0]
+# # payQrcodeImage = res['data']['payQrcodeImage']
+# # print 'channelIds:'+channelIds
+## print 'payQrcodeImage'+payQrcodeImage
+
+# import json
+# machineCode = '123'
+# payload = "\n{\n\"serviceName\": \"getSampling\",\n\n\"version\": \"1.0.0\",\n\"params\": {\n\"machineCode\": \"machineCode\"\n\n}\n}"
+# newpayload = json.loads(payload)
+# newpayload['params']['machineCode'] = machineCode
+# payload = json.dumps(newpayload)
+# payload = "{\"serviceName\": \"standardPrepareLogin\",\"version\": \"1.0.0\",\"params\": {\"machineCode\": \"18383061\",\"loginType\": 0,\"operType\":\"1\",\"ext\": {\"isVip\": 0,\"itemId\": \"d447b60568a2437da806c235093f4239\",\"sessionKey\": \"6102622e6fb5de17af88c7be97eb0b10b488a33bbf793431589666223\",\"goodsCode\": \"\"}}}\n"
+# response = requests.request("POST", url, data=payload, headers=headers)
+#
+# login= response.json()
+# print json.dumps(login).decode('unicode-escape')
+
+# payload = "{\n    \"serviceName\": \"findGoods\",\n    \"version\": \"1.0.0\",\n    \"params\": {\n        \"sessionUuid\": \"18335598\"\n    }\n}"
+# response = requests.request("POST", url, data=payload, headers=headers)
+#
+# activity= response.json()
+# print json.dumps(activity).decode('unicode-escape')
+#
+# res = activity
+# print res['data'][0]['price']
+
+
+# import requests
+#
+# url = "http://api.game.36solo.com/inno72/service/open"
+#
+# payload = "{\n \"serviceName\": \"standardOrder\",\n \"version\": \"1.0.0\",\n \"params\": {\n    \"sessionUuid\": \"18625038\",\n\t\"report\":\"\",\n\t\"umid\":\"HV02PAAZ0b0fa030db8da9a45bd9d1c006e6a51c100024\",\n\t\"ua\":\"113#wP+N6ffFfV/h3f4Au/p416F6bOu/pQ/hDskWk0inosbxbYVzk30t16M6KD4Fiu+9c/72naRbDsbkbsxYkW5D16fWbDbOs6FZDsD6x0vkG06DbsoOHDRo1Pf6bFoFsUTXDssWaIjwDXbxbYkyf1kAj9ryPypG6s4CCd2celaD1StvfvQ5+fkX9Rrlrs3G6YfcODYuNGvl9xw/c1U/PUCDYEW6bnlADj7ODEpMfdmvlrH1tpPJ8pvCM6qOwlNr45ZIOyA+KFCygXRmUXYEhueBYbw9vTwkWdPwKTqW3Z0KGi7xKDnt4gsp684l1EJsXLFgYcN2CYPiAW7M6ETZ5Stu3198Pw7m+6oWA2LafGEok3LLxl+w2LywY0YS60SESgla194ZtydlPuLU6ykIQwdfqAMUJPM3/qs7oRYNnYIuU4Lx5u3aaBZPcJl2e8HHLTP7U2pfcstEQAqZqJp2hsNKGViHHkDBzI47kMgXaBZ82k1XYtFV\"\n }\n}"
+# headers = {
+#     'Content-Type': "application/json",
+#     'cache-control': "no-cache",
+#     'Postman-Token': "c2aaf5d6-2b1d-4289-a5b2-199ab051e4ea"
+#     }
+#
+# response = requests.request("POST", url, data=payload, headers=headers)
+#
+# print(response.text)
+#
+#
+# import requests
+#
+# url = "http://api.game.36solo.com/inno72/service/open"
+#
+# payload = "{\n\"serviceName\": \"standardShipment\",\n\"version\": \"1.0.0\",\n\"params\": {\n\t\"machineCode\": \"18625038\",\n\t\"sessionUuid\":\"18625038\",\n\t\"channelId\":\"54\",\n\t\"failChannelIds\":\"\"\n\t}\n}"
+# headers = {
+#     'Content-Type': "application/json",
+#     'cache-control': "no-cache",
+#     'Postman-Token': "a7a2274a-eb0c-4f79-b469-673d90d3b8f5"
+#     }
+#
+# response = requests.request("POST", url, data=payload, headers=headers)
+#
+# print(response.text)
+
+# import requests
+#
+# url = "http://api.game.32solo.com/inno72/service/open"
+#
+# payload = "{\n \"serviceName\": \"standardOrder\",\n \"version\": \"1.0.0\",\n \"params\": {\n    \"sessionUuid\": \"18028123\",\n\t\"report\":\"\",\n\t\"umid\":\"HV01WAAZ0bb69a5ddb8da9a55bd02502070c9229\",\n\t\"ua\":\"113#+Gc5PkfFfDR7Ka4AuxHn16F6bOVfuGDcDskWk0inosbxbYuhcDRD1oFoKFK4sPDOheVjhrb1oYbxbYxYkWRD16fWbFiYdPj8DsDNk6CJLy9xbsdWHD5o16FW10iOGok8DnDWkf4LoYikbdD4OyKCCoBtEUro1ShHHHrQUm0CajZvrh8rdZUBulQ9uEZD1mtv2kBH6qSMjthsMREIdnytHAg2dUpm6VRMgxlpfdmOVo/1tfnx8eB3xWqDgVF4HSs9feCnZf7EtJAWIt8I+VFfsMpyNskB3ehQE0n0XjRHbuI10eSc8WDc8+uxUgFTOQCZPM8wIUfheawc6CuDYHM4Bx9cV3xXuESuTvSP91Bj+RSR0H/qc9P/PTwtixYHCaHTxlQcbVRmEE7xvKH6ntwrkuXjDFgJvrp8RVue6dwsIr1t5c4IfIm+0CXqbcdaliBBl9OUBzb1N6ZZPvF=\"\n }\n}"
+# headers = {
+#     'Content-Type': "application/json",
+#     'cache-control': "no-cache",
+#     'Postman-Token': "32817f0a-2bbc-4b0a-b56e-e6ffbecc2f10"
+#     }
+#
+# response = requests.request("POST", url, data=payload, headers=headers)
+#
+# print(response.text)
+#
+# import requests
+#
+# url = "http://api.game.32solo.com/inno72/service/open"
+#
+# payload = "{\n\"serviceName\": \"standardShipment\",\n\"version\": \"1.0.0\",\n\"params\": {\n\t\"machineCode\": \"18028123\",\n\t\"sessionUuid\":\"18028123\",\n\t\"channelId\":\"56\",\n\t\"failChannelIds\":\"\"\n\t}\n}"
+# headers = {
+#     'Content-Type': "application/json",
+#     'cache-control': "no-cache",
+#     'Postman-Token': "a5ec6212-b60f-4c0d-9b40-5524d92a43b3"
+#     }
+#
+# response = requests.request("POST", url, data=payload, headers=headers)
+#
+# print(response.text)
+#
+#
+# time.sleep(2)、
+
+
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+DC_PATH = BASE_DIR + "districtcode.txt"
+
+import random
+import time
+from datetime import datetime,timedelta,date
+
+
+# 随机生成手机号码
+def createPhone():
+    prelist = ["130", "131", "132", "133", "134", "135", "136", "137", "138", "139", "147", "150", "151", "152", "153",
+               "155", "156", "157", "158", "159", "186", "187", "188"]
+    return random.choice(prelist) + "".join(random.choice("0123456789") for i in range(8))
+
+
+# 随机生成身份证号
+def getdistrictcode():
+    with open(DC_PATH) as file:
+        print DC_PATH
+        data = file.read()
+        print data
+        districtlist = data.split('\n')
+    for node in districtlist:
+        # print node
+        if node[10:11] != ' ':
+            state = node[10:].strip()
+        if node[10:11] == ' ' and node[12:13] != ' ':
+            city = node[12:].strip()
+        if node[10:11] == ' ' and node[12:13] == ' ':
+            district = node[14:].strip()
+            code = node[0:6]
+            codelist.append({"state": state, "city": city, "district": district, "code": code})
+
+
+def gennerator():
+    global codelist
+    codelist = []
+    if not codelist:
+        getdistrictcode()
+    id = codelist[random.randint(0, len(codelist))]['code']  # 地区项
+    id = id + str(random.randint(1930, 2013))  # 年份项
+    da = date.today() + timedelta(days=random.randint(1, 366))  # 月份和日期项
+    id = id + da.strftime('%m%d')
+    id = id + str(random.randint(100, 300))  # ，顺序号简单处理
+
+    i = 0
+    count = 0
+    weight = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2]  # 权重项
+    checkcode = {'0': '1', '1': '0', '2': 'X', '3': '9', '4': '8', '5': '7', '6': '6', '7': '5', '8': '5', '9': '3',
+                 '10': '2'}  # 校验码映射
+    for i in range(0, len(id)):
+        count = count + int(id[i]) * weight[i]
+        id = id + checkcode[str(count % 11)]  # 算出校验码
+        return id
+
+
+for i in range(10):
+    print createPhone()
+
+# getdistrictcode()
+
+
+
+result = []
+rows = mdb('inno72').MachineAppStatus.find()
+for row in rows:
+    found = False;
+    if row['status'] is not None:
+        for infos in row['status'] :
+            if infos['appPackageName'] == 'com.inno72.zeusapp' or infos['appPackageName'] != 'com.inno72.monitorapp.tmall' :
+                found = True;
+    if not found:
+        try:
+            result.append([row['machineId']])
+        except:
+            pass
+
+

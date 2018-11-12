@@ -38,9 +38,10 @@ EMAIL:
 RUNING:
     testgameserver: {'Flag':'Y'} #老游戏服务接口:成功掉货
     testbiaoserverwu: {'Flag':'Y'} #游戏服务接口无需登录
-    testbiaoserverlogin: {'Flag':'Y'} #游戏服务接口登录
-    testbiaoserverhulogin: {'Flag':'Y'} #游戏服务接口派样无需登录
-
+    testbiaoserverlogin: {'Flag':'Y'} #游戏服务派样登录
+    testbiaoserverhulogin: {'Flag':'Y'} #游戏服务互动需登录
+    testbiaoservernewhulogin: {'Flag':'Y'} #游戏服务接口new互派
+    testbiaoservernewyouhulogin: {'Flag':'Y'} #游戏服务接口new互派优惠券
 
 
 
