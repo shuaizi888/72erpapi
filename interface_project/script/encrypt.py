@@ -56,5 +56,25 @@ def checkjiami(datas):
     checkjiami = requests.request('post',url=full_url,headers=headers,data=datas)
     return checkjiami.text
 
+
+def jiemi(datas):
+    URL = '/machine/decrypt'
+    full_url = BaseConfig().app_url + URL
+    headers = {'Content-Type': "application/json",'Cache-Control': "no-cache"}
+    data = datas
+    jiemi = requests.request('post',url=full_url,headers=headers,data=data)
+    return jiemi.text
+
+def checkjiemi(datas):
+    URL = '/machine/decrypt'
+    full_url = BaseConfig().check_url + URL
+    headers = {'Content-Type': "application/json",'Cache-Control': "no-cache"}
+    data = datas
+    checkjiemi = requests.request('post',url=full_url,headers=headers,data=data)
+    return checkjiemi.text
+
+# a = '6a54f7c88ed80836fcaba17d5eb4c79dd319c7a18157c7eb59d75e49eafda571b2836631799d7a1ee408b55f64d22de2'
+# print jiemi(a)
+
 # a = '{"channelJson":[{"code":1,"volumeCount":11,"workStatus":0},{"code":2,"volumeCount":11,"workStatus":0},{"code":3,"volumeCount":11,"workStatus":0},{"code":4,"volumeCount":11,"workStatus":0},{"code":5,"volumeCount":11,"workStatus":0},{"code":6,"volumeCount":11,"workStatus":0},{"code":7,"volumeCount":11,"workStatus":0},{"code":8,"volumeCount":11,"workStatus":0},{"code":11,"volumeCount":11,"workStatus":0},{"code":12,"volumeCount":11,"workStatus":0},{"code":13,"volumeCount":11,"workStatus":0},{"code":14,"volumeCount":11,"workStatus":0},{"code":15,"volumeCount":11,"workStatus":0},{"code":16,"volumeCount":11,"workStatus":0},{"code":17,"volumeCount":11,"workStatus":0},{"code":18,"volumeCount":11,"workStatus":0},{"code":21,"volumeCount":11,"workStatus":0},{"code":23,"volumeCount":11,"workStatus":0},{"code":25,"volumeCount":11,"workStatus":0},{"code":27,"volumeCount":11,"workStatus":0},{"code":31,"volumeCount":11,"workStatus":0},{"code":32,"volumeCount":11,"workStatus":0},{"code":33,"volumeCount":11,"workStatus":0},{"code":34,"volumeCount":11,"workStatus":0},{"code":35,"volumeCount":11,"workStatus":0},{"code":36,"volumeCount":11,"workStatus":0},{"code":37,"volumeCount":11,"workStatus":0},{"code":38,"volumeCount":11,"workStatus":0},{"code":41,"volumeCount":11,"workStatus":0},{"code":42,"volumeCount":11,"workStatus":0},{"code":43,"volumeCount":11,"workStatus":0},{"code":44,"volumeCount":11,"workStatus":0},{"code":45,"volumeCount":11,"workStatus":0},{"code":46,"volumeCount":11,"workStatus":0},{"code":51,"volumeCount":11,"workStatus":0},{"code":52,"volumeCount":11,"workStatus":0},{"code":53,"volumeCount":11,"workStatus":0},{"code":54,"volumeCount":11,"workStatus":0},{"code":55,"volumeCount":11,"workStatus":0},{"code":56,"volumeCount":11,"workStatus":0}],"machineCode":"18865687","bluetoothAddress":""})'
 # print jiami(a)

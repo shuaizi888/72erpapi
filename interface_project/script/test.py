@@ -876,18 +876,22 @@ for i in range(10):
 
 
 
-result = []
-rows = mdb('inno72').MachineAppStatus.find()
-for row in rows:
-    found = False;
-    if row['status'] is not None:
-        for infos in row['status'] :
-            if infos['appPackageName'] == 'com.inno72.zeusapp' or infos['appPackageName'] != 'com.inno72.monitorapp.tmall' :
-                found = True;
-    if not found:
-        try:
-            result.append([row['machineId']])
-        except:
-            pass
+# result = []
+# rows = mdb('inno72').MachineAppStatus.find()
+# for row in rows:
+#     found = False;
+#     if row['status'] is not None:
+#         for infos in row['status'] :
+#             if infos['appPackageName'] == 'com.inno72.zeusapp' or infos['appPackageName'] != 'com.inno72.monitorapp.tmall' :
+#                 found = True;
+#     if not found:
+#         try:
+#             result.append([row['machineId']])
+#         except:
+#             pass
+
+
+a = '/Users/72cy-0101-01-0027/Desktop/work/script/72erp/report/Report.html'
+print a.split('/')[-1]
 
 
