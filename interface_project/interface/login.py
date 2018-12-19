@@ -5,11 +5,11 @@ import requests
 # from interface_project.base.basepage import BaseConfig
 
 class loginClass(object):
-    # url = "http://api.erp.36solo.com/dd/testLogin?"
+    url = "http://api.erp.36solo.com/dd/testLogin?"
     # url = "http://api.erp.32solo.com/dd/testLogin?"
-    url = "http://api.erp.inno72.com/dd/testLogin?"
-    # payload = 'phone=18811420137&name=高帅分身'
-    payload = 'phone=18811420138&name=高帅'
+    # url = "http://api.erp.inno72.com/dd/testLogin?"
+    payload = 'phone=18811420137&name=高帅分身'
+    # payload = 'phone=18811420138&name=高帅'
     headers = {
         'Content-Type':"application/x-www-form-urlencoded",
         'cache-control': "no-cache",

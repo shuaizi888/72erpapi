@@ -812,65 +812,65 @@ failed_arr = []
 #
 # time.sleep(2)、
 
-
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-DC_PATH = BASE_DIR + "districtcode.txt"
-
-import random
-import time
-from datetime import datetime,timedelta,date
-
-
-# 随机生成手机号码
-def createPhone():
-    prelist = ["130", "131", "132", "133", "134", "135", "136", "137", "138", "139", "147", "150", "151", "152", "153",
-               "155", "156", "157", "158", "159", "186", "187", "188"]
-    return random.choice(prelist) + "".join(random.choice("0123456789") for i in range(8))
-
-
-# 随机生成身份证号
-def getdistrictcode():
-    with open(DC_PATH) as file:
-        print DC_PATH
-        data = file.read()
-        print data
-        districtlist = data.split('\n')
-    for node in districtlist:
-        # print node
-        if node[10:11] != ' ':
-            state = node[10:].strip()
-        if node[10:11] == ' ' and node[12:13] != ' ':
-            city = node[12:].strip()
-        if node[10:11] == ' ' and node[12:13] == ' ':
-            district = node[14:].strip()
-            code = node[0:6]
-            codelist.append({"state": state, "city": city, "district": district, "code": code})
-
-
-def gennerator():
-    global codelist
-    codelist = []
-    if not codelist:
-        getdistrictcode()
-    id = codelist[random.randint(0, len(codelist))]['code']  # 地区项
-    id = id + str(random.randint(1930, 2013))  # 年份项
-    da = date.today() + timedelta(days=random.randint(1, 366))  # 月份和日期项
-    id = id + da.strftime('%m%d')
-    id = id + str(random.randint(100, 300))  # ，顺序号简单处理
-
-    i = 0
-    count = 0
-    weight = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2]  # 权重项
-    checkcode = {'0': '1', '1': '0', '2': 'X', '3': '9', '4': '8', '5': '7', '6': '6', '7': '5', '8': '5', '9': '3',
-                 '10': '2'}  # 校验码映射
-    for i in range(0, len(id)):
-        count = count + int(id[i]) * weight[i]
-        id = id + checkcode[str(count % 11)]  # 算出校验码
-        return id
-
-
-for i in range(10):
-    print createPhone()
+#
+# BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+# DC_PATH = BASE_DIR + "districtcode.txt"
+#
+# import random
+# import time
+# from datetime import datetime,timedelta,date
+#
+#
+# # 随机生成手机号码
+# def createPhone():
+#     prelist = ["130", "131", "132", "133", "134", "135", "136", "137", "138", "139", "147", "150", "151", "152", "153",
+#                "155", "156", "157", "158", "159", "186", "187", "188"]
+#     return random.choice(prelist) + "".join(random.choice("0123456789") for i in range(8))
+#
+#
+# # 随机生成身份证号
+# def getdistrictcode():
+#     with open(DC_PATH) as file:
+#         print DC_PATH
+#         data = file.read()
+#         print data
+#         districtlist = data.split('\n')
+#     for node in districtlist:
+#         # print node
+#         if node[10:11] != ' ':
+#             state = node[10:].strip()
+#         if node[10:11] == ' ' and node[12:13] != ' ':
+#             city = node[12:].strip()
+#         if node[10:11] == ' ' and node[12:13] == ' ':
+#             district = node[14:].strip()
+#             code = node[0:6]
+#             codelist.append({"state": state, "city": city, "district": district, "code": code})
+#
+#
+# def gennerator():
+#     global codelist
+#     codelist = []
+#     if not codelist:
+#         getdistrictcode()
+#     id = codelist[random.randint(0, len(codelist))]['code']  # 地区项
+#     id = id + str(random.randint(1930, 2013))  # 年份项
+#     da = date.today() + timedelta(days=random.randint(1, 366))  # 月份和日期项
+#     id = id + da.strftime('%m%d')
+#     id = id + str(random.randint(100, 300))  # ，顺序号简单处理
+#
+#     i = 0
+#     count = 0
+#     weight = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2]  # 权重项
+#     checkcode = {'0': '1', '1': '0', '2': 'X', '3': '9', '4': '8', '5': '7', '6': '6', '7': '5', '8': '5', '9': '3',
+#                  '10': '2'}  # 校验码映射
+#     for i in range(0, len(id)):
+#         count = count + int(id[i]) * weight[i]
+#         id = id + checkcode[str(count % 11)]  # 算出校验码
+#         return id
+#
+#
+# for i in range(10):
+#     print createPhone()
 
 # getdistrictcode()
 
@@ -888,10 +888,32 @@ for i in range(10):
 #         try:
 #             result.append([row['machineId']])
 #         except:
-#             pass
+# #             pass
+#
+#
+# a = '/Users/72cy-0101-01-0027/Desktop/work/script/72erp/report/Report.html'
+# print a.split('/')[-1]
+#
+#
+#
+# a = {
+#     "code": 0,
+#     "data": [
+#         "https://inno72.oss-cn-beijing.aliyuncs.com/backend/goods/39a2965c2c694204bdafb6fd0eb94684.png",
+#         "https://inno72.oss-cn-beijing.aliyuncs.com/backend/goods/dfd88cd17f774f00bbbb9b3a9ba64f56.jpg"
+#     ],
+#     "msg": "成功"
+# }
+#
+# print a['data']
+#
+#
+#
+#
+# a = {"msg": "成功", "code": 0, "data": [{"img": "backend/goods/cb1e830b2b0149de9de9ed674b31604e.png", "banner": "backend/goods/c223a1c8b3294df9b76f1cf02a309f57.png", "price": "1.00", "specRemark": 'null', "goodsId": "5072293df2164f6eaa72aee8ed0daa18", "goodsCount": 83, "goodsName": "自动化商品", "goodsCode": "576402814187", "resultCode": 1}]}
+#
+# print  a['data'][0]['price']
 
+A = {"msg": "成功", "code": 0, "data": {"goods": [{"goodsNum": 642, "goodsId": "729090", "goodsBanner": '', "goodsRule": 0, "goodsCount": 0, "goodsName": "自动化微信商品", "goodsImg": '', "goodsCode":'' , "channelIds": ["35", "36", "37", "41", "42", "43", "44", "45", "46", "32", "33", "34", "47", "1"]}], "payQrcodeImage": '', "orderResult": 0, "lotteryResult": 1, "time": 1543471047638, "needPay": ''}}
 
-a = '/Users/72cy-0101-01-0027/Desktop/work/script/72erp/report/Report.html'
-print a.split('/')[-1]
-
-
+print A['data']['goods'][0]['channelIds'][0]

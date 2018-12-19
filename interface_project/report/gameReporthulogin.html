@@ -155,18 +155,18 @@ function hidden_case() {
 <div class='heading'>
 <h4 style="font-family: Microsoft YaHei">点72标准游戏服务接口自动化测试报告</h4>
 <p class='attribute'><strong>测试人员 : </strong> sgao</p>
-<p class='attribute'><strong>开始时间 : </strong> 2018-11-09 21:41:53</p>
-<p class='attribute'><strong>合计耗时 : </strong> 0:00:41.663729</p>
-<p class='attribute'><strong>测试结果 : </strong> 共 1，通过 1，通过率= 100.00%</p>
+<p class='attribute'><strong>开始时间 : </strong> 2018-11-26 16:05:01</p>
+<p class='attribute'><strong>合计耗时 : </strong> 0:00:30.064292</p>
+<p class='attribute'><strong>测试结果 : </strong> 共 1，失败 1，通过率= 0.00%</p>
 
 <p class='description'>详细测试用例结果</p>
 </div>
 
 
 <p id='show_detail_line'>
-<a class="btn btn-primary" href='javascript:showCase(0)'>概要{ 100.00% }</a>
-<a class="btn btn-danger" href='javascript:showCase(1)'>失败{ 0 }</a>
-<a class="btn btn-success" href='javascript:showCase(2)'>通过{ 1 }</a>
+<a class="btn btn-primary" href='javascript:showCase(0)'>概要{ 0.00% }</a>
+<a class="btn btn-danger" href='javascript:showCase(1)'>失败{ 1 }</a>
+<a class="btn btn-success" href='javascript:showCase(2)'>通过{ 0 }</a>
 <a class="btn btn-info" href='javascript:showCase(3)'>所有{ 1 }</a>
 </p>
 <table id='result_table' class="table table-condensed table-bordered table-hover">
@@ -187,11 +187,11 @@ function hidden_case() {
     <td>详细</td>
 </tr>
 
-<tr class='passClass warning'>
+<tr class='failClass warning'>
     <td>TestBGameScenario: 点72后台－API接口场景</td>
     <td class="text-center">1</td>
-    <td class="text-center">1</td>
     <td class="text-center">0</td>
+    <td class="text-center">1</td>
     <td class="text-center">0</td>
     <td class="text-center">
         <a href="javascript:showClassDetail('c1',1)" class="detail" id='c1'>详细</a>
@@ -200,59 +200,41 @@ function hidden_case() {
 
 </tr>
 
-<tr id='pt1_1' class='hiddenRow'>
-    <td class='passCase'><div class='testcase'>testbiaoserverhulogin_1: 获得活动信息->预登录接口->polling用户登录session信息->下单接口->polling订单支付状态->出货接口</div></td>
+<tr id='ft1_1' class='none'>
+    <td class='failCase'><div class='testcase'>testbiaoserverhulogin_1: 获得活动信息->预登录接口->polling用户登录session信息->下单接口->polling订单支付状态->出货接口</div></td>
     <td colspan='5' align='center'>
     <!--默认收起错误信息 -Findyou
-    <button id='btn_pt1_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_1'>通过</button>
-    <div id='div_pt1_1' class="collapse">  -->
+    <button id='btn_ft1_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_1'>失败</button>
+    <div id='div_ft1_1' class="collapse">  -->
     <!-- 默认展开错误信息 -Findyou -->
-    <button id='btn_pt1_1' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_1'>通过</button>
-    <div id='div_pt1_1' class="collapse" align="left">
+    <button id='btn_ft1_1' type="button" title="点击按钮，展开或折叠该Case" class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft1_1'>失败</button>
+    <div id='div_ft1_1' class="collapse" align="left">
     <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:1070px; margin:auto; border:1px solid #e1e1e1;">
     
-pt1_1: 用例描述--&gt;登录互动
+ft1_1: 用例描述--&gt;登录互动
 数据:{"serviceName": "standardFindActivity", "params": {"machineId": "18335598", "versionInno72": "", "version": "", "planId": ""}, "version": "1.0.0"}
 发送:http://api.game.36solo.com/inno72/service/open
 返回:
-{"msg": "成功", "code": 0, "data": {"updateTime": "2018-08-08 18:55:02", "localeId": "90efe9161d55400fabf0b1fdaf0a7eb4", "point": "平阳广场1层", "machineName": null, "activityType": 0, "paiyangType": null, "activityPlanId": "99830e7ee72d46a584c6538022806861", "tag": null, "id": "6024b20180344d788dd92a9b1a37c15a", "city": "临汾市", "activityName": "自动化测试互动活动误删", "netStatus": 0, "prizeType": "100100", "activityId": "74134f4948ae4cdcaff330dff47f34d5", "inno72Games": {"remark": "kjasjglaslgjlsjglii uiu 呕呕呕呕呕呕呕呕呕呕呕呕呕呕", "name": "测试", "createId": "89dbe3bd836f44859114a19635ecc94a", "versionInno72": "1.0.0", "createTime": "2018-10-29 10:49:43", "maxGoodsNum": 100, "minGoodsNum": 1, "updateTime": "2018-10-29 10:49:44", "version": "1.0.0", "updateId": "89dbe3bd836f44859114a19635ecc94a", "isDelete": 0, "id": "4a5e3264d73a41518270dcdf48c215d8"}, "createId": "generateMachineId", "updateId": "111111111", "deviceId": "e5783ad84c1cbe9b30285b5dba8f3d92", "address": "", "machineStatus": 4, "provence": "山西省", "createTime": "2018-08-08 18:55:02", "inno72ActivityPlan": {"remark": "已选择1台机器，分别位于山西省", "gameId": "4a5e3264d73a41518270dcdf48c215d8", "createId": "df81a0c49ad648eea4760eddf77a1b1d", "updateTime": "2018-11-09 16:40:44", "createTime": "2018-11-09 16:40:43", "dayUserMaxTimes": 11111, "prizeType": "100100", "activityId": "74134f4948ae4cdcaff330dff47f34d5", "updateId": "89dbe3bd836f44859114a19635ecc94a", "startTime": "2018-09-14 10:06:00", "userMaxTimes": 11111, "isDelete": 0, "endTime": "2018-12-31 23:59:59", "id": "99830e7ee72d46a584c6538022806861"}, "district": "尧都区", "planCode": "15.5", "reload": true, "brandName": "蓝月亮", "openStatus": 1, "machineCode": "18335598", "channelId": "514a012c2451482b8a42ccf2e7e6e12f", "playCode": null, "bluetoothAddress": "10:D0:7A:36:8A:01"}}
-各数据信息：machineCode: 18335598  activityPlanId: 99830e7ee72d46a584c6538022806861  activityId: 74134f4948ae4cdcaff330dff47f34d5  channelId: 514a012c2451482b8a42ccf2e7e6e12f
+{"msg": "成功", "code": 0, "data": {"updateTime": "2018-11-26 11:21:06", "localeId": "26f180c2222b4c02995ee29671cccaf4", "point": "测试机", "machineName": null, "activityType": 0, "paiyangType": null, "activityPlanId": "99830e7ee72d46a584c6538022806861", "tag": null, "id": "6024b20180344d788dd92a9b1a37c15a", "city": "北京市", "activityName": "自动化测试互动活动误删", "netStatus": 0, "prizeType": "100100", "activityId": "74134f4948ae4cdcaff330dff47f34d5", "inno72Games": {"remark": "kjasjglaslgjlsjglii uiu 呕呕呕呕呕呕呕呕呕呕呕呕呕呕", "name": "测试", "createId": "89dbe3bd836f44859114a19635ecc94a", "versionInno72": "1.0.0", "createTime": "2018-11-14 15:39:19", "maxGoodsNum": 100, "minGoodsNum": 1, "updateTime": "2018-11-14 15:39:19", "version": "1.0.0", "updateId": "a17a1a7527e44737867965275f9f4c60", "isDelete": 0, "id": "4a5e3264d73a41518270dcdf48c215d8"}, "createId": "generateMachineId", "updateId": "d17fc1ff3ccc48438af97ec7b2efa9cf", "deviceId": "e5783ad84c1cbe9b30285b5dba8f3d92", "address": "", "machineStatus": 4, "provence": "北京市", "createTime": "2018-11-21 17:47:25", "inno72ActivityPlan": {"remark": "已选择1台机器，分别位于山西省", "gameId": "4a5e3264d73a41518270dcdf48c215d8", "createId": "df81a0c49ad648eea4760eddf77a1b1d", "updateTime": "2018-11-26 16:00:07", "createTime": "2018-11-26 16:00:07", "dayUserMaxTimes": 11111, "prizeType": "100100", "activityId": "74134f4948ae4cdcaff330dff47f34d5", "updateId": "df81a0c49ad648eea4760eddf77a1b1d", "startTime": "2018-09-14 10:06:00", "userMaxTimes": 11111, "isDelete": 0, "endTime": "2018-12-31 23:59:59", "id": "99830e7ee72d46a584c6538022806861"}, "district": "海淀区1", "planCode": "15.5", "reload": true, "brandName": "乔治", "openStatus": 1, "machineCode": "18335598", "channelId": "002001", "playCode": null, "bluetoothAddress": "10:D0:7A:36:8A:01"}}
+各数据信息：machineCode: 18335598  activityPlanId: 99830e7ee72d46a584c6538022806861  activityId: 74134f4948ae4cdcaff330dff47f34d5  channelId: 002001
 用例描述--&gt;登录互动
 数据:{"serviceName": "standardSessionPolling", "params": {"sessionUuid": "18335598"}, "version": "1.0.0"}
 发送:http://api.game.36solo.com/inno72/service/open
 返回:
-{"msg": "成功", "code": 0, "data": {"activityType": 0, "mixnick": null, "inno72CouponOrderId": null, "userId": "%E7%9D%A10190%2FKzkp3MV7%2B2qzY5W8C%2BLp16BEfuZzkxGjPTA62EVk%3D", "loginType": 0, "channelId": "514a012c2451482b8a42ccf2e7e6e12f", "activityPlanId": "99830e7ee72d46a584c6538022806861", "scanUrl": "", "gameReport": null, "traceId": "ebb22c6fdb76462b8af29c7f156288c9", "newRetailMemberUrl": null, "merchantName": "误删乔治卡罗尔旗舰店", "logged": true, "mid": null, "source": null, "activityId": "74134f4948ae4cdcaff330dff47f34d5", "sessionKey": null, "displayNewRetailMemberUrlFlag": null, "canGame": false, "sellerId": "1589666223", "goodsType": null, "isVip": "0", "gameId": "4a5e3264d73a41518270dcdf48c215d8", "canOrder": true, "goodsList": [{"goodsNum": 0, "goodsId": "67f0aaeb38944527b1db4a52e4b580be", "goodsRule": 2, "goodsCount": 358, "goodsName": "误删乔治卡罗尔男士沐浴露", "channelIds": null}, {"goodsNum": 0, "goodsId": "6f505bdca76e486d89c38f505880011e", "goodsRule": 1, "goodsCount": 132, "goodsName": "点72商品2", "channelIds": null}, {"goodsNum": 0, "goodsId": "b257f26d92fd41d4b8a4d433440dff93", "goodsRule": 3, "goodsCount": 11, "goodsName": "蓝月亮洗衣液", "channelIds": null}], "userNick": "睡****帅", "scanLoginUrl": null, "machineCode": "18335598", "refOrderStatus": null, "goodsId": "67f0aaeb38944527b1db4a52e4b580be", "interactId": null, "inno72OrderId": null, "goodsName": null, "goodsCode": "576510091613", "shipmentNum": null, "isScanned": true, "countGoods": true, "accessToken": "620061978be109d012adfdc9342ZZ72de94f1b85b49e4b31922291332", "sessionUuid": "18335598", "playTimes": 29, "sellerName": "误删乔治卡罗尔旗舰店", "authUrl": null, "scanPayUrl": null, "inno72MachineVo": null, "machineId": "6024b20180344d788dd92a9b1a37c15a", "needPay": false, "refOrderId": null, "planCode": "15.5"}}
-睡****帅
-True
-67f0aaeb38944527b1db4a52e4b580be
+{"msg": "成功", "code": 0, "data": {"activityType": 0, "mixnick": null, "inno72CouponOrderId": null, "userId": null, "loginType": 0, "channelId": null, "activityPlanId": null, "scanUrl": "", "channelType": null, "goodsName": null, "gameReport": null, "traceId": "55e7ab751f8f48c49a1cc86aa4b1229c", "newRetailMemberUrl": null, "merchantName": "乔治卡罗尔淘宝店", "fllowed": false, "logged": false, "mid": null, "source": null, "activityId": "74134f4948ae4cdcaff330dff47f34d5", "sessionKey": null, "displayNewRetailMemberUrlFlag": null, "canGame": false, "sellerId": "1589666223", "goodsType": null, "isVip": "0", "gameId": null, "canOrder": false, "goodsList": null, "userNick": null, "scanLoginUrl": null, "machineCode": "18335598", "refOrderStatus": null, "goodsId": null, "interactId": null, "inno72OrderId": null, "gameUserId": null, "goodsCode": "576510091613", "shipmentNum": null, "isScanned": true, "countGoods": false, "accessToken": null, "sessionUuid": null, "playTimes": 0, "sellerName": "乔治卡罗尔淘宝店", "authUrl": null, "scanPayUrl": null, "inno72MachineVo": null, "machineId": "6024b20180344d788dd92a9b1a37c15a", "needPay": false, "refOrderId": null, "planCode": "15.5"}}
+None
+False
+None
 576510091613
 True
-True
+False
 1589666223
-用例描述--&gt;登录互动
-数据:{"serviceName": "findGoods", "params": {"sessionUuid": "18335598"}, "version": "1.0.0"}
-发送:http://api.game.36solo.com/inno72/service/open
-返回:
-{"msg": "成功", "code": 0, "data": [{"img": "backend/goods/4bca09f1c1454eb5a5d5a651fd95b79a.jpg", "banner": "backend/goods/41ce07c4838a47d1b6ae8f17b1fa1b19.jpg", "price": "0.01", "specRemark": "50*35*120", "goodsId": "b257f26d92fd41d4b8a4d433440dff93", "goodsCount": 11, "goodsName": "蓝月亮洗衣液", "goodsCode": "560460878326", "resultCode": 3}, {"img": null, "banner": null, "price": "", "specRemark": null, "goodsId": "6f505bdca76e486d89c38f505880011e", "goodsCount": 132, "goodsName": "点72商品2", "goodsCode": "44444", "resultCode": 1}, {"img": "backend/goods/5a2336d08d4d4735aba527c6eed264b0.jpg", "banner": "backend/goods/8bc56c74415546588f708def781751a3.jpg", "price": "0.01", "specRemark": "规格测试", "goodsId": "67f0aaeb38944527b1db4a52e4b580be", "goodsCount": 358, "goodsName": "误删乔治卡罗尔男士沐浴露", "goodsCode": "576510091613", "resultCode": 2}]}
-
-None
-用例描述--&gt;登录互动
-数据:{"serviceName": "standardOrder", "params": {"report": "2", "ua": "110#WCykAUkfkryQTs+J2wgAMuy2kMUtfq5OmKs2hQ7/8Dsnk3gxpx2IjQmkFXCS+MzYmpkht+2y8MIZOkRlIPJENgs55QxU89qOqkkkhn7yvKPZGTUt5EaZ1FrAhdldR6MCO0OmC1x30FfDc5KijTkiLFpX7cqis9kk4EKQFEgKbelUGOPC7VwXNHTPDPpiTCV4brxts1aisrkUGOmwjTcwkkT4+OvisOTLUc/BviC3c4lPNLBXj9gJk9tEKmjM2pUkDlDoYDfcH+9e4VrVJMc2nkbjaOm8kmb2/AECdI6detaY4CjelbLWhZtERsS1xCNKETxIFsyR3mKeAV6omGvpXa6Lhv+ezBWqcJSmh89dkJGJZYTtGCrFzBjW9XrVb66OmretGVkKF0eVo2uKZ8ixs2Ba1kvqsGg5XD0cMsXhP74hWMTGGF43zyq6IOHbLrs9c0J69wwsKKhY", "umid": "HV01PAAZ0b0ad785db8da9a45b9b223002222b57", "sessionUuid": "18335598"}, "version": "1.0.0"}
-发送:http://api.game.36solo.com/inno72/service/open
-返回:
-{"msg": "成功", "code": 0, "data": {"goods": [{"goodsNum": 358, "goodsId": "576510091613", "goodsRule": 0, "goodsCount": 0, "goodsName": "误删乔治卡罗尔男士沐浴露", "channelIds": ["43", "44", "45", "46", "51", "52", "53", "54", "55", "56", "41", "42"]}], "payQrcodeImage": "", "orderResult": 0, "lotteryResult": 1, "time": 1541770938740, "needPay": false}}
-channelIds：43
-payQrcodeImage: 
-用例描述--&gt;登录互动
-数据:{"serviceName": "standardOrderPolling", "params": {"orderId": "", "sessionUuid": "18335598"}, "version": "1.0.0"}
-发送:http://api.game.36solo.com/inno72/service/open
-返回:
-{"msg": "成功", "code": 0, "data": {"model": true}}
-用例描述--&gt;登录互动
-数据:{"serviceName": "standardShipment", "params": {"machineCode": "18335598", "channelId": "43", "sessionUuid": "18335598", "failChannelIds": ""}, "version": "1.0.0"}
-发送:http://api.game.36solo.com/inno72/service/open
-返回:
-{"msg": "成功", "code": 0, "data": null}
+Traceback (most recent call last):
+  File "/Users/72cy-0101-01-0027/Desktop/work/script/erpapi/venv/lib/python2.7/site-packages/ddt.py", line 144, in wrapper
+    return func(self, *args, **kwargs)
+  File "/Users/72cy-0101-01-0027/Desktop/work/script/erpapi/interface_project/testscenario/biaogame/testgamehulogin.py", line 108, in testbiaoserverhulogin
+    self.assertTrue(res['data']['userNick'])
+AssertionError: None is not true
 
 
     </pre>
@@ -263,10 +245,10 @@ payQrcodeImage:
 <tr id='total_row' class="text-center active">
     <td>总计</td>
     <td>1</td>
+    <td>0</td>
     <td>1</td>
     <td>0</td>
-    <td>0</td>
-    <td>通过率：100.00%</td>
+    <td>通过率：0.00%</td>
 </tr>
 </table>
 

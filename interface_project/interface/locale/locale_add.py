@@ -3,11 +3,12 @@
 import json
 import requests
 from interface_project.base.basepage import BaseConfig
+import urllib
 
 class LocaleClass(object):
     url = "/machine/locale/add"
 
-    payload = 'areaCode=1&name=1111&mall=1111&manager=1118&remark=1111&mobile=18833337777'
+    payload = '{"areaCode":"100102000","name":"山西面馆旁边","mall":"西单商场","manager":"auto","mobile":"18899992223","type":"1","monitor":"1","tag":["商场"]}'
 
     # headers = {
     #     'Content-Type':"application/x-www-form-urlencoded",

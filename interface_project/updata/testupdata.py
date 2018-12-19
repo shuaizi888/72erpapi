@@ -360,13 +360,13 @@ if __name__=="__main__":
     # 清除所机
     Shipurl = 'http://api.monitor.inno72.com/sendMsgToClient/sendMsgStr'
     # 数据信息
-    appname = ['com.inno72.monitorapp']
-    appurl = ['http://inno72.oss.72solo.com/apk/prod/prod_monitor.apk']
-    appversion = ['20']
+    appname = ['com.inno72.zeusapp']
+    appurl = ['http://inno72.oss.72solo.com/apk/prod/prod_zeus1.0.1.apk']
+    appversion = ['2']
     appId = ['19']
     # 机器信息数据
     # machineId=json.loads(getreaddata('testexcel.xls'))
-    machineId = json.loads(getreadduodata('1112data3.xls'))
+    machineId = json.loads(getreadduodata('1120data.xls'))
     # machineId = json.loads(getcatapp('app1112.xls'))
     # machineId =getcode('app1112.xls')
     print machineId
@@ -392,8 +392,8 @@ if __name__=="__main__":
         newappurl = ('{}'.format(appurl[a]))
         newappversion = ('{}'.format(appversion[a]))
         newappid = ('{}'.format(appId[a]))
-        # tasDuoUpdata(URLtask,newappid,newappversion,newappurl,resultmachineId)
-        updataAPP(Url, newmachineId, appname[a], appurl[a], appversion[a])
+        tasDuoUpdata(URLtask,newappid,newappversion,newappurl,resultmachineId)
+        # updataAPP(Url, newmachineId, appname[a], appurl[a], appversion[a])
 
     # for newmachineId in range(newmachineId):
         # sendfalseShip(Shipurl,newmachineCode)

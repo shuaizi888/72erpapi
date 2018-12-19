@@ -6,7 +6,7 @@ from interface_project.script import scripts
 from interface_project.script.http import HttpWebRequest
 
 @ddt.ddt
-class TestChannel(unittest.TestCase):
+class Testchannel1(unittest.TestCase):
     """项目管理-渠道管理接口"""
     @classmethod
     def setUpClass(cls):
@@ -15,9 +15,9 @@ class TestChannel(unittest.TestCase):
 
 
     #---------------------------------------LOCALE START-------------------------------------------#
-    @ddt.data(*(scripts.loadDdtData(filename='channel.yaml',caseflag='CHANNEL_CASE1')))
+    @ddt.data(*(scripts.loadDdtData(filename='channel1.yaml',caseflag='channel1_CASE1')))
     def testlist(self,data):
-        '''渠道管理接口:查询渠道列表#/project/channel/list'''
+        '''渠道管理接口:查询渠道列表#/project/channel1/list'''
 
         #查询渠道列表
         res = scripts.loadtestInterface(
@@ -31,9 +31,9 @@ class TestChannel(unittest.TestCase):
         self.assertEqual(res['code'],0,res['msg'])#断言
 
 
-    @ddt.data(*(scripts.loadDdtData(filename='channel.yaml',caseflag='CHANNEL_CASE2')))
+    @ddt.data(*(scripts.loadDdtData(filename='channel1.yaml',caseflag='channel1_CASE2')))
     def testgetlist(self,data):
-        '''渠道管理接口:查询渠道列表不分页#/project/channel/getlist'''
+        '''渠道管理接口:查询渠道列表不分页#/project/channel1/getlist'''
 
         # 查询渠道列表不分页
         res = scripts.loadtestInterface(
@@ -48,14 +48,14 @@ class TestChannel(unittest.TestCase):
         # self.assertTrue(res['res'],msg='查询列表为空为空res[]')
 
 
-    @ddt.data(*(scripts.loadDdtData(filename='channel.yaml',caseflag='CHANNEL_CASE3')))
+    @ddt.data(*(scripts.loadDdtData(filename='channel1.yaml',caseflag='channel1_CASE3')))
     def testadd(self,data):
-        '''渠道管理接口:新添加渠道#/project/channel/add'''
-        b = data['Add']['channelCode']
+        '''渠道管理接口:新添加渠道#/project/channel1/add'''
+        b = data['Add']['channel1Code']
         print b
         newcode = b + str(scripts.sjshu())
         print newcode
-        data['Add']['channelCode'] = newcode
+        data['Add']['channel1Code'] = newcode
 
 
 
@@ -73,9 +73,9 @@ class TestChannel(unittest.TestCase):
 
 
 
-    @ddt.data(*(scripts.loadDdtData(filename='channel.yaml',caseflag='CHANNEL_CASE4')))
+    @ddt.data(*(scripts.loadDdtData(filename='channel1.yaml',caseflag='channel1_CASE4')))
     def testupdate(self,data):
-        '''渠道管理接口:更新渠道信息#/project/channel/update'''
+        '''渠道管理接口:更新渠道信息#/project/channel1/update'''
 
         # 更新渠道信息
         res = scripts.loadtestInterface(
@@ -88,9 +88,9 @@ class TestChannel(unittest.TestCase):
         #断言
         self.assertEqual(res['code'],0,res['msg'])
 
-    @ddt.data(*(scripts.loadDdtData(filename='channel.yaml',caseflag='CHANNEL_CASE5')))
+    @ddt.data(*(scripts.loadDdtData(filename='channel1.yaml',caseflag='channel1_CASE5')))
     def testdetele(self,data):
-        '''渠道管理接口:删除渠道信息#/project/channel/delete'''
+        '''渠道管理接口:删除渠道信息#/project/channel1/delete'''
 
         # 删除渠道
         res = scripts.loadtestInterface(
@@ -111,7 +111,7 @@ if __name__=="__main__":
 
     suite = unittest.TestSuite()
     #tests =[TestLocale("testlist"),TestLocale("testgetlist"),TestLocale("testadd"),TestLocale("testdetail"),TestLocale("testupdate"),TestLocale("testdetele")]
-    tests = [unittest.TestLoader().loadTestsFromTestCase(TestChannel)]
+    tests = [unittest.TestLoader().loadTestsFromTestCase(Testchannel1)]
     suite.addTests(tests)
     #suite.addTest(TestLocale('testlist'))
 
